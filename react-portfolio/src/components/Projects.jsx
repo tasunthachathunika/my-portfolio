@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Star, X, Code2, Database, Layout, ArrowRight } from 'lucide-react';
+import { ExternalLink, Star, X, Code2, Database, Layout, ArrowRight, CheckCircle2, Zap, Table } from 'lucide-react';
 import { FaGithub, FaFigma } from 'react-icons/fa';
 import Reveal from './Reveal';
 import pricepulseImg from '../assets/prisepluse.png';
@@ -12,15 +12,34 @@ const projectsData = [
     description: 'A web platform designed to track product prices and set alerts for online stores in Sri Lanka. Helps users monitor price fluctuations and secure the best deals.',
     fullDescription: 'PricePulse is a robust price tracking platform tailored for Sri Lankan e-commerce sites. It enables users to monitor product prices over time, visualize price trends, and receive automated alerts when prices drop below a desired threshold.',
     architecture: 'Frontend built with React for a dynamic UI. Backend powered by Node.js and Express. Web scraping is implemented to extract real-time pricing data from target e-commerce platforms.',
+    architectureBullets: [
+      'React SPA with component-driven UI and responsive design',
+      'Node.js + Express RESTful API backend',
+      'Automated web scraping engine for real-time price extraction',
+      'Scheduled cron jobs for periodic price data refresh',
+      'Alert notification system for price threshold triggers',
+    ],
     technologies: ['React', 'Node.js', 'Express', 'Web Scraping', 'Tailwind CSS'],
     challenges: 'The primary challenge was reliably scraping data from websites that load content dynamically. This was addressed by implementing advanced scraping techniques and scheduling automated cron jobs to keep data fresh without overloading the target servers.',
+    challengesBullets: [
+      'Handled dynamically-loaded content with advanced scraping strategies',
+      'Implemented rate limiting to avoid overloading target servers',
+      'Built automated cron-based scheduling for fresh data collection',
+      'Designed responsive price trend visualizations for mobile & desktop',
+    ],
+    keyFeatures: [
+      'Real-time price tracking across multiple Sri Lankan e-commerce sites',
+      'Interactive price trend charts & historical data views',
+      'Custom price drop alerts via email/notification',
+      'Product comparison dashboard',
+    ],
     image: pricepulseImg,
     tags: [
       { name: 'React', color: '#61dafb' },
       { name: 'Node.js', color: '#68a063' },
       { name: 'Express', color: 'var(--theme-text)' },
     ],
-    links: { github: 'https://github.com/Tasuntha-Chathunika/PricePulse-Project' },
+    links: { github: 'https://github.com/Tasuntha-Chathunika/PricePulse-Project', demo: '#' },
     gradient: 'from-accent-3 to-accent-1',
     accentColor: 'var(--theme-accent-3)',
     featured: true,
@@ -30,15 +49,41 @@ const projectsData = [
     description: 'A comprehensive ATMS for managing lecturer and student schedules with strict user role management, course assignments, and data integrity protocols.',
     fullDescription: 'This Attendance Management System (ATMS) is designed to streamline academic administration. It provides dedicated dashboards for administrators, lecturers, and students, ensuring accurate tracking of attendance and course assignments.',
     architecture: 'Developed using a traditional LAMP-like stack with PHP handling server-side logic and MySQL for robust relational data management. The interface is styled using Tailwind CSS for a modern look.',
+    architectureBullets: [
+      'PHP server-side logic with MVC-inspired structure',
+      'MySQL relational database with normalized schema',
+      'Role-based dashboards: Admin, Lecturer, Student',
+      'Tailwind CSS for a modern, responsive interface',
+      'Session-based authentication with role access control',
+    ],
     technologies: ['PHP', 'MySQL', 'Tailwind CSS', 'JavaScript'],
     challenges: 'Ensuring strict data integrity and role-based access control was critical. I implemented secure session management and parameterized SQL queries to prevent unauthorized access and SQL injection vulnerabilities.',
+    challengesBullets: [
+      'Designed strict role-based access control (RBAC) for 3 user types',
+      'Prevented SQL injection via parameterized queries throughout',
+      'Implemented secure session management with timeout handling',
+      'Maintained referential integrity across course-student-lecturer tables',
+    ],
+    keyFeatures: [
+      'Multi-role dashboards with tailored views per user type',
+      'Attendance recording & reporting with date-range filters',
+      'Course assignment and timetable management',
+      'Data export capabilities for academic reports',
+    ],
+    databaseSchema: [
+      'Users (id, name, email, role, password_hash)',
+      'Courses (id, code, name, credits, lecturer_id FK)',
+      'Enrollments (student_id FK, course_id FK, semester)',
+      'Attendance (id, student_id FK, course_id FK, date, status)',
+      'Timetable (id, course_id FK, day, start_time, end_time, room)',
+    ],
     image: attendanceImg,
     tags: [
       { name: 'PHP', color: '#8993be' },
       { name: 'MySQL', color: '#f29111' },
       { name: 'Tailwind CSS', color: '#06b6d4' },
     ],
-    links: { github: 'https://github.com/Tasuntha-Chathunika/Attendance-timetable-system' }, 
+    links: { github: 'https://github.com/Tasuntha-Chathunika/Attendance-timetable-system', demo: '#' },
     gradient: 'from-accent-1 to-accent-2',
     accentColor: 'var(--theme-accent-1)',
     featured: false,
@@ -48,14 +93,30 @@ const projectsData = [
     description: 'A comprehensive business analytics web application to visualize and analyze business metrics.',
     fullDescription: 'Biz Analytics Web App provides real-time insights into business performance through interactive dashboards and data visualization tools.',
     architecture: 'Frontend developed with React for dynamic user interfaces and data representation.',
+    architectureBullets: [
+      'React-based SPA with modular dashboard components',
+      'Client-side data processing and chart rendering',
+      'Responsive layout for desktop and tablet views',
+      'Tailwind CSS utility-first styling approach',
+    ],
     technologies: ['React', 'JavaScript', 'Tailwind CSS', 'Data Visualization'],
     challenges: 'Handling and visualizing large datasets efficiently on the client-side without performance bottlenecks.',
+    challengesBullets: [
+      'Optimized rendering of large datasets with virtualization',
+      'Implemented efficient state management for real-time updates',
+      'Designed intuitive chart interactions (zoom, filter, drill-down)',
+    ],
+    keyFeatures: [
+      'Interactive charts (bar, line, pie) for key business KPIs',
+      'Date-range filtering and data comparison tools',
+      'Clean, minimal dashboard design for quick insights',
+    ],
     icon: <Database size={36} />,
     tags: [
       { name: 'React', color: '#61dafb' },
       { name: 'Analytics', color: 'var(--theme-accent-1)' },
     ],
-    links: { github: 'https://github.com/Tasuntha-Chathunika/biz-analytics-webapp' }, 
+    links: { github: 'https://github.com/Tasuntha-Chathunika/biz-analytics-webapp', demo: '#' },
     gradient: 'from-accent-2 to-accent-1',
     accentColor: 'var(--theme-accent-2)',
     featured: false,
@@ -332,25 +393,133 @@ const ProjectModal = ({ project, onClose }) => {
         <div className="p-8 md:p-10 grid grid-cols-1 md:grid-cols-3 gap-10">
            
            <div className="md:col-span-2 space-y-8">
-              {[
-                { icon: <Layout size={20} />, title: 'Overview', content: project.fullDescription },
-                { icon: <Database size={20} />, title: 'Architecture', content: project.architecture },
-                { icon: <Code2 size={20} />, title: 'Challenges Solved', content: project.challenges },
-              ].map((section, i) => (
+              {/* Overview */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+              >
+                <h4 className="text-xl font-bold text-text mb-3 flex items-center gap-2">
+                  <span style={{ color: project.accentColor }}><Layout size={20} /></span> Overview
+                </h4>
+                <p className="text-muted leading-relaxed text-base md:text-lg">
+                  {project.fullDescription}
+                </p>
+              </motion.div>
+
+              {/* Key Features */}
+              {project.keyFeatures && (
                 <motion.div
-                  key={section.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
                 >
                   <h4 className="text-xl font-bold text-text mb-3 flex items-center gap-2">
-                    <span style={{ color: project.accentColor }}>{section.icon}</span> {section.title}
+                    <span style={{ color: project.accentColor }}><Zap size={20} /></span> Key Features
                   </h4>
-                  <p className="text-muted leading-relaxed text-base md:text-lg">
-                    {section.content}
-                  </p>
+                  <ul className="space-y-2">
+                    {project.keyFeatures.map((feat, i) => (
+                      <motion.li
+                        key={i}
+                        className="flex items-start gap-2.5 text-muted text-sm md:text-base"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.45 + i * 0.05 }}
+                      >
+                        <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5" style={{ color: project.accentColor }} />
+                        {feat}
+                      </motion.li>
+                    ))}
+                  </ul>
                 </motion.div>
-              ))}
+              )}
+
+              {/* Architecture */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+              >
+                <h4 className="text-xl font-bold text-text mb-3 flex items-center gap-2">
+                  <span style={{ color: project.accentColor }}><Database size={20} /></span> Architecture
+                </h4>
+                <p className="text-muted leading-relaxed text-base md:text-lg mb-3">
+                  {project.architecture}
+                </p>
+                {project.architectureBullets && (
+                  <ul className="space-y-2">
+                    {project.architectureBullets.map((item, i) => (
+                      <motion.li
+                        key={i}
+                        className="flex items-start gap-2.5 text-muted text-sm md:text-base"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.55 + i * 0.05 }}
+                      >
+                        <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5" style={{ color: project.accentColor }} />
+                        {item}
+                      </motion.li>
+                    ))}
+                  </ul>
+                )}
+              </motion.div>
+
+              {/* Database Schema */}
+              {project.databaseSchema && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.5 }}
+                >
+                  <h4 className="text-xl font-bold text-text mb-3 flex items-center gap-2">
+                    <span style={{ color: project.accentColor }}><Table size={20} /></span> Database Schema
+                  </h4>
+                  <div className="glass-card rounded-xl p-4 space-y-1.5">
+                    {project.databaseSchema.map((table, i) => (
+                      <motion.div
+                        key={i}
+                        className="flex items-start gap-2 text-sm font-mono text-muted"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.65 + i * 0.05 }}
+                      >
+                        <span className="text-accent-1 font-bold">→</span>
+                        {table}
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Challenges Solved */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+              >
+                <h4 className="text-xl font-bold text-text mb-3 flex items-center gap-2">
+                  <span style={{ color: project.accentColor }}><Code2 size={20} /></span> Challenges Solved
+                </h4>
+                <p className="text-muted leading-relaxed text-base md:text-lg mb-3">
+                  {project.challenges}
+                </p>
+                {project.challengesBullets && (
+                  <ul className="space-y-2">
+                    {project.challengesBullets.map((item, i) => (
+                      <motion.li
+                        key={i}
+                        className="flex items-start gap-2.5 text-muted text-sm md:text-base"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.75 + i * 0.05 }}
+                      >
+                        <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5" style={{ color: project.accentColor }} />
+                        {item}
+                      </motion.li>
+                    ))}
+                  </ul>
+                )}
+              </motion.div>
            </div>
 
            {/* Sidebar Links & Tech */}

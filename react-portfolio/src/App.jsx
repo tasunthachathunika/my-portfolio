@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Blog from './components/Blog';
+import Certifications from './components/Certifications';
 import Footer from './components/Footer';
 import Background3D from './components/Background3D';
 import Preloader from './components/Preloader';
@@ -90,6 +91,8 @@ function App() {
         <SectionDivider />
         <Skills />
         <SectionDivider flip />
+        <Certifications />
+        <SectionDivider />
         <Projects />
         <SectionDivider flip />
         <Blog />
