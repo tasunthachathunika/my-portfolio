@@ -108,7 +108,7 @@ const Hero = () => {
             style={{ y: ySubtitle, opacity: opacitySubtitle }}
           >
             <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-muted font-bold inline-block">
-              Software Engineer &amp; Web Developer.
+              Software Engineer & Graphic Designer.
             </span>
           </motion.div>
 
@@ -118,8 +118,8 @@ const Hero = () => {
             variants={itemVariants}
             style={{ y: yDesc, opacity: opacityDesc }}
           >
-            I build high-quality software solutions and premium web experiences.
-            Currently pursuing my BICT (Hons) and eager to tackle complex challenges.
+            Passionate about software engineering, cloud, DevOps, and green technology.
+            Currently pursuing my BICT (Hons) and freelancing as a graphic designer.
           </motion.p>
 
           {/* Buttons */}

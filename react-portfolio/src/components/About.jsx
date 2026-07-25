@@ -196,10 +196,10 @@ const About = () => {
 
             <div className="space-y-5 text-muted text-base md:text-lg leading-relaxed">
               {[
-                <>Hello! I'm{' '}<strong className="text-text font-semibold">Tasuntha Chathunika Dayasiri</strong>, a highly motivated and results-oriented student at the University of Vavuniya.</>,
-                <>I am currently pursuing a Bachelor of Information and Communication Technology (Hons). My primary goal is to leverage my growing technical skills and creativity to contribute to impactful projects in the tech industry.</>,
-                <>I have a strong foundation in modern web development (HTML, CSS, JavaScript, React, Tailwind CSS) and backend systems (Node.js). I'm also enthusiastic about exploring creative coding with Three.js and p5.js.</>,
-                <>Beyond web development, my skillset extends to C, C++, C#, and Java. I am equally passionate about creative design, utilizing professional tools like Adobe Photoshop, Illustrator, and Figma to craft visually compelling experiences.</>,
+                <>Hello! I'm{' '}<strong className="text-text font-semibold">Tasuntha Chathunika Dayasiri</strong>, a highly motivated and results-oriented IT undergraduate at the University of Vavuniya, passionate about software engineering, cloud computing, DevOps, and green technology.</>,
+                <>I am currently pursuing a Bachelor of Information and Communication Technology (Hons). My primary goal is to leverage my growing technical skills and creativity to contribute to impactful, sustainable projects in the tech industry.</>,
+                <>I have a strong foundation in modern web development (HTML, CSS, JavaScript, React, Tailwind CSS) and backend systems (Node.js). I'm also enthusiastic about cloud platforms like AWS and Azure, and exploring creative coding with Three.js and p5.js.</>,
+                <>Beyond development, I freelance as a graphic designer, utilizing professional tools like Adobe Photoshop, Illustrator, and Figma to craft visually compelling experiences. My skillset also extends to C, C++, C#, and Java.</>,
               ].map((content, i) => (
                 <motion.p
                   key={i}
@@ -222,7 +222,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-              {['Full-Stack Web', 'UI/UX Design', 'Creative Coding', 'Problem Solving'].map((chip, i) => (
+              {['Software Engineering', 'Cloud & DevOps', 'Graphic Design', 'Green Technology', 'UI/UX Design', 'Creative Coding'].map((chip, i) => (
                 <motion.span
                   key={chip}
                   className="px-3 py-1.5 text-xs font-semibold rounded-full glass-card border border-border text-muted hover:text-accent-3 hover:border-accent-3/30 transition-all duration-300"
