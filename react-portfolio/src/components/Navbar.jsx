@@ -5,10 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navLinks = [
   { name: 'Home', href: '#hero' },
   { name: 'About', href: '#about' },
-  { name: 'Education', href: '#education' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
-  { name: 'GitHub', href: '#github-stats' },
+  { name: 'Certificates', href: '#certifications' },
   { name: 'Blog', href: '#blog' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -139,12 +138,14 @@ const Navbar = ({ theme, toggleTheme }) => {
               </AnimatePresence>
             </motion.button>
             <motion.a
-              href="#contact"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300
                 bg-text text-bg hover:scale-105 hover:shadow-lg shadow-black/10"
               whileTap={{ scale: 0.95 }}
             >
-              Hire Me
+              Download Resume
             </motion.a>
           </div>
         </div>

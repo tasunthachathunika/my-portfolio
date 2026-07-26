@@ -1,11 +1,29 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Mail, Sparkles, Download } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Mail, Sparkles, Download, Eye } from 'lucide-react';
 import { FaLinkedin, FaGithub, FaMedium, FaEnvelope } from 'react-icons/fa';
 import AntigravityHeroBackground from './AntigravityHeroBackground';
 
+// Typing animation roles
+const roles = [
+  'Full Stack Developer',
+  'React Developer',
+  'Node.js Developer',
+  'DevOps Enthusiast',
+  'Cloud Learner',
+];
+
 const Hero = () => {
   const heroRef = useRef(null);
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  // Rotate roles every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -30,8 +48,6 @@ const Hero = () => {
   const opacityButtons = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   const yBlob = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const yGrid = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const opacityGrid = useTransform(scrollYProgress, [0, 1], [0.2, 0.05]);
 
   // Stagger animation variants
   const containerVariants = {
@@ -73,7 +89,7 @@ const Hero = () => {
         >
           {/* Status Badge */}
           <motion.div
-            className="hero-badge inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card neon-border mb-10"
+            className="hero-badge inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full glass-card neon-border mb-10"
             variants={itemVariants}
             style={{ y: yBadge, opacity: opacityBadge }}
           >
@@ -82,31 +98,54 @@ const Hero = () => {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
             </span>
             <span className="text-sm font-medium text-muted">
-              <Sparkles size={14} className="inline mr-1 text-yellow-500" />
-              Available for Work
+              Open to Internships
             </span>
           </motion.div>
 
           {/* Title */}
           <motion.h1
-            className="hero-title text-6xl sm:text-7xl md:text-8xl lg:text-[6.5rem] font-black font-display leading-[1.1] mb-8 tracking-tight"
+            className="hero-title text-6xl sm:text-7xl md:text-8xl lg:text-[6.5rem] font-black font-display leading-[1.1] mb-6 tracking-tight"
             variants={itemVariants}
             style={{ y: yTitle, scale: scaleTitle, opacity: opacityTitle }}
           >
             Hi, I'm{' '}
-            <span className="gradient-text">Tasuntha Chathunika</span>
-            <span className="text-accent-2">.</span>
+            <span className="gradient-text">Tasuntha</span>
           </motion.h1>
 
-          {/* Subtitle */}
+          {/* Subtitle — ICT Undergraduate */}
           <motion.div 
-            className="hero-subtitle mb-8" 
+            className="hero-subtitle mb-4" 
             variants={itemVariants}
             style={{ y: ySubtitle, opacity: opacitySubtitle }}
           >
-            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-muted font-bold inline-block">
-              Software Engineer & Graphic Designer.
+            <span className="text-2xl sm:text-3xl md:text-4xl text-muted font-bold inline-block">
+              ICT Undergraduate
             </span>
+            <br />
+            <span className="text-lg sm:text-xl md:text-2xl text-muted/70 font-medium inline-block mt-2">
+              Aspiring Software Engineer | DevOps Enthusiast
+            </span>
+          </motion.div>
+
+          {/* Typing Animation — Role Rotator */}
+          <motion.div 
+            className="mb-8 h-12 flex items-center justify-center" 
+            variants={itemVariants}
+            style={{ y: ySubtitle, opacity: opacitySubtitle }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={roleIndex}
+                className="text-xl sm:text-2xl md:text-3xl font-semibold gradient-text inline-block"
+                initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
+                transition={{ duration: 0.5, ease: [0.17, 0.55, 0.55, 1] }}
+              >
+                {roles[roleIndex]}
+                <span className="inline-block w-[3px] h-7 ml-1 bg-accent-1 animate-pulse align-middle rounded-full"></span>
+              </motion.span>
+            </AnimatePresence>
           </motion.div>
 
           {/* Description */}
@@ -115,27 +154,39 @@ const Hero = () => {
             variants={itemVariants}
             style={{ y: yDesc, opacity: opacityDesc }}
           >
-            Passionate about software engineering, cloud, DevOps, and green technology.
-            Currently pursuing my BICT (Hons) and freelancing as a graphic designer.
+            Passionate about building scalable web applications using modern technologies. 
+            Currently exploring Cloud Computing, Docker, Kubernetes, and DevOps while 
+            strengthening my Full Stack Development skills. Actively seeking internship 
+            opportunities to contribute, learn, and grow as a Software Engineer.
           </motion.p>
 
-          {/* Buttons */}
+          {/* Buttons — 3 CTA */}
           <motion.div
             className="hero-buttons flex flex-wrap gap-4 justify-center"
             variants={itemVariants}
             style={{ y: yButtons, opacity: opacityButtons }}
           >
             <motion.a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#projects"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white
                 bg-gradient-to-r from-accent-3 to-accent-1
                 hover:shadow-lg hover:shadow-accent-3/50 transition-all duration-300"
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.97 }}
             >
-              Download CV
+              View Projects
+              <Eye size={18} className="group-hover:scale-110 transition-transform" />
+            </motion.a>
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-text
+                glass-card neon-border hover:border-accent-1/50 hover:shadow-lg hover:shadow-accent-1/30 transition-all duration-300"
+              whileHover={{ scale: 1.05, y: -3 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Download Resume
               <Download size={18} className="group-hover:-translate-y-1 transition-transform" />
             </motion.a>
             <motion.a
@@ -145,18 +196,8 @@ const Hero = () => {
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.97 }}
             >
-              Hire Me
-              <Mail size={18} />
-            </motion.a>
-            <motion.a
-              href="#projects"
-              className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-text
-                glass-card neon-border hover:border-accent-1/50 hover:shadow-lg hover:shadow-accent-1/30 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -3 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              View Projects
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              Contact Me
+              <Mail size={18} className="group-hover:scale-110 transition-transform" />
             </motion.a>
           </motion.div>
 

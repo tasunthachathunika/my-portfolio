@@ -89,16 +89,14 @@ function App() {
         <SectionDivider />
         <About />
         <SectionDivider flip />
-        <Education />
-        <SectionDivider />
         <Skills />
-        <SectionDivider flip />
-        <Certifications />
         <SectionDivider />
         <Projects />
         <SectionDivider flip />
-        <Blog />
+        <Certifications />
         <SectionDivider />
+        <Blog />
+        <SectionDivider flip />
         <Contact />
       </main>
       <Footer />

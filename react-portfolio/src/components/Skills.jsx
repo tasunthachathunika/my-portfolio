@@ -2,44 +2,55 @@ import { motion } from 'framer-motion';
 import {
   FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs,
   FaJava, FaFigma, FaPalette, FaCut, FaVideo,
-  FaAws
+  FaGitAlt, FaGithub, FaDocker, FaLinux
 } from 'react-icons/fa';
-import { SiTailwindcss, SiCplusplus, SiMysql, SiMongodb, SiPostgresql } from 'react-icons/si';
+import { SiTailwindcss, SiCplusplus, SiMysql, SiMongodb, SiExpress, SiKubernetes, SiPostman, SiVisualstudiocode } from 'react-icons/si';
 import { TbBrandCSharp } from "react-icons/tb";
-import { BsCCircleFill } from "react-icons/bs";
-import { Code2, Brush, Cloud, Database } from 'lucide-react';
+import { Code2, Brush, Cloud, Database, Server, Wrench } from 'lucide-react';
 import Reveal from './Reveal';
 
-const programmingSkills = [
-  { name: 'HTML5', icon: <FaHtml5 />, color: '#e34f26', mastery: 5 },
-  { name: 'CSS3', icon: <FaCss3Alt />, color: '#2965f1', mastery: 5 },
-  { name: 'JavaScript', icon: <FaJsSquare />, color: '#f7df1e', mastery: 4 },
-  { name: 'Tailwind', icon: <SiTailwindcss />, color: '#06b6d4', mastery: 5 },
+// ─── Frontend ─────────────────────────────────────
+const frontendSkills = [
   { name: 'React', icon: <FaReact />, color: '#61dafb', mastery: 4 },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06b6d4', mastery: 5 },
+  { name: 'HTML', icon: <FaHtml5 />, color: '#e34f26', mastery: 5 },
+  { name: 'CSS', icon: <FaCss3Alt />, color: '#2965f1', mastery: 5 },
+  { name: 'JavaScript', icon: <FaJsSquare />, color: '#f7df1e', mastery: 4 },
+];
+
+// ─── Backend ──────────────────────────────────────
+const backendSkills = [
   { name: 'Node.js', icon: <FaNodeJs />, color: '#68a063', mastery: 3 },
-  { name: 'C', icon: <BsCCircleFill />, color: '#555555', mastery: 4 },
-  { name: 'C++', icon: <SiCplusplus />, color: '#00599c', mastery: 3 },
-  { name: 'C#', icon: <TbBrandCSharp />, color: '#68217a', mastery: 3 },
-  { name: 'Java', icon: <FaJava />, color: '#ec2025', mastery: 3 },
-  { name: 'Three.js', icon: <span className="font-extrabold text-lg font-display">3D</span>, color: 'var(--theme-text)', mastery: 3 },
-  { name: 'p5.js', icon: <span className="font-extrabold text-lg font-display">p5</span>, color: '#ed225d', mastery: 3 },
+  { name: 'Express.js', icon: <SiExpress />, color: 'var(--theme-text)', mastery: 3 },
 ];
 
+// ─── Database ─────────────────────────────────────
 const databaseSkills = [
-  { name: 'MySQL', icon: <SiMysql />, color: '#4479a1', mastery: 4 },
   { name: 'MongoDB', icon: <SiMongodb />, color: '#47a248', mastery: 3 },
-  { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#336791', mastery: 3 },
+  { name: 'MySQL', icon: <SiMysql />, color: '#4479a1', mastery: 4 },
 ];
 
-const cloudSkills = [
-  { name: 'AWS', icon: <FaAws />, color: '#ff9900', mastery: 2 },
-  { name: 'Azure', icon: <span className="font-extrabold text-sm font-display">Az</span>, color: '#0089d6', mastery: 2 },
+// ─── Programming ──────────────────────────────────
+const programmingSkills = [
+  { name: 'Java', icon: <FaJava />, color: '#ec2025', mastery: 3 },
+  { name: 'C#', icon: <TbBrandCSharp />, color: '#68217a', mastery: 3 },
+  { name: 'C++', icon: <SiCplusplus />, color: '#00599c', mastery: 3 },
 ];
 
-const designSkills = [
-  { name: 'Photoshop', icon: <FaPalette />, color: '#31a8ff', mastery: 4 },
-  { name: 'Illustrator', icon: <FaPalette />, color: '#ff9a00', mastery: 4 },
-  { name: 'CapCut', icon: <FaCut />, color: 'var(--theme-text)', mastery: 4 },
+// ─── DevOps & Cloud ───────────────────────────────
+const devopsSkills = [
+  { name: 'Git', icon: <FaGitAlt />, color: '#f05032', mastery: 4 },
+  { name: 'GitHub', icon: <FaGithub />, color: 'var(--theme-text)', mastery: 4 },
+  { name: 'Docker', icon: <FaDocker />, color: '#2496ed', mastery: 2 },
+  { name: 'Kubernetes', icon: <SiKubernetes />, color: '#326ce5', mastery: 2 },
+  { name: 'Linux', icon: <FaLinux />, color: '#fcc624', mastery: 3 },
+  { name: 'CI/CD', icon: <span className="font-extrabold text-sm font-display">CI</span>, color: '#4caf50', mastery: 2 },
+];
+
+// ─── Tools ────────────────────────────────────────
+const toolsSkills = [
+  { name: 'VS Code', icon: <SiVisualstudiocode />, color: '#007acc', mastery: 5 },
+  { name: 'Postman', icon: <SiPostman />, color: '#ff6c37', mastery: 4 },
   { name: 'Figma', icon: <FaFigma />, color: '#f24e1e', mastery: 5 },
 ];
 
@@ -146,25 +157,36 @@ const Skills = () => {
           <Reveal delay={0.1}>
             <div className="mt-4 w-20 h-1 rounded-full bg-gradient-to-r from-accent-2 to-accent-1 mx-auto"></div>
           </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-4 text-muted max-w-lg mx-auto text-sm md:text-base">
-              Hover over a card to see my mastery level. ✦
-            </p>
-          </Reveal>
+
         </div>
 
         <div className="flex flex-col gap-14">
 
-          {/* Development */}
+          {/* Frontend */}
           <div>
             <SectionLabel
               icon={<Code2 size={15} />}
-              label="Development"
+              label="Frontend"
               color="var(--theme-accent-3)"
               gradientClass="from-accent-3 to-accent-1"
             />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
-              {programmingSkills.map((skill, index) => (
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+              {frontendSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+              ))}
+            </div>
+          </div>
+
+          {/* Backend */}
+          <div>
+            <SectionLabel
+              icon={<Server size={15} />}
+              label="Backend"
+              color="#68a063"
+              gradientClass="from-[#68a063] to-[#333]"
+            />
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+              {backendSkills.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
             </div>
@@ -176,40 +198,55 @@ const Skills = () => {
               icon={<Database size={15} />}
               label="Database"
               color="#47a248"
-              gradientClass="from-[#47a248] to-[#336791]"
+              gradientClass="from-[#47a248] to-[#4479a1]"
             />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
               {databaseSkills.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
             </div>
           </div>
 
-          {/* Cloud */}
+          {/* Programming */}
           <div>
             <SectionLabel
-              icon={<Cloud size={15} />}
-              label="Cloud"
-              color="#ff9900"
-              gradientClass="from-[#ff9900] to-[#0089d6]"
+              icon={<Code2 size={15} />}
+              label="Programming"
+              color="#ec2025"
+              gradientClass="from-[#ec2025] to-[#68217a]"
             />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
-              {cloudSkills.map((skill, index) => (
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+              {programmingSkills.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
             </div>
           </div>
 
-          {/* Design */}
+          {/* DevOps & Cloud */}
           <div>
             <SectionLabel
-              icon={<Brush size={15} />}
-              label="Design & Creative"
-              color="var(--theme-accent-2)"
-              gradientClass="from-accent-2 to-accent-1"
+              icon={<Cloud size={15} />}
+              label="DevOps & Cloud"
+              color="#2496ed"
+              gradientClass="from-[#2496ed] to-[#326ce5]"
+            />
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+              {devopsSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+              ))}
+            </div>
+          </div>
+
+          {/* Tools */}
+          <div>
+            <SectionLabel
+              icon={<Wrench size={15} />}
+              label="Tools"
+              color="#007acc"
+              gradientClass="from-[#007acc] to-[#ff6c37]"
             />
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
-              {designSkills.map((skill, index) => (
+              {toolsSkills.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
             </div>
