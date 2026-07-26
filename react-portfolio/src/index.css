@@ -265,10 +265,7 @@
   box-shadow: 0 10px 25px rgba(79, 70, 229, 0.15);
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--theme-bg); }
-::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--theme-accent-1), var(--theme-accent-2)); border-radius: 999px; }
+/* Removed custom scrollbar per user request */
 
 /* 3D Card Tilt */
 .card-3d-wrapper {

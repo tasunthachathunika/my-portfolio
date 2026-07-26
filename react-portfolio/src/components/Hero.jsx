@@ -1,6 +1,8 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Mail, Sparkles } from 'lucide-react';
+import { ArrowRight, Mail, Sparkles, Download } from 'lucide-react';
+import { FaLinkedin, FaGithub, FaMedium, FaEnvelope } from 'react-icons/fa';
+import AntigravityHeroBackground from './AntigravityHeroBackground';
 
 const Hero = () => {
   const heroRef = useRef(null);
@@ -59,13 +61,8 @@ const Hero = () => {
       <motion.div className="hero-blob absolute top-40 right-20 w-96 h-96 bg-accent-2/15 rounded-full blur-[120px] animate-blob" style={{ animationDelay: '2s', y: yBlob }}></motion.div>
       <motion.div className="hero-blob absolute bottom-20 left-1/3 w-72 h-72 bg-accent-3/15 rounded-full blur-[120px] animate-blob" style={{ animationDelay: '4s', y: yBlob }}></motion.div>
 
-      {/* Grid Pattern Overlay */}
-      <motion.div className="hero-grid absolute inset-0 pointer-events-none" style={{
-        backgroundImage: 'radial-gradient(circle at center, var(--theme-text) 1px, transparent 1px)',
-        backgroundSize: '40px 40px',
-        y: yGrid,
-        opacity: opacityGrid
-      }}></motion.div>
+      {/* Antigravity Interactive Grid Overlay */}
+      <AntigravityHeroBackground />
 
       <div className="section-container relative z-10 w-full pt-24">
         <motion.div
@@ -129,15 +126,17 @@ const Hero = () => {
             style={{ y: yButtons, opacity: opacityButtons }}
           >
             <motion.a
-              href="#projects"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white
                 bg-gradient-to-r from-accent-3 to-accent-1
                 hover:shadow-lg hover:shadow-accent-3/50 transition-all duration-300"
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.97 }}
             >
-              View Projects
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              Download CV
+              <Download size={18} className="group-hover:-translate-y-1 transition-transform" />
             </motion.a>
             <motion.a
               href="#contact"
@@ -146,33 +145,55 @@ const Hero = () => {
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.97 }}
             >
-              Contact Me
+              Hire Me
               <Mail size={18} />
             </motion.a>
+            <motion.a
+              href="#projects"
+              className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-text
+                glass-card neon-border hover:border-accent-1/50 hover:shadow-lg hover:shadow-accent-1/30 transition-all duration-300"
+              whileHover={{ scale: 1.05, y: -3 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              View Projects
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </motion.a>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div
+            className="hero-socials flex gap-6 justify-center mt-12"
+            variants={itemVariants}
+            style={{ y: yButtons, opacity: opacityButtons }}
+          >
+            <a href="https://www.linkedin.com/in/tasuntha-chathunika/" target="_blank" rel="noopener noreferrer" 
+               className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
+                 hover:text-[#0077b5] hover:border-[#0077b5]/50 hover:shadow-lg hover:shadow-[#0077b5]/30 
+                 transition-all duration-300 hover:-translate-y-1" aria-label="LinkedIn">
+              <FaLinkedin size={24} />
+            </a>
+            <a href="https://github.com/Tasuntha-Chathunika" target="_blank" rel="noopener noreferrer" 
+               className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
+                 hover:text-white hover:border-white/50 hover:shadow-lg hover:shadow-white/20 
+                 transition-all duration-300 hover:-translate-y-1" aria-label="GitHub">
+              <FaGithub size={24} />
+            </a>
+            <a href="https://medium.com/@tasunthachathunika" target="_blank" rel="noopener noreferrer" 
+               className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
+                 hover:text-white hover:border-white/50 hover:shadow-lg hover:shadow-white/20 
+                 transition-all duration-300 hover:-translate-y-1" aria-label="Medium">
+              <FaMedium size={24} />
+            </a>
+            <a href="mailto:tasunthachathunika@gmail.com" 
+               className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
+                 hover:text-[var(--theme-accent-2)] hover:border-[var(--theme-accent-2)]/50 hover:shadow-lg hover:shadow-[var(--theme-accent-2)]/30 
+                 transition-all duration-300 hover:-translate-y-1" aria-label="Email">
+              <FaEnvelope size={24} />
+            </a>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.6 }}
-      >
-        <span className="text-[10px] text-muted font-semibold uppercase tracking-[0.3em]">Scroll</span>
-        <motion.div
-          className="w-5 h-8 rounded-full border-2 border-muted/30 flex items-start justify-center p-1"
-          animate={{ borderColor: ['rgba(136,136,170,0.3)', 'rgba(168,85,247,0.5)', 'rgba(136,136,170,0.3)'] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <motion.div
-            className="w-1 h-2 rounded-full bg-accent-1"
-            animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </motion.div>
-      </motion.div>
 
       {/* Bottom Gradient Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-bg to-transparent pointer-events-none"></div>

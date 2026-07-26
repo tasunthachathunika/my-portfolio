@@ -8,6 +8,7 @@ const navLinks = [
   { name: 'Education', href: '#education' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
+  { name: 'GitHub', href: '#github-stats' },
   { name: 'Blog', href: '#blog' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -65,8 +66,8 @@ const Navbar = ({ theme, toggleTheme }) => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]
         ${scrolled
-          ? 'py-3 bg-bg/30 backdrop-blur-md border-b border-border shadow-lg shadow-accent-1/10'
-          : 'py-5 bg-transparent border-b border-transparent'
+          ? 'py-4 bg-bg/60 backdrop-blur-xl border-b border-border shadow-sm'
+          : 'py-6 bg-transparent border-b border-transparent'
         }
         ${navVisible ? 'navbar-visible' : 'navbar-hidden'}`}
     >
@@ -83,25 +84,22 @@ const Navbar = ({ theme, toggleTheme }) => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          <ul className="flex gap-7">
+          <ul className="flex items-center gap-2 bg-surface/30 backdrop-blur-md px-2 py-1.5 rounded-full border border-border">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className={`text-sm font-medium transition-all duration-200 relative py-1
+                  className={`text-sm font-medium transition-all duration-300 relative px-4 py-2 rounded-full flex items-center justify-center
                     ${activeSection === link.href.substring(1)
-                      ? 'text-accent-3'
+                      ? 'text-text'
                       : 'text-muted hover:text-text'}`}
                 >
-                  {link.name}
+                  <span className="relative z-10">{link.name}</span>
                   {activeSection === link.href.substring(1) && (
                     <motion.span
                       layoutId="activeNav"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full"
-                      style={{
-                        background: 'linear-gradient(90deg, var(--theme-accent-3), var(--theme-accent-1))',
-                      }}
-                      transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                      className="absolute inset-0 rounded-full bg-text/10 shadow-sm z-0"
+                      transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                     />
                   )}
                 </a>
@@ -142,10 +140,8 @@ const Navbar = ({ theme, toggleTheme }) => {
             </motion.button>
             <motion.a
               href="#contact"
-              className="px-5 py-2.5 rounded-xl font-semibold text-sm text-white
-                bg-gradient-to-r from-accent-1 to-accent-2
-                hover:shadow-lg hover:shadow-accent-2/25 transition-all duration-300 animated-gradient-bg"
-              whileHover={{ scale: 1.05, y: -2 }}
+              className="px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300
+                bg-text text-bg hover:scale-105 hover:shadow-lg shadow-black/10"
               whileTap={{ scale: 0.95 }}
             >
               Hire Me

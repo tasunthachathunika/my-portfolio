@@ -5,7 +5,7 @@ import { FaLinkedin, FaGithub, FaMedium } from 'react-icons/fa';
 import Reveal from './Reveal';
 
 const socialLinks = [
-  { icon: <FaLinkedin size={20} />, href: 'https://www.linkedin.com/in/tasuntha-chathunika', color: '#0077b5', label: 'LinkedIn' },
+  { icon: <FaLinkedin size={20} />, href: 'https://www.linkedin.com/in/tasuntha-chathunika/', color: '#0077b5', label: 'LinkedIn' },
   { icon: <FaGithub size={20} />, href: 'https://github.com/Tasuntha-Chathunika', color: 'var(--theme-text)', label: 'GitHub' },
   { icon: <FaMedium size={20} />, href: 'https://medium.com/@tasunthachathunika', color: 'var(--theme-text)', label: 'Medium' },
   { icon: <Mail size={20} />, href: 'mailto:tasunthachathunika@gmail.com', color: 'var(--theme-accent-2)', label: 'Email' },
@@ -77,13 +77,32 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate Email
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(formState.email)) {
+      showToast('error', 'Please enter a valid email address.');
+      return;
+    }
+
+    // Validate Message Length
+    if (formState.message.trim().length < 10) {
+      showToast('error', 'Message is too short. Please write a bit more.');
+      return;
+    }
+
     setStatus('sending');
     try {
-      // REPLACE YOUR_FORMSPREE_ID
-      const res = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify(formState),
+        body: JSON.stringify({
+          access_key: 'f8c4443b-7e9b-4ca4-a9a1-e9881e3389c2',
+          subject: `New Message from Portfolio: ${formState.name}`,
+          from_name: 'Tasuntha Portfolio',
+          replyto: formState.email,
+          ...formState
+        }),
       });
       if (res.ok) {
         setStatus('success');

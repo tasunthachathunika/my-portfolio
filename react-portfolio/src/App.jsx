@@ -13,6 +13,7 @@ import Background3D from './components/Background3D';
 import Preloader from './components/Preloader';
 import CustomCursor from './components/CustomCursor';
 import ScrollProgress from './components/ScrollProgress';
+import CursorGlow from './components/CursorGlow';
 import Lenis from 'lenis';
 import './index.css';
 
@@ -81,6 +82,7 @@ function App() {
       <Preloader />
       <ScrollProgress />
       <Background3D theme={theme} />
+      <CursorGlow />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main className="relative z-10">
         <Hero />
