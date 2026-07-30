@@ -89,6 +89,8 @@ function App() {
         <SectionDivider />
         <About />
         <SectionDivider flip />
+        <Education />
+        <SectionDivider />
         <Skills />
         <SectionDivider />
         <Projects />

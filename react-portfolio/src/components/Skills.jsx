@@ -1,57 +1,68 @@
 import { motion } from 'framer-motion';
 import {
   FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs,
-  FaJava, FaFigma, FaPalette, FaCut, FaVideo,
-  FaGitAlt, FaGithub, FaDocker, FaLinux
+  FaJava, FaPython, FaPhp, FaFigma,
+  FaGitAlt, FaGithub, FaDocker, FaLinux, FaAws, FaMicrosoft
 } from 'react-icons/fa';
-import { SiTailwindcss, SiCplusplus, SiMysql, SiMongodb, SiExpress, SiKubernetes, SiPostman, SiVisualstudiocode } from 'react-icons/si';
-import { TbBrandCSharp } from "react-icons/tb";
+import { SiTailwindcss, SiCplusplus, SiMysql, SiMongodb, SiExpress, SiPostman, SiVite, SiPostgresql, SiSqlite, SiSupabase, SiJsonwebtokens } from 'react-icons/si';
+import { TbBrandCSharp, TbLetterC } from "react-icons/tb";
 import { Code2, Brush, Cloud, Database, Server, Wrench } from 'lucide-react';
 import Reveal from './Reveal';
 
-// ─── Frontend ─────────────────────────────────────
-const frontendSkills = [
-  { name: 'React', icon: <FaReact />, color: '#61dafb', mastery: 4 },
-  { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06b6d4', mastery: 5 },
-  { name: 'HTML', icon: <FaHtml5 />, color: '#e34f26', mastery: 5 },
-  { name: 'CSS', icon: <FaCss3Alt />, color: '#2965f1', mastery: 5 },
+// ─── Programming Languages ────────────────────────
+const programmingSkills = [
+  { name: 'Java', icon: <FaJava />, color: '#ec2025', mastery: 3 },
+  { name: 'Python', icon: <FaPython />, color: '#3776AB', mastery: 3 },
+  { name: 'C', icon: <TbLetterC />, color: '#A8B9CC', mastery: 3 },
+  { name: 'C++', icon: <SiCplusplus />, color: '#00599c', mastery: 3 },
+  { name: 'C#', icon: <TbBrandCSharp />, color: '#68217a', mastery: 3 },
   { name: 'JavaScript', icon: <FaJsSquare />, color: '#f7df1e', mastery: 4 },
+  { name: 'PHP', icon: <FaPhp />, color: '#777BB4', mastery: 3 },
 ];
 
-// ─── Backend ──────────────────────────────────────
+// ─── Frontend Development ─────────────────────────
+const frontendSkills = [
+  { name: 'React.js', icon: <FaReact />, color: '#61dafb', mastery: 4 },
+  { name: 'Vite', icon: <SiVite />, color: '#646CFF', mastery: 4 },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06b6d4', mastery: 5 },
+  { name: 'HTML5', icon: <FaHtml5 />, color: '#e34f26', mastery: 5 },
+  { name: 'CSS3', icon: <FaCss3Alt />, color: '#2965f1', mastery: 5 },
+];
+
+// ─── Backend & APIs ───────────────────────────────
 const backendSkills = [
   { name: 'Node.js', icon: <FaNodeJs />, color: '#68a063', mastery: 3 },
   { name: 'Express.js', icon: <SiExpress />, color: 'var(--theme-text)', mastery: 3 },
+  { name: 'RESTful APIs', icon: <Server size={22} />, color: '#4caf50', mastery: 4 },
+  { name: 'Core PHP', icon: <FaPhp />, color: '#777BB4', mastery: 3 },
+  { name: 'JWT Auth', icon: <SiJsonwebtokens />, color: '#d63aff', mastery: 3 },
 ];
 
-// ─── Database ─────────────────────────────────────
+// ─── Cloud & Databases ───────────────────────────
 const databaseSkills = [
-  { name: 'MongoDB', icon: <SiMongodb />, color: '#47a248', mastery: 3 },
+  { name: 'AWS', icon: <FaAws />, color: '#FF9900', mastery: 2 },
+  { name: 'Azure', icon: <FaMicrosoft />, color: '#0089D6', mastery: 2 },
+  { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#336791', mastery: 3 },
   { name: 'MySQL', icon: <SiMysql />, color: '#4479a1', mastery: 4 },
+  { name: 'MongoDB', icon: <SiMongodb />, color: '#47a248', mastery: 3 },
+  { name: 'SQLite', icon: <SiSqlite />, color: '#003B57', mastery: 3 },
+  { name: 'Supabase', icon: <SiSupabase />, color: '#3ECF8E', mastery: 3 },
 ];
 
-// ─── Programming ──────────────────────────────────
-const programmingSkills = [
-  { name: 'Java', icon: <FaJava />, color: '#ec2025', mastery: 3 },
-  { name: 'C#', icon: <TbBrandCSharp />, color: '#68217a', mastery: 3 },
-  { name: 'C++', icon: <SiCplusplus />, color: '#00599c', mastery: 3 },
-];
-
-// ─── DevOps & Cloud ───────────────────────────────
+// ─── DevOps & Developer Tools ─────────────────────
 const devopsSkills = [
   { name: 'Git', icon: <FaGitAlt />, color: '#f05032', mastery: 4 },
   { name: 'GitHub', icon: <FaGithub />, color: 'var(--theme-text)', mastery: 4 },
   { name: 'Docker', icon: <FaDocker />, color: '#2496ed', mastery: 2 },
-  { name: 'Kubernetes', icon: <SiKubernetes />, color: '#326ce5', mastery: 2 },
   { name: 'Linux', icon: <FaLinux />, color: '#fcc624', mastery: 3 },
-  { name: 'CI/CD', icon: <span className="font-extrabold text-sm font-display">CI</span>, color: '#4caf50', mastery: 2 },
+  { name: 'GitHub Actions', icon: <span className="font-extrabold text-sm font-display">CI</span>, color: '#2088FF', mastery: 2 },
+  { name: 'Postman', icon: <SiPostman />, color: '#ff6c37', mastery: 4 },
 ];
 
 // ─── Tools ────────────────────────────────────────
 const toolsSkills = [
-  { name: 'VS Code', icon: <SiVisualstudiocode />, color: '#007acc', mastery: 5 },
-  { name: 'Postman', icon: <SiPostman />, color: '#ff6c37', mastery: 4 },
-  { name: 'Figma', icon: <FaFigma />, color: '#f24e1e', mastery: 5 },
+  { name: 'VS Code', icon: <Code2 size={22} />, color: '#007acc', mastery: 5 },
+  { name: 'Figma', icon: <FaFigma />, color: '#f24e1e', mastery: 4 },
 ];
 
 const MasteryDots = ({ mastery, color }) => (
@@ -162,11 +173,26 @@ const Skills = () => {
 
         <div className="flex flex-col gap-14">
 
-          {/* Frontend */}
+          {/* Programming Languages */}
           <div>
             <SectionLabel
               icon={<Code2 size={15} />}
-              label="Frontend"
+              label="Programming Languages"
+              color="#ec2025"
+              gradientClass="from-[#ec2025] to-[#68217a]"
+            />
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4">
+              {programmingSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+              ))}
+            </div>
+          </div>
+
+          {/* Frontend Development */}
+          <div>
+            <SectionLabel
+              icon={<Code2 size={15} />}
+              label="Frontend Development"
               color="var(--theme-accent-3)"
               gradientClass="from-accent-3 to-accent-1"
             />
@@ -177,11 +203,11 @@ const Skills = () => {
             </div>
           </div>
 
-          {/* Backend */}
+          {/* Backend & APIs */}
           <div>
             <SectionLabel
               icon={<Server size={15} />}
-              label="Backend"
+              label="Backend & APIs"
               color="#68a063"
               gradientClass="from-[#68a063] to-[#333]"
             />
@@ -192,43 +218,28 @@ const Skills = () => {
             </div>
           </div>
 
-          {/* Database */}
+          {/* Cloud & Databases */}
           <div>
             <SectionLabel
               icon={<Database size={15} />}
-              label="Database"
-              color="#47a248"
-              gradientClass="from-[#47a248] to-[#4479a1]"
+              label="Cloud & Databases"
+              color="#336791"
+              gradientClass="from-[#FF9900] to-[#336791]"
             />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4">
               {databaseSkills.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
             </div>
           </div>
 
-          {/* Programming */}
-          <div>
-            <SectionLabel
-              icon={<Code2 size={15} />}
-              label="Programming"
-              color="#ec2025"
-              gradientClass="from-[#ec2025] to-[#68217a]"
-            />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
-              {programmingSkills.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} index={index} />
-              ))}
-            </div>
-          </div>
-
-          {/* DevOps & Cloud */}
+          {/* DevOps & Developer Tools */}
           <div>
             <SectionLabel
               icon={<Cloud size={15} />}
-              label="DevOps & Cloud"
+              label="DevOps & Developer Tools"
               color="#2496ed"
-              gradientClass="from-[#2496ed] to-[#326ce5]"
+              gradientClass="from-[#2496ed] to-[#f05032]"
             />
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
               {devopsSkills.map((skill, index) => (
@@ -243,7 +254,7 @@ const Skills = () => {
               icon={<Wrench size={15} />}
               label="Tools"
               color="#007acc"
-              gradientClass="from-[#007acc] to-[#ff6c37]"
+              gradientClass="from-[#007acc] to-[#f24e1e]"
             />
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
               {toolsSkills.map((skill, index) => (

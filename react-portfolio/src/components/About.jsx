@@ -8,8 +8,8 @@ import Reveal from './Reveal';
 
 const stats = [
   { icon: <Code2 size={20} />, value: '3+', numValue: 3, label: 'Years Coding', color: 'var(--theme-accent-3)', suffix: '+' },
-  { icon: <Layers size={20} />, value: '10+', numValue: 10, label: 'Projects Built', color: 'var(--theme-accent-1)', suffix: '+' },
-  { icon: <BookOpen size={20} />, value: 'BICT (Hons)', numValue: null, label: 'Undergraduate', color: 'var(--theme-accent-2)', suffix: '' },
+  { icon: <Layers size={20} />, value: '5+', numValue: 5, label: 'Projects Built', color: 'var(--theme-accent-1)', suffix: '+' },
+  { icon: <BookOpen size={20} />, value: 'BICT (Hons)', numValue: null, label: 'GPA: 3.00', color: 'var(--theme-accent-2)', suffix: '' },
 ];
 
 // Counter animation hook
@@ -196,10 +196,10 @@ const About = () => {
 
             <div className="space-y-5 text-muted text-base md:text-lg leading-relaxed">
               {[
-                <>Hello! I'm{' '}<strong className="text-text font-semibold">Tasuntha Chathunika Dayasiri</strong>, a highly motivated and results-oriented IT undergraduate at the University of Vavuniya, passionate about software engineering, cloud computing, DevOps, and green technology.</>,
-                <>I am currently pursuing a Bachelor of Information and Communication Technology (Hons). My primary goal is to leverage my growing technical skills and creativity to contribute to impactful, sustainable projects in the tech industry.</>,
-                <>I have a strong foundation in modern web development (HTML, CSS, JavaScript, React, Tailwind CSS) and backend systems (Node.js). I'm also enthusiastic about cloud platforms like AWS and Azure, and exploring creative coding with Three.js and p5.js.</>,
-                <>Beyond development, I freelance as a graphic designer, utilizing professional tools like Adobe Photoshop, Illustrator, and Figma to craft visually compelling experiences. My skillset also extends to C, C++, C#, and Java.</>,
+                <>Hello! I'm{' '}<strong className="text-text font-semibold">Tasuntha Chathunika Dayasiri</strong>, a results-driven third-year ICT undergraduate at the University of Vavuniya, Faculty of Technological Studies. I'm passionate about software engineering, full-stack development, and DevOps.</>,
+                <>I have hands-on experience developing full-stack web applications, SaaS platforms, and business intelligence solutions using <strong className="text-text font-semibold">React.js, Node.js, Express.js, PostgreSQL, and MongoDB</strong>. I love turning complex problems into elegant, user-centric solutions.</>,
+                <>Currently, I'm expanding my expertise in <strong className="text-text font-semibold">Docker, Linux, and CI/CD pipelines</strong> while deepening my knowledge of cloud platforms like AWS and Microsoft Azure. I also actively share technical knowledge through <strong className="text-text font-semibold">Medium</strong> articles.</>,
+                <>I'm seeking a <strong className="text-text font-semibold">Software Engineering Internship</strong> to contribute to real-world software development, continuously learn, and grow as an engineer.</>,
               ].map((content, i) => (
                 <motion.p
                   key={i}
@@ -222,7 +222,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-              {['Software Engineering', 'Cloud & DevOps', 'Graphic Design', 'Green Technology', 'UI/UX Design', 'Creative Coding'].map((chip, i) => (
+              {['Full-Stack Development', 'React.js & Node.js', 'Cloud & DevOps', 'RESTful APIs', 'Database Design', 'Technical Writing'].map((chip, i) => (
                 <motion.span
                   key={chip}
                   className="px-3 py-1.5 text-xs font-semibold rounded-full glass-card border border-border text-muted hover:text-accent-3 hover:border-accent-3/30 transition-all duration-300"

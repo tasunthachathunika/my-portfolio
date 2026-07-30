@@ -6,25 +6,14 @@ import Reveal from './Reveal';
 const educationData = [
   {
     degree: "Bachelor of Information and Communication Technology (Hons)",
-    institution: "University of Vavuniya",
+    institution: "University of Vavuniya, Faculty of Technological Studies",
     location: "Vavuniya, Sri Lanka",
-    period: "2021 – Present",
-    description: "Focusing on software engineering, web development, database management, and networking. Actively involved in practical projects and seeking to apply theoretical knowledge to real-world scenarios.",
+    period: "06/2023 – Present",
+    description: "GPA: 3.00 / 4.00 — Relevant Coursework: Data Structures & Algorithms, Software Engineering, Database Systems, Computer Networks, Cloud Computing. Building full-stack web applications and exploring DevOps practices.",
     color: 'from-accent-3 to-accent-1',
     accentColor: 'var(--theme-accent-3)',
     badge: 'Undergraduate',
   },
-  {
-    degree: "Secondary Education (A/L & O/L)",
-    institution: "Katukurunda Dharmapala M.V.",
-    location: "Katukurunda, Sri Lanka",
-    period: "Completed",
-    description: "Completed G.C.E. Advanced Level in the Physical Science stream and G.C.E. Ordinary Level with excellent results.",
-    color: 'from-accent-1 to-accent-2',
-    accentColor: 'var(--theme-accent-1)',
-    badge: 'Completed',
-  },
-
 ];
 
 const Education = () => {

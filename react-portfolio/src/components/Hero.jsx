@@ -1,16 +1,16 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Mail, Sparkles, Download, Eye } from 'lucide-react';
+import { Mail, Download, Eye } from 'lucide-react';
 import { FaLinkedin, FaGithub, FaMedium, FaEnvelope } from 'react-icons/fa';
 import AntigravityHeroBackground from './AntigravityHeroBackground';
 
 // Typing animation roles
 const roles = [
-  'Full Stack Developer',
-  'React Developer',
+  'Full-Stack Developer',
+  'React.js Developer',
   'Node.js Developer',
+  'Aspiring Software Engineer',
   'DevOps Enthusiast',
-  'Cloud Learner',
 ];
 
 const Hero = () => {
@@ -98,7 +98,7 @@ const Hero = () => {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
             </span>
             <span className="text-sm font-medium text-muted">
-              Open to Internships
+              Open to Software Engineering Internship
             </span>
           </motion.div>
 
@@ -113,8 +113,8 @@ const Hero = () => {
           </motion.h1>
 
           {/* Subtitle — ICT Undergraduate */}
-          <motion.div 
-            className="hero-subtitle mb-4" 
+          <motion.div
+            className="hero-subtitle mb-4"
             variants={itemVariants}
             style={{ y: ySubtitle, opacity: opacitySubtitle }}
           >
@@ -123,13 +123,13 @@ const Hero = () => {
             </span>
             <br />
             <span className="text-lg sm:text-xl md:text-2xl text-muted/70 font-medium inline-block mt-2">
-              Aspiring Software Engineer | DevOps Enthusiast
+              Full-Stack Developer | Aspiring Software Engineer
             </span>
           </motion.div>
 
           {/* Typing Animation — Role Rotator */}
-          <motion.div 
-            className="mb-8 h-12 flex items-center justify-center" 
+          <motion.div
+            className="mb-8 h-12 flex items-center justify-center"
             variants={itemVariants}
             style={{ y: ySubtitle, opacity: opacitySubtitle }}
           >
@@ -154,10 +154,10 @@ const Hero = () => {
             variants={itemVariants}
             style={{ y: yDesc, opacity: opacityDesc }}
           >
-            Passionate about building scalable web applications using modern technologies. 
-            Currently exploring Cloud Computing, Docker, Kubernetes, and DevOps while 
-            strengthening my Full Stack Development skills. Actively seeking internship 
-            opportunities to contribute, learn, and grow as a Software Engineer.
+            Results-driven third-year ICT undergraduate with hands-on experience developing
+            full-stack web applications, SaaS platforms, and business intelligence solutions
+            using React.js, Node.js, Express.js, PostgreSQL, and MongoDB. Currently expanding
+            expertise in Docker, Linux, and CI/CD — seeking a Software Engineering Internship.
           </motion.p>
 
           {/* Buttons — 3 CTA */}
@@ -207,27 +207,27 @@ const Hero = () => {
             variants={itemVariants}
             style={{ y: yButtons, opacity: opacityButtons }}
           >
-            <a href="https://www.linkedin.com/in/tasuntha-chathunika/" target="_blank" rel="noopener noreferrer" 
-               className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
+            <a href="https://www.linkedin.com/in/tasuntha-chathunika/" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
                  hover:text-[#0077b5] hover:border-[#0077b5]/50 hover:shadow-lg hover:shadow-[#0077b5]/30 
                  transition-all duration-300 hover:-translate-y-1" aria-label="LinkedIn">
               <FaLinkedin size={24} />
             </a>
-            <a href="https://github.com/Tasuntha-Chathunika" target="_blank" rel="noopener noreferrer" 
-               className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
+            <a href="https://github.com/Tasuntha-Chathunika" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
                  hover:text-white hover:border-white/50 hover:shadow-lg hover:shadow-white/20 
                  transition-all duration-300 hover:-translate-y-1" aria-label="GitHub">
               <FaGithub size={24} />
             </a>
-            <a href="https://medium.com/@tasunthachathunika" target="_blank" rel="noopener noreferrer" 
-               className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
+            <a href="https://medium.com/@tasunthachathunika" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
                  hover:text-white hover:border-white/50 hover:shadow-lg hover:shadow-white/20 
                  transition-all duration-300 hover:-translate-y-1" aria-label="Medium">
               <FaMedium size={24} />
             </a>
-            <a href="mailto:tasunthachathunika@gmail.com" 
-               className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
-                 hover:text-[var(--theme-accent-2)] hover:border-[var(--theme-accent-2)]/50 hover:shadow-lg hover:shadow-[var(--theme-accent-2)]/30 
+            <a href="mailto:tasunthachathunika@gmail.com"
+              className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
+                 hover:text-accent-2 hover:border-accent-2/50 hover:shadow-lg hover:shadow-accent-2/30 
                  transition-all duration-300 hover:-translate-y-1" aria-label="Email">
               <FaEnvelope size={24} />
             </a>

@@ -13,62 +13,33 @@ import Reveal from './Reveal';
  */
 
 const certifications = [
-  // ────────── REPLACE THESE WITH YOUR REAL CERTIFICATIONS ──────────
   {
-    title: 'AWS Cloud Practitioner',
-    issuer: 'Amazon Web Services',
-    date: 'Coming Soon',
-    link: '#', // Replace with your credential URL
-    color: '#FF9900',
-    icon: '☁️',
-    upcoming: true,
-  },
-  {
-    title: 'Azure Fundamentals (AZ-900)',
-    issuer: 'Microsoft',
-    date: 'Coming Soon',
+    title: 'AI Chatbot Development (OpenAI API Integration Focus)',
+    issuer: 'Simplilearn',
+    date: '2026',
     link: '#',
-    color: '#0089D6',
-    icon: '☁️',
-    upcoming: true,
+    color: '#10a37f',
+    icon: '🤖',
+    upcoming: false,
   },
   {
-    title: 'Problem Solving (Basic)',
-    issuer: 'HackerRank',
-    date: 'Coming Soon',
-    link: '#', // Replace with your HackerRank badge URL
-    color: '#00EA64',
-    icon: '🧩',
-    upcoming: true,
-  },
-  {
-    title: 'JavaScript (Basic)',
-    issuer: 'HackerRank',
-    date: 'Coming Soon',
+    title: 'Python for Beginners',
+    issuer: 'Simplilearn',
+    date: '2025',
     link: '#',
-    color: '#00EA64',
-    icon: '🧩',
-    upcoming: true,
+    color: '#3776AB',
+    icon: '🐍',
+    upcoming: false,
   },
   {
-    title: 'CSS (Basic)',
-    issuer: 'HackerRank',
-    date: 'Coming Soon',
+    title: 'IT Essentials',
+    issuer: 'Cisco Networking Academy',
+    date: '2025',
     link: '#',
-    color: '#00EA64',
-    icon: '🧩',
-    upcoming: true,
+    color: '#1BA0D7',
+    icon: '🌐',
+    upcoming: false,
   },
-  {
-    title: 'Web Development',
-    issuer: 'LinkedIn Skill Assessment',
-    date: 'Coming Soon',
-    link: '#',
-    color: '#0077B5',
-    icon: '🏅',
-    upcoming: true,
-  },
-  // ────────── ADD MORE CERTIFICATIONS ABOVE ──────────
 ];
 
 const CertCard = ({ cert, index }) => (
@@ -155,7 +126,7 @@ const Certifications = () => {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-4 text-muted max-w-lg mx-auto text-sm md:text-base">
-              Professional certifications and skill badges that validate my expertise. ✦
+              Professional certifications that validate my expertise. ✦
             </p>
           </Reveal>
         </div>
@@ -167,14 +138,6 @@ const Certifications = () => {
           ))}
         </div>
 
-        {/* Note for upcoming */}
-        <Reveal delay={0.3}>
-          <div className="mt-8 text-center">
-            <p className="text-xs text-muted italic">
-              Certifications marked "Coming Soon" are currently in progress. Stay tuned!
-            </p>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

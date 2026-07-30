@@ -9,7 +9,7 @@ const socialLinks = [
   { icon: <FaGithub size={20} />, href: 'https://github.com/Tasuntha-Chathunika', color: 'var(--theme-text)', label: 'GitHub' },
   { icon: <FaMedium size={20} />, href: 'https://medium.com/@tasunthachathunika', color: 'var(--theme-text)', label: 'Medium' },
   { icon: <Mail size={20} />, href: 'mailto:tasunthachathunika@gmail.com', color: 'var(--theme-accent-2)', label: 'Email' },
-  { icon: <Phone size={20} />, href: 'tel:0750561571', color: 'var(--theme-accent-1)', label: 'Phone' },
+  { icon: <Phone size={20} />, href: 'tel:+94750561571', color: 'var(--theme-accent-1)', label: 'Phone' },
 ];
 
 const contactInfo = [
@@ -23,8 +23,8 @@ const contactInfo = [
   {
     icon: <Phone size={18} />,
     label: 'Phone',
-    value: '+94 75 056 1571',
-    href: 'tel:0750561571',
+    value: '+94 75 0561 571',
+    href: 'tel:+94750561571',
     color: 'var(--theme-accent-1)',
   },
 ];
