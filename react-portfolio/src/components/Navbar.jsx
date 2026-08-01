@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Sun, Moon, Menu, X, Download, Sparkles } from 'lucide-react';
+import { Menu, X, Download, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
@@ -13,7 +13,7 @@ const navLinks = [
   { name: 'Contact', href: '#contact', color: 'var(--theme-accent-2)' },
 ];
 
-const Navbar = ({ theme, toggleTheme }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [scrolled, setScrolled] = useState(false);
@@ -163,57 +163,6 @@ const Navbar = ({ theme, toggleTheme }) => {
           </ul>
 
           <div className="flex items-center gap-3">
-            {/* Theme Toggle — Colorful */}
-            <motion.button
-              onClick={toggleTheme}
-              className="relative p-2.5 rounded-xl border border-border/60 transition-all overflow-hidden group"
-              style={{
-                background: scrolled
-                  ? 'rgba(13, 13, 37, 0.5)'
-                  : 'rgba(20, 20, 48, 0.3)',
-              }}
-              aria-label="Toggle Theme"
-              whileHover={{ scale: 1.1, rotate: 15 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              {/* Color ring on hover */}
-              <span
-                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                style={{
-                  background: 'conic-gradient(var(--theme-accent-3), var(--theme-accent-5), var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-4), var(--theme-accent-6), var(--theme-accent-3))',
-                  padding: '1px',
-                  mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                  maskComposite: 'exclude',
-                  WebkitMaskComposite: 'xor',
-                }}
-              />
-              <AnimatePresence mode="wait">
-                {theme === 'dark' ? (
-                  <motion.div
-                    key="sun"
-                    initial={{ rotate: -90, opacity: 0, scale: 0 }}
-                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                    exit={{ rotate: 90, opacity: 0, scale: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="text-accent-4"
-                  >
-                    <Sun size={16} />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="moon"
-                    initial={{ rotate: 90, opacity: 0, scale: 0 }}
-                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                    exit={{ rotate: -90, opacity: 0, scale: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="text-accent-1"
-                  >
-                    <Moon size={16} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.button>
-
             {/* Download Resume — Gradient Button */}
             <motion.a
               href="/resume.pdf"
@@ -238,16 +187,6 @@ const Navbar = ({ theme, toggleTheme }) => {
 
         {/* Mobile */}
         <div className="flex md:hidden items-center gap-2">
-          <motion.button
-            onClick={toggleTheme}
-            className="p-2 rounded-lg transition-colors text-text border border-border/40"
-            style={{
-              background: 'rgba(13, 13, 37, 0.4)',
-            }}
-            whileTap={{ scale: 0.9 }}
-          >
-            {theme === 'dark' ? <Sun size={18} className="text-accent-4" /> : <Moon size={18} className="text-accent-1" />}
-          </motion.button>
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 rounded-lg transition-colors text-text border border-border/40"

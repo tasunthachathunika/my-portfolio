@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -36,7 +36,6 @@ const SectionDivider = ({ flip = false }) => (
 );
 
 function App() {
-  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
     // Initialize Lenis for smooth scroll transitions
@@ -53,37 +52,19 @@ function App() {
     }
     requestAnimationFrame(raf);
 
-    // Theme setup
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    } else if (prefersDark) {
-      setTheme('dark');
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      setTheme('light');
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
+    // Always dark theme
+    document.documentElement.setAttribute('data-theme', 'dark');
     
     return () => lenis.destroy();
   }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
 
   return (
     <div className="relative min-h-screen">
       <Preloader />
       <ScrollProgress />
-      <Background3D theme={theme} />
+      <Background3D />
       <CursorGlow />
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Navbar />
       <main className="relative z-10">
         <Hero />
         <SectionDivider />
