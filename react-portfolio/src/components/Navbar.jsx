@@ -1,16 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Sun, Moon, Menu, X, Download, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { name: 'Home', href: '#hero' },
-  { name: 'About', href: '#about' },
-  { name: 'Education', href: '#education' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Certificates', href: '#certifications' },
-  { name: 'Blog', href: '#blog' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '#hero', color: 'var(--theme-accent-3)' },
+  { name: 'About', href: '#about', color: 'var(--theme-accent-5)' },
+  { name: 'Education', href: '#education', color: 'var(--theme-accent-1)' },
+  { name: 'Skills', href: '#skills', color: 'var(--theme-accent-4)' },
+  { name: 'Projects', href: '#projects', color: 'var(--theme-accent-2)' },
+  { name: 'Certificates', href: '#certifications', color: 'var(--theme-accent-6)' },
+  { name: 'Blog', href: '#blog', color: 'var(--theme-accent-3)' },
+  { name: 'Contact', href: '#contact', color: 'var(--theme-accent-2)' },
 ];
 
 const Navbar = ({ theme, toggleTheme }) => {
@@ -62,103 +62,198 @@ const Navbar = ({ theme, toggleTheme }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Get the active link's color
+  const activeLink = navLinks.find(l => l.href.substring(1) === activeSection);
+  const activeColor = activeLink?.color || 'var(--theme-accent-1)';
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]
         ${scrolled
-          ? 'py-4 bg-bg/60 backdrop-blur-xl border-b border-border shadow-sm'
-          : 'py-6 bg-transparent border-b border-transparent'
+          ? 'py-3 bg-bg/50 backdrop-blur-2xl shadow-lg'
+          : 'py-5 bg-transparent'
         }
         ${navVisible ? 'navbar-visible' : 'navbar-hidden'}`}
     >
+      {/* Animated rainbow bottom border on scroll */}
+      {scrolled && (
+        <div
+          className="absolute bottom-0 left-0 w-full h-[1px]"
+          style={{
+            background: 'linear-gradient(90deg, var(--theme-accent-3), var(--theme-accent-5), var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-4), var(--theme-accent-6), var(--theme-accent-3))',
+            backgroundSize: '200% 100%',
+            animation: 'gradient-shift 4s ease infinite',
+            opacity: 0.5,
+          }}
+        />
+      )}
+
       <div className="section-container flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo — Gradient */}
         <motion.a
           href="#hero"
-          className="font-display font-extrabold text-2xl tracking-tight"
+          className="font-display font-extrabold text-2xl tracking-tight relative group"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Tasuntha<span className="text-accent-2">.</span>
+          <span className="gradient-text">Tasuntha</span>
+          <span
+            className="text-accent-2 group-hover:text-accent-4 transition-colors duration-300"
+            style={{ textShadow: '0 0 12px var(--theme-accent-2)' }}
+          >.</span>
+          {/* Subtle glow behind logo on hover */}
+          <span className="absolute -inset-2 bg-accent-1/0 group-hover:bg-accent-1/10 rounded-xl blur-lg transition-all duration-500 pointer-events-none"></span>
         </motion.a>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          <ul className="flex items-center gap-2 bg-surface/30 backdrop-blur-md px-2 py-1.5 rounded-full border border-border">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  className={`text-sm font-medium transition-all duration-300 relative px-4 py-2 rounded-full flex items-center justify-center
-                    ${activeSection === link.href.substring(1)
-                      ? 'text-text'
-                      : 'text-muted hover:text-text'}`}
-                >
-                  <span className="relative z-10">{link.name}</span>
-                  {activeSection === link.href.substring(1) && (
-                    <motion.span
-                      layoutId="activeNav"
-                      className="absolute inset-0 rounded-full bg-text/10 shadow-sm z-0"
-                      transition={{ type: 'spring', stiffness: 400, damping: 35 }}
-                    />
-                  )}
-                </a>
-              </li>
-            ))}
+        <div className="hidden md:flex items-center gap-6">
+          <ul
+            className="flex items-center gap-1 px-2 py-1.5 rounded-full border border-border/60 relative overflow-hidden"
+            style={{
+              background: scrolled
+                ? 'rgba(13, 13, 37, 0.6)'
+                : 'rgba(20, 20, 48, 0.3)',
+              backdropFilter: 'blur(20px)',
+            }}
+          >
+            {/* Subtle shimmer across the pill */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-[0.03]"
+              style={{
+                background: 'linear-gradient(90deg, transparent 0%, var(--theme-accent-3) 20%, var(--theme-accent-1) 40%, var(--theme-accent-2) 60%, var(--theme-accent-5) 80%, transparent 100%)',
+                backgroundSize: '200% 100%',
+                animation: 'shimmer 6s linear infinite',
+              }}
+            />
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className={`text-sm font-medium transition-all duration-300 relative px-4 py-2 rounded-full flex items-center justify-center
+                      ${isActive
+                        ? 'text-white'
+                        : 'text-muted hover:text-text'}`}
+                  >
+                    <span className="relative z-10">{link.name}</span>
+                    {isActive && (
+                      <motion.span
+                        layoutId="activeNav"
+                        className="absolute inset-0 rounded-full z-0"
+                        style={{
+                          background: `linear-gradient(135deg, ${link.color}, var(--theme-accent-1))`,
+                          boxShadow: `0 2px 12px ${link.color}40, 0 0 20px ${link.color}15`,
+                          opacity: 0.9,
+                        }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                      />
+                    )}
+                    {/* Hover glow dot */}
+                    {!isActive && (
+                      <span
+                        className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 rounded-full opacity-0 group-hover:w-4 group-hover:opacity-100 transition-all duration-300"
+                        style={{ backgroundColor: link.color }}
+                      />
+                    )}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
+
           <div className="flex items-center gap-3">
+            {/* Theme Toggle — Colorful */}
             <motion.button
               onClick={toggleTheme}
-              className="p-2.5 rounded-xl bg-surface/50 border border-border hover:border-accent-1/30 transition-all text-text"
+              className="relative p-2.5 rounded-xl border border-border/60 transition-all overflow-hidden group"
+              style={{
+                background: scrolled
+                  ? 'rgba(13, 13, 37, 0.5)'
+                  : 'rgba(20, 20, 48, 0.3)',
+              }}
               aria-label="Toggle Theme"
               whileHover={{ scale: 1.1, rotate: 15 }}
               whileTap={{ scale: 0.9 }}
             >
+              {/* Color ring on hover */}
+              <span
+                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                style={{
+                  background: 'conic-gradient(var(--theme-accent-3), var(--theme-accent-5), var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-4), var(--theme-accent-6), var(--theme-accent-3))',
+                  padding: '1px',
+                  mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  maskComposite: 'exclude',
+                  WebkitMaskComposite: 'xor',
+                }}
+              />
               <AnimatePresence mode="wait">
                 {theme === 'dark' ? (
                   <motion.div
                     key="sun"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
+                    initial={{ rotate: -90, opacity: 0, scale: 0 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: 90, opacity: 0, scale: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="text-accent-4"
                   >
                     <Sun size={16} />
                   </motion.div>
                 ) : (
                   <motion.div
                     key="moon"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
+                    initial={{ rotate: 90, opacity: 0, scale: 0 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: -90, opacity: 0, scale: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="text-accent-1"
                   >
                     <Moon size={16} />
                   </motion.div>
                 )}
               </AnimatePresence>
             </motion.button>
+
+            {/* Download Resume — Gradient Button */}
             <motion.a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300
-                bg-text text-bg hover:scale-105 hover:shadow-lg shadow-black/10"
+              className="group relative flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm text-white overflow-hidden transition-all duration-300"
+              style={{
+                background: 'linear-gradient(135deg, var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-3))',
+                backgroundSize: '200% 200%',
+                animation: 'gradient-shift 3s ease infinite',
+              }}
+              whileHover={{ scale: 1.05, boxShadow: '0 6px 25px rgba(180, 92, 255, 0.35), 0 0 15px rgba(255, 58, 140, 0.2)' }}
               whileTap={{ scale: 0.95 }}
             >
-              Download Resume
+              {/* Shine sweep */}
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none"></span>
+              <Download size={14} className="relative z-10" />
+              <span className="relative z-10">Resume</span>
             </motion.a>
           </div>
         </div>
 
         {/* Mobile */}
         <div className="flex md:hidden items-center gap-2">
-          <button onClick={toggleTheme} className="p-2 rounded-lg hover:bg-surface/50 transition-colors text-text border border-transparent hover:border-border">
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
+          <motion.button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg transition-colors text-text border border-border/40"
+            style={{
+              background: 'rgba(13, 13, 37, 0.4)',
+            }}
+            whileTap={{ scale: 0.9 }}
+          >
+            {theme === 'dark' ? <Sun size={18} className="text-accent-4" /> : <Moon size={18} className="text-accent-1" />}
+          </motion.button>
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-lg hover:bg-surface/50 transition-colors text-text"
+            className="p-2 rounded-lg transition-colors text-text border border-border/40"
+            style={{
+              background: 'rgba(13, 13, 37, 0.4)',
+            }}
             whileTap={{ scale: 0.9 }}
           >
             <AnimatePresence mode="wait">
@@ -183,26 +278,68 @@ const Navbar = ({ theme, toggleTheme }) => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-            className="md:hidden bg-bg/90 backdrop-blur-lg border-b border-border overflow-hidden"
+            className="md:hidden backdrop-blur-2xl overflow-hidden relative"
+            style={{ background: 'rgba(5, 5, 16, 0.95)' }}
           >
-            <ul className="flex flex-col py-4 px-6 gap-4">
-              {navLinks.map((link, i) => (
-                <motion.li
-                  key={link.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05, duration: 0.3 }}
-                >
-                  <a
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`block text-base font-medium transition-colors
-                      ${activeSection === link.href.substring(1) ? 'text-accent-3' : 'text-muted'}`}
+            {/* Rainbow line at top of mobile menu */}
+            <div
+              className="w-full h-[1px]"
+              style={{
+                background: 'linear-gradient(90deg, var(--theme-accent-3), var(--theme-accent-5), var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-4), var(--theme-accent-6))',
+              }}
+            />
+            <ul className="flex flex-col py-5 px-6 gap-1">
+              {navLinks.map((link, i) => {
+                const isActive = activeSection === link.href.substring(1);
+                return (
+                  <motion.li
+                    key={link.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05, duration: 0.3 }}
                   >
-                    {link.name}
-                  </a>
-                </motion.li>
-              ))}
+                    <a
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block text-base font-medium py-2.5 px-4 rounded-xl transition-all duration-300 relative overflow-hidden"
+                      style={{
+                        color: isActive ? '#fff' : 'var(--theme-muted)',
+                        background: isActive ? `linear-gradient(135deg, ${link.color}20, ${link.color}08)` : 'transparent',
+                        borderLeft: isActive ? `3px solid ${link.color}` : '3px solid transparent',
+                      }}
+                    >
+                      <span className="relative z-10 flex items-center gap-2">
+                        {isActive && (
+                          <Sparkles size={14} style={{ color: link.color }} />
+                        )}
+                        {link.name}
+                      </span>
+                    </a>
+                  </motion.li>
+                );
+              })}
+              {/* Mobile Resume Button */}
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navLinks.length * 0.05, duration: 0.3 }}
+                className="mt-3"
+              >
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-sm text-white"
+                  style={{
+                    background: 'linear-gradient(135deg, var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-3))',
+                    backgroundSize: '200% 200%',
+                    animation: 'gradient-shift 3s ease infinite',
+                  }}
+                >
+                  <Download size={16} />
+                  Download Resume
+                </a>
+              </motion.li>
             </ul>
           </motion.div>
         )}
