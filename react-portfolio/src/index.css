@@ -125,30 +125,36 @@
 /* ======= BASE STYLES ======= */
 @layer base {
   :root {
-    --theme-bg: #0a0a1a;
-    --theme-card: #12122a;
-    --theme-surface: #1a1a3a;
+    --theme-bg: #050510;
+    --theme-card: #0d0d25;
+    --theme-surface: #141430;
     --theme-text: #f0f0ff;
-    --theme-muted: #8888aa;
-    --theme-border: rgba(255, 255, 255, 0.08);
+    --theme-muted: #9090bb;
+    --theme-border: rgba(255, 255, 255, 0.1);
     
-    --theme-accent-1: #a855f7; /* neon-purple */
-    --theme-accent-2: #ff2d7b; /* neon-pink */
-    --theme-accent-3: #00d4ff; /* neon-cyan */
+    --theme-accent-1: #b45cff; /* vivid purple */
+    --theme-accent-2: #ff3a8c; /* hot pink */
+    --theme-accent-3: #00e5ff; /* electric cyan */
+    --theme-accent-4: #ffcc00; /* golden yellow */
+    --theme-accent-5: #00ff88; /* neon green */
+    --theme-accent-6: #ff6b35; /* vibrant orange */
     
   }
 
   [data-theme="light"] {
-    --theme-bg: #F8FAFC; /* Soft Ice White */
-    --theme-card: #FFFFFF; /* Pure White cards */
+    --theme-bg: #F8FAFC;
+    --theme-card: #FFFFFF;
     --theme-surface: #F1F5F9;
-    --theme-text: #0F172A; /* Deep Slate Charcoal */
+    --theme-text: #0F172A;
     --theme-muted: #64748B;
-    --theme-border: #E2E8F0; /* Light Cool Grey */
+    --theme-border: #E2E8F0;
     
-    --theme-accent-1: #4F46E5; /* Royal Indigo - primary */
-    --theme-accent-2: #7C3AED; /* Vivid Violet - complementary */
-    --theme-accent-3: #2563EB; /* Bright Blue - complementary */
+    --theme-accent-1: #7C3AED; /* Vivid Violet */
+    --theme-accent-2: #EC4899; /* Bright Pink */
+    --theme-accent-3: #0EA5E9; /* Sky Blue */
+    --theme-accent-4: #F59E0B; /* Amber */
+    --theme-accent-5: #10B981; /* Emerald */
+    --theme-accent-6: #F97316; /* Orange */
   }
 
   *, *::before, *::after {
@@ -215,20 +221,26 @@
 }
 
 @utility gradient-text {
-  background-image: linear-gradient(135deg, var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-3));
+  background-image: linear-gradient(135deg, var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-3), var(--theme-accent-5));
+  background-size: 300% 300%;
+  animation: gradient-shift 4s ease infinite;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
+@utility rainbow-glow {
+  box-shadow: 0 0 15px var(--theme-accent-1), 0 0 30px var(--theme-accent-2), 0 0 45px var(--theme-accent-3);
+}
+
 @utility neon-border {
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  box-shadow: 0 0 10px rgba(168, 85, 247, 0.1), inset 0 0 10px rgba(168, 85, 247, 0.05);
+  border: 1px solid rgba(180, 92, 255, 0.35);
+  box-shadow: 0 0 12px rgba(180, 92, 255, 0.15), 0 0 24px rgba(255, 58, 140, 0.08), inset 0 0 10px rgba(0, 229, 255, 0.05);
 }
 
 [data-theme="light"] .neon-border {
-  border-color: rgba(79, 70, 229, 0.2);
-  box-shadow: 0 0 15px rgba(79, 70, 229, 0.08), inset 0 0 10px rgba(79, 70, 229, 0.03);
+  border-color: rgba(124, 58, 237, 0.25);
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.1), inset 0 0 10px rgba(14, 165, 233, 0.05);
 }
 
 @utility animated-gradient-bg {
@@ -289,9 +301,9 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(180deg, var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-3));
+  background: linear-gradient(180deg, var(--theme-accent-3), var(--theme-accent-5), var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-4), var(--theme-accent-6));
   transform: translateX(-50%);
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* Skill card rotating border on hover */
@@ -304,11 +316,11 @@
   position: absolute;
   inset: -1px;
   border-radius: 1.1rem;
-  background: linear-gradient(45deg, var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-3), var(--theme-accent-1));
-  background-size: 300% 300%;
+  background: linear-gradient(45deg, var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-3), var(--theme-accent-5), var(--theme-accent-4), var(--theme-accent-6), var(--theme-accent-1));
+  background-size: 400% 400%;
   opacity: 0;
   transition: opacity 0.3s ease;
-  animation: border-rotate 3s ease infinite;
+  animation: border-rotate 4s ease infinite;
   z-index: 0;
 }
 .skill-card-wrapper:hover::before {
@@ -346,11 +358,11 @@
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
-  width: 200px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-3), transparent);
+  width: 300px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--theme-accent-3), var(--theme-accent-5), var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-4), transparent);
   filter: blur(1px);
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 /* ======= MAGNETIC BUTTON ======= */
@@ -392,9 +404,9 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(180deg, var(--theme-accent-3), var(--theme-accent-1), var(--theme-accent-2));
+  background: linear-gradient(180deg, var(--theme-accent-3), var(--theme-accent-5), var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-4));
   transform-origin: top;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 @media (min-width: 768px) {

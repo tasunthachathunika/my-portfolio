@@ -32,7 +32,7 @@ const ScrollProgress = () => {
         ref={glowRef}
         className="absolute top-0 left-0 h-[6px] blur-[4px] opacity-60"
         style={{
-          background: 'linear-gradient(90deg, var(--theme-accent-3), var(--theme-accent-1), var(--theme-accent-2))',
+          background: 'linear-gradient(90deg, var(--theme-accent-3), var(--theme-accent-5), var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-4), var(--theme-accent-6))',
           width: '0%',
         }}
       />
@@ -41,7 +41,7 @@ const ScrollProgress = () => {
         ref={progressRef}
         className="h-full relative"
         style={{
-          background: 'linear-gradient(90deg, var(--theme-accent-3), var(--theme-accent-1), var(--theme-accent-2))',
+          background: 'linear-gradient(90deg, var(--theme-accent-3), var(--theme-accent-5), var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-4), var(--theme-accent-6))',
           backgroundSize: '200% 100%',
           animation: 'gradient-shift 3s ease infinite',
           width: '0%',
@@ -52,8 +52,8 @@ const ScrollProgress = () => {
         <div
           className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full"
           style={{
-            background: 'var(--theme-accent-2)',
-            boxShadow: '0 0 8px var(--theme-accent-2), 0 0 16px var(--theme-accent-1)',
+            background: 'var(--theme-accent-5)',
+            boxShadow: '0 0 8px var(--theme-accent-5), 0 0 16px var(--theme-accent-1)',
           }}
         />
       </div>

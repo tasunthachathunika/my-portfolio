@@ -72,10 +72,13 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} id="hero" className="relative min-h-screen flex items-center justify-center pt-20 pb-20">
-      {/* Animated Gradient Blobs */}
-      <motion.div className="hero-blob absolute top-20 left-10 w-80 h-80 bg-accent-1/20 rounded-full blur-[120px] animate-blob" style={{ y: yBlob }}></motion.div>
-      <motion.div className="hero-blob absolute top-40 right-20 w-96 h-96 bg-accent-2/15 rounded-full blur-[120px] animate-blob" style={{ animationDelay: '2s', y: yBlob }}></motion.div>
-      <motion.div className="hero-blob absolute bottom-20 left-1/3 w-72 h-72 bg-accent-3/15 rounded-full blur-[120px] animate-blob" style={{ animationDelay: '4s', y: yBlob }}></motion.div>
+      {/* Animated Gradient Blobs — Multi-color */}
+      <motion.div className="hero-blob absolute top-20 left-10 w-80 h-80 bg-accent-1/25 rounded-full blur-[120px] animate-blob" style={{ y: yBlob }}></motion.div>
+      <motion.div className="hero-blob absolute top-40 right-20 w-96 h-96 bg-accent-2/20 rounded-full blur-[120px] animate-blob" style={{ animationDelay: '2s', y: yBlob }}></motion.div>
+      <motion.div className="hero-blob absolute bottom-20 left-1/3 w-72 h-72 bg-accent-3/20 rounded-full blur-[120px] animate-blob" style={{ animationDelay: '4s', y: yBlob }}></motion.div>
+      <motion.div className="hero-blob absolute top-1/3 right-1/4 w-60 h-60 rounded-full blur-[100px] animate-blob" style={{ animationDelay: '1s', y: yBlob, backgroundColor: 'rgba(0, 255, 136, 0.12)' }}></motion.div>
+      <motion.div className="hero-blob absolute bottom-1/3 left-10 w-64 h-64 rounded-full blur-[110px] animate-blob" style={{ animationDelay: '3s', y: yBlob, backgroundColor: 'rgba(255, 204, 0, 0.1)' }}></motion.div>
+      <motion.div className="hero-blob absolute top-1/4 left-1/2 w-48 h-48 rounded-full blur-[90px] animate-blob" style={{ animationDelay: '5s', y: yBlob, backgroundColor: 'rgba(255, 107, 53, 0.1)' }}></motion.div>
 
       {/* Antigravity Interactive Grid Overlay */}
       <AntigravityHeroBackground />
@@ -169,8 +172,8 @@ const Hero = () => {
             <motion.a
               href="#projects"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white
-                bg-gradient-to-r from-accent-3 to-accent-1
-                hover:shadow-lg hover:shadow-accent-3/50 transition-all duration-300"
+                bg-gradient-to-r from-accent-3 via-accent-5 to-accent-1
+                hover:shadow-lg hover:shadow-accent-3/50 transition-all duration-300 animated-gradient-bg"
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -191,8 +194,9 @@ const Hero = () => {
             </motion.a>
             <motion.a
               href="#contact"
-              className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-text
-                glass-card neon-border hover:border-accent-2/50 hover:shadow-lg hover:shadow-accent-2/30 transition-all duration-300"
+              className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white
+                bg-gradient-to-r from-accent-2 via-accent-6 to-accent-4
+                hover:shadow-lg hover:shadow-accent-2/40 transition-all duration-300 animated-gradient-bg"
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.97 }}
             >

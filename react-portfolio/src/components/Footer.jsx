@@ -42,7 +42,7 @@ const Footer = () => {
       <div
         className="w-full h-px animated-gradient-bg"
         style={{
-          background: 'linear-gradient(90deg, transparent, var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-3), var(--theme-accent-1), transparent)',
+          background: 'linear-gradient(90deg, transparent, var(--theme-accent-3), var(--theme-accent-5), var(--theme-accent-1), var(--theme-accent-2), var(--theme-accent-4), var(--theme-accent-6), transparent)',
           backgroundSize: '200% 100%',
           animation: 'gradient-shift 4s ease infinite',
         }}
