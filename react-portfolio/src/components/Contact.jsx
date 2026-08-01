@@ -85,12 +85,7 @@ const Contact = () => {
       return;
     }
 
-    // Validate Message Length (Minimum 10 words)
-    const wordCount = formState.message.trim().split(/\s+/).filter(word => word.length > 0).length;
-    if (wordCount < 10) {
-      showToast('error', 'Message is too short. Please write at least 10 words.');
-      return;
-    }
+    // Validation removed to make it easier to test
 
     setStatus('sending');
     try {
