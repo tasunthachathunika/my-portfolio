@@ -85,9 +85,10 @@ const Contact = () => {
       return;
     }
 
-    // Validate Message Length
-    if (formState.message.trim().length < 10) {
-      showToast('error', 'Message is too short. Please write a bit more.');
+    // Validate Message Length (Minimum 10 words)
+    const wordCount = formState.message.trim().split(/\s+/).filter(word => word.length > 0).length;
+    if (wordCount < 10) {
+      showToast('error', 'Message is too short. Please write at least 10 words.');
       return;
     }
 
@@ -104,17 +105,22 @@ const Contact = () => {
           ...formState
         }),
       });
+      
+      const data = await res.json();
+      
       if (res.ok) {
         setStatus('success');
         setFormState({ name: '', email: '', message: '' });
         showToast('success', 'Message sent! I\'ll get back to you soon. 🎉');
         setTimeout(() => setStatus('idle'), 3000); // Reset button after 3s
       } else {
-        throw new Error('Failed');
+        console.error("Web3Forms API Error:", data);
+        throw new Error(data.message || 'Failed to send message');
       }
-    } catch {
+    } catch (error) {
+      console.error("Form Submission Error:", error);
       setStatus('error');
-      showToast('error', 'Something went wrong. Please try again.');
+      showToast('error', error.message || 'Something went wrong. Please try again.');
       setTimeout(() => setStatus('idle'), 3000);
     }
   };
