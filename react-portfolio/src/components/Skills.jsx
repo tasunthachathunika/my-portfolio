@@ -69,88 +69,47 @@ const toolsSkills = [
   { name: 'Figma', icon: <FaFigma />, color: '#f24e1e', mastery: 4 },
 ];
 
-const MasteryDots = ({ mastery, color }) => (
-  <div className="flex gap-1">
-    {[1, 2, 3, 4, 5].map((dot) => (
-      <motion.div
-        key={dot}
-        className="w-1.5 h-1.5 rounded-full"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: dot * 0.05, duration: 0.3, type: 'spring' }}
-        style={{
-          backgroundColor: dot <= mastery ? color : 'var(--theme-border)',
-          boxShadow: dot <= mastery ? `0 0 6px ${color}80` : 'none',
-        }}
-      />
-    ))}
-  </div>
-);
-
 const SkillCard = ({ skill, index }) => (
-  <div className="skill-card-wrapper">
-    <motion.div
-      className="group relative glass-card p-5 flex flex-col items-center justify-center gap-3 cursor-default overflow-hidden transition-all duration-300"
-      initial={{ opacity: 0, scale: 0.6, y: 20 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.45,
-        delay: index * 0.05,
-        ease: [0.23, 1, 0.32, 1],
-      }}
-      whileHover={{ y: -6, transition: { duration: 0.3 } }}
-      style={{ '--icon-color': skill.color }}
-    >
-      {/* Hover glow background */}
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-15 transition-opacity duration-400 rounded-2xl"
-        style={{ backgroundColor: skill.color }}
-      ></div>
+  <motion.div
+    className="group relative bg-surface/40 border border-border/40 hover:border-border/80 px-4 py-2.5 rounded-xl flex flex-row items-center gap-3 cursor-default overflow-hidden transition-all duration-300"
+    initial={{ opacity: 0, scale: 0.9, y: 10 }}
+    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, delay: index * 0.04 }}
+    whileHover={{ y: -3, scale: 1.02 }}
+    style={{ '--icon-color': skill.color }}
+  >
+    {/* Hover subtle glow */}
+    <div
+      className="absolute inset-0 opacity-0 group-hover:opacity-[0.08] transition-opacity duration-300 pointer-events-none"
+      style={{ backgroundColor: skill.color }}
+    ></div>
 
-      {/* Radial spotlight */}
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-2xl pointer-events-none"
-        style={{
-          background: `radial-gradient(ellipse at center, ${skill.color}15 0%, transparent 70%)`,
-        }}
-      ></div>
+    {/* Border glow on hover */}
+    <div
+      className="absolute inset-0 border border-transparent rounded-xl transition-colors duration-300 pointer-events-none"
+      style={{ boxShadow: `inset 0 0 0 1px transparent` }}
+    ></div>
 
-      {/* Icon */}
-      <motion.div
-        className="text-3xl md:text-4xl relative z-10 opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-        style={{ color: skill.color }}
-        whileHover={{ scale: 1.2, rotate: 8 }}
-        transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-      >
-        {skill.icon}
-      </motion.div>
+    {/* Icon */}
+    <div className="text-xl md:text-2xl opacity-80 group-hover:opacity-100 transition-opacity duration-300 relative z-10" style={{ color: skill.color }}>
+      {skill.icon}
+    </div>
 
-      {/* Name */}
-      <span className="font-semibold text-xs text-muted group-hover:text-text transition-colors relative z-10">
-        {skill.name}
-      </span>
-
-      {/* Mastery Dots */}
-      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 relative z-10">
-        <MasteryDots mastery={skill.mastery} color={skill.color} />
-      </div>
-    </motion.div>
-  </div>
+    {/* Name */}
+    <span className="font-semibold text-[13px] md:text-sm text-muted group-hover:text-text transition-colors relative z-10 whitespace-nowrap">
+      {skill.name}
+    </span>
+  </motion.div>
 );
 
-const SectionLabel = ({ icon, label, color, gradientClass }) => (
+const SectionLabel = ({ icon, label, color }) => (
   <Reveal direction="left" delay={0.1}>
-    <div className="flex items-center gap-3 mb-6">
-      <motion.div
-        className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold text-white bg-gradient-to-r ${gradientClass}`}
-        style={{ boxShadow: `0 0 16px ${color}40` }}
-        whileHover={{ scale: 1.05 }}
-      >
+    <div className="flex items-center gap-3 mb-5">
+      <div className="p-2 rounded-lg bg-bg/50 border border-border/50 text-text" style={{ color: color, boxShadow: `0 0 10px ${color}20` }}>
         {icon}
-        {label}
-      </motion.div>
-      <div className="flex-1 h-px bg-gradient-to-r from-accent-1/20 to-transparent"></div>
+      </div>
+      <h3 className="text-lg md:text-xl font-bold font-display text-text/90 tracking-wide">{label}</h3>
     </div>
   </Reveal>
 );
@@ -175,47 +134,22 @@ const Skills = () => {
 
         </div>
 
-        <div className="flex flex-col gap-14">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
 
           {/* Proficient Languages */}
-          <div>
-            <SectionLabel
-              icon={<Code2 size={15} />}
-              label="Proficient Languages"
-              color="#f7df1e"
-              gradientClass="from-[#f7df1e] to-[#ec2025]"
-            />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-4">
+          <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex flex-col h-full hover:border-border/60 transition-colors">
+            <SectionLabel icon={<Code2 size={18} />} label="Proficient Languages" color="#f7df1e" />
+            <div className="flex flex-wrap gap-3">
               {proficientLanguages.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
             </div>
           </div>
 
-          {/* Familiar Languages */}
-          <div>
-            <SectionLabel
-              icon={<Code2 size={15} />}
-              label="Familiar With"
-              color="#A8B9CC"
-              gradientClass="from-[#A8B9CC] to-[#00599c]"
-            />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-4">
-              {familiarLanguages.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} index={index} />
-              ))}
-            </div>
-          </div>
-
           {/* Frontend Development */}
-          <div>
-            <SectionLabel
-              icon={<Code2 size={15} />}
-              label="Frontend Development"
-              color="var(--theme-accent-3)"
-              gradientClass="from-accent-3 to-accent-1"
-            />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+          <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex flex-col h-full hover:border-border/60 transition-colors">
+            <SectionLabel icon={<Code2 size={18} />} label="Frontend Development" color="var(--theme-accent-3)" />
+            <div className="flex flex-wrap gap-3">
               {frontendSkills.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
@@ -223,14 +157,9 @@ const Skills = () => {
           </div>
 
           {/* Backend & APIs */}
-          <div>
-            <SectionLabel
-              icon={<Server size={15} />}
-              label="Backend & APIs"
-              color="#68a063"
-              gradientClass="from-[#68a063] to-[#333]"
-            />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+          <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex flex-col h-full hover:border-border/60 transition-colors">
+            <SectionLabel icon={<Server size={18} />} label="Backend & APIs" color="#68a063" />
+            <div className="flex flex-wrap gap-3">
               {backendSkills.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
@@ -238,14 +167,9 @@ const Skills = () => {
           </div>
 
           {/* Cloud & Databases */}
-          <div>
-            <SectionLabel
-              icon={<Database size={15} />}
-              label="Cloud & Databases"
-              color="#336791"
-              gradientClass="from-[#FF9900] to-[#336791]"
-            />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4">
+          <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex flex-col h-full hover:border-border/60 transition-colors">
+            <SectionLabel icon={<Database size={18} />} label="Cloud & Databases" color="#336791" />
+            <div className="flex flex-wrap gap-3">
               {databaseSkills.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
@@ -253,32 +177,32 @@ const Skills = () => {
           </div>
 
           {/* DevOps & Developer Tools */}
-          <div>
-            <SectionLabel
-              icon={<Cloud size={15} />}
-              label="DevOps & Developer Tools"
-              color="#2496ed"
-              gradientClass="from-[#2496ed] to-[#f05032]"
-            />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+          <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex flex-col h-full hover:border-border/60 transition-colors">
+            <SectionLabel icon={<Cloud size={18} />} label="DevOps & Developer Tools" color="#2496ed" />
+            <div className="flex flex-wrap gap-3">
               {devopsSkills.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
             </div>
           </div>
 
-          {/* Tools */}
-          <div>
-            <SectionLabel
-              icon={<Wrench size={15} />}
-              label="Tools"
-              color="#007acc"
-              gradientClass="from-[#007acc] to-[#f24e1e]"
-            />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
-              {toolsSkills.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} index={index} />
-              ))}
+          {/* Familiar With & Tools */}
+          <div className="flex flex-col gap-6 lg:gap-8 h-full">
+            <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex-1 hover:border-border/60 transition-colors flex flex-col justify-center">
+              <SectionLabel icon={<Code2 size={18} />} label="Familiar With" color="#A8B9CC" />
+              <div className="flex flex-wrap gap-3">
+                {familiarLanguages.map((skill, index) => (
+                  <SkillCard key={skill.name} skill={skill} index={index} />
+                ))}
+              </div>
+            </div>
+            <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex-1 hover:border-border/60 transition-colors flex flex-col justify-center">
+              <SectionLabel icon={<Wrench size={18} />} label="Tools" color="#007acc" />
+              <div className="flex flex-wrap gap-3">
+                {toolsSkills.map((skill, index) => (
+                  <SkillCard key={skill.name} skill={skill} index={index} />
+                ))}
+              </div>
             </div>
           </div>
 
