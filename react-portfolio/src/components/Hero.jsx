@@ -181,7 +181,7 @@ const Hero = () => {
               <Eye size={18} className="group-hover:scale-110 transition-transform" />
             </motion.a>
             <motion.a
-              href="/resume.pdf"
+              href="/Tasuntha_Chathunika.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-text

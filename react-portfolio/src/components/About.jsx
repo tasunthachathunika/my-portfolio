@@ -245,9 +245,9 @@ const About = () => {
               transition={{ delay: 0.8, duration: 0.5 }}
             >
               <motion.a
-                href="#" /* REPLACE '#' WITH YOUR RESUME GOOGLE DRIVE OR PDF LINK */
+                href="/Tasuntha_Chathunika.pdf"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="group relative inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl font-semibold text-white overflow-hidden
                   bg-gradient-to-r from-accent-1 to-accent-2
                   hover:shadow-xl hover:shadow-accent-1/30 transition-all duration-300"
