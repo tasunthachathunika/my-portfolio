@@ -10,6 +10,7 @@ const roles = [
   'React.js Developer',
   'Node.js Developer',
   'Software Engineer',
+  'DevOps Enthusiast',
 ];
 
 const Hero = () => {
