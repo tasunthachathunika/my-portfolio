@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Mail, Phone, CheckCircle, XCircle, Loader2 } from 'lucide-react';
-import { FaLinkedin, FaGithub, FaMedium } from 'react-icons/fa';
+import { Send, Mail, CheckCircle, XCircle, Loader2 } from 'lucide-react';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import Reveal from './Reveal';
 
 const socialLinks = [

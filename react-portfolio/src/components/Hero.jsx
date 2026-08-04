@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Mail, Download, Eye } from 'lucide-react';
-import { FaLinkedin, FaGithub, FaMedium, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import AntigravityHeroBackground from './AntigravityHeroBackground';
 
 // Typing animation roles
@@ -9,8 +9,7 @@ const roles = [
   'Full-Stack Developer',
   'React.js Developer',
   'Node.js Developer',
-  'Aspiring Software Engineer',
-  'DevOps Enthusiast',
+  'Software Engineer',
 ];
 
 const Hero = () => {
@@ -126,7 +125,7 @@ const Hero = () => {
             </span>
             <br />
             <span className="text-lg sm:text-xl md:text-2xl text-muted/70 font-medium inline-block mt-2">
-              Full-Stack Developer | Aspiring Software Engineer
+              Full-Stack Developer | Software Engineer
             </span>
           </motion.div>
 
@@ -157,10 +156,8 @@ const Hero = () => {
             variants={itemVariants}
             style={{ y: yDesc, opacity: opacityDesc }}
           >
-            Results-driven third-year ICT undergraduate with hands-on experience developing
-            full-stack web applications, SaaS platforms, and business intelligence solutions
-            using React.js, Node.js, Express.js, PostgreSQL, and MongoDB. Currently expanding
-            expertise in Docker, Linux, and CI/CD — seeking a Software Engineering Internship.
+            3rd-year ICT undergraduate building full-stack web apps and SaaS platforms with
+            React, Node.js, PostgreSQL & MongoDB. Exploring Docker, AWS & CI/CD — seeking a Software Engineering Internship.
           </motion.p>
 
           {/* Buttons — 3 CTA */}
@@ -223,12 +220,7 @@ const Hero = () => {
                  transition-all duration-300 hover:-translate-y-1" aria-label="GitHub">
               <FaGithub size={24} />
             </a>
-            <a href="https://medium.com/@tasunthachathunika" target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
-                 hover:text-white hover:border-white/50 hover:shadow-lg hover:shadow-white/20 
-                 transition-all duration-300 hover:-translate-y-1" aria-label="Medium">
-              <FaMedium size={24} />
-            </a>
+
             <a href="mailto:tasunthachathunika@gmail.com"
               className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
                  hover:text-accent-2 hover:border-accent-2/50 hover:shadow-lg hover:shadow-accent-2/30 

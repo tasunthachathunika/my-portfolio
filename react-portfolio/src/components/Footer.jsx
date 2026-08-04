@@ -1,5 +1,5 @@
 import { ArrowUp, Heart, Code2 } from 'lucide-react';
-import { FaLinkedin, FaGithub, FaMedium, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Reveal from './Reveal';
