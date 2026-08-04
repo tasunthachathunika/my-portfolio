@@ -9,64 +9,36 @@ import { TbBrandCSharp, TbLetterC } from "react-icons/tb";
 import { Code2, Brush, Cloud, Database, Server, Wrench } from 'lucide-react';
 import Reveal from './Reveal';
 
-// ─── Proficient Languages ────────────────────────
-const proficientLanguages = [
-  { name: 'JavaScript', icon: <FaJsSquare />, color: '#f7df1e', mastery: 4 },
-  { name: 'Python', icon: <FaPython />, color: '#3776AB', mastery: 3 },
-  { name: 'Java', icon: <FaJava />, color: '#ec2025', mastery: 3 },
+// ─── Row 1: Frontend ──────────────────────────────
+const row1Skills = [
+  { name: 'React.js', icon: <FaReact />, color: '#61dafb' },
+  { name: 'JavaScript', icon: <FaJsSquare />, color: '#f7df1e' },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06b6d4' },
+  { name: 'Vite', icon: <SiVite />, color: '#646CFF' },
+  { name: 'HTML5', icon: <FaHtml5 />, color: '#e34f26' },
+  { name: 'CSS3', icon: <FaCss3Alt />, color: '#2965f1' },
 ];
 
-// ─── Familiar Languages ──────────────────────────
-const familiarLanguages = [
-  { name: 'C++', icon: <SiCplusplus />, color: '#00599c', mastery: 2 },
-  { name: 'C#', icon: <TbBrandCSharp />, color: '#68217a', mastery: 2 },
-  { name: 'PHP', icon: <FaPhp />, color: '#777BB4', mastery: 2 },
-  { name: 'C', icon: <TbLetterC />, color: '#A8B9CC', mastery: 2 },
+// ─── Row 2: Backend & DBs ──────────────────────────
+const row2Skills = [
+  { name: 'Node.js', icon: <FaNodeJs />, color: '#68a063' },
+  { name: 'Express.js', icon: <SiExpress />, color: 'var(--theme-text)' },
+  { name: 'Core PHP', icon: <FaPhp />, color: '#777BB4' },
+  { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#336791' },
+  { name: 'MySQL', icon: <SiMysql />, color: '#4479a1' },
+  { name: 'MongoDB', icon: <SiMongodb />, color: '#47a248' },
+  { name: 'RESTful APIs', icon: <Server size={22} />, color: '#4caf50' },
+  { name: 'JWT Auth', icon: <SiJsonwebtokens />, color: '#d63aff' },
 ];
 
-// ─── Frontend Development ─────────────────────────
-const frontendSkills = [
-  { name: 'React.js', icon: <FaReact />, color: '#61dafb', mastery: 4 },
-  { name: 'Vite', icon: <SiVite />, color: '#646CFF', mastery: 4 },
-  { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06b6d4', mastery: 5 },
-  { name: 'HTML5', icon: <FaHtml5 />, color: '#e34f26', mastery: 5 },
-  { name: 'CSS3', icon: <FaCss3Alt />, color: '#2965f1', mastery: 5 },
-];
-
-// ─── Backend & APIs ───────────────────────────────
-const backendSkills = [
-  { name: 'Node.js', icon: <FaNodeJs />, color: '#68a063', mastery: 3 },
-  { name: 'Express.js', icon: <SiExpress />, color: 'var(--theme-text)', mastery: 3 },
-  { name: 'RESTful APIs', icon: <Server size={22} />, color: '#4caf50', mastery: 4 },
-  { name: 'Core PHP', icon: <FaPhp />, color: '#777BB4', mastery: 3 },
-  { name: 'JWT Auth', icon: <SiJsonwebtokens />, color: '#d63aff', mastery: 3 },
-];
-
-// ─── Cloud & Databases ───────────────────────────
-const databaseSkills = [
-  { name: 'AWS', icon: <FaAws />, color: '#FF9900', mastery: 2 },
-  { name: 'Azure', icon: <FaMicrosoft />, color: '#0089D6', mastery: 2 },
-  { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#336791', mastery: 3 },
-  { name: 'MySQL', icon: <SiMysql />, color: '#4479a1', mastery: 4 },
-  { name: 'MongoDB', icon: <SiMongodb />, color: '#47a248', mastery: 3 },
-  { name: 'SQLite', icon: <SiSqlite />, color: '#003B57', mastery: 3 },
-  { name: 'Supabase', icon: <SiSupabase />, color: '#3ECF8E', mastery: 3 },
-];
-
-// ─── DevOps & Developer Tools ─────────────────────
-const devopsSkills = [
-  { name: 'Git', icon: <FaGitAlt />, color: '#f05032', mastery: 4 },
-  { name: 'GitHub', icon: <FaGithub />, color: 'var(--theme-text)', mastery: 4 },
-  { name: 'Docker', icon: <FaDocker />, color: '#2496ed', mastery: 2 },
-  { name: 'Linux', icon: <FaLinux />, color: '#fcc624', mastery: 3 },
-  { name: 'GitHub Actions', icon: <span className="font-extrabold text-sm font-display">CI</span>, color: '#2088FF', mastery: 2 },
-  { name: 'Postman', icon: <SiPostman />, color: '#ff6c37', mastery: 4 },
-];
-
-// ─── Tools ────────────────────────────────────────
-const toolsSkills = [
-  { name: 'VS Code', icon: <Code2 size={22} />, color: '#007acc', mastery: 5 },
-  { name: 'Figma', icon: <FaFigma />, color: '#f24e1e', mastery: 4 },
+// ─── Row 3: DevOps & Tools ─────────────────────────
+const row3Skills = [
+  { name: 'AWS', icon: <FaAws />, color: '#FF9900' },
+  { name: 'Docker', icon: <FaDocker />, color: '#2496ed' },
+  { name: 'Git', icon: <FaGitAlt />, color: '#f05032' },
+  { name: 'GitHub Actions', icon: <span className="font-extrabold text-sm font-display">CI</span>, color: '#2088FF' },
+  { name: 'Linux', icon: <FaLinux />, color: '#fcc624' },
+  { name: 'Postman', icon: <SiPostman />, color: '#ff6c37' },
 ];
 
 const SkillCard = ({ skill, index }) => (
@@ -146,15 +118,15 @@ const Skills = () => {
 
         <div className="flex flex-col gap-4 mt-8">
           <Reveal delay={0.2}>
-            <MarqueeRow items={[...proficientLanguages, ...frontendSkills]} />
+            <MarqueeRow items={row1Skills} />
           </Reveal>
           
           <Reveal delay={0.3}>
-            <MarqueeRow items={[...backendSkills, ...databaseSkills]} reverse={true} />
+            <MarqueeRow items={row2Skills} reverse={true} />
           </Reveal>
           
           <Reveal delay={0.4}>
-            <MarqueeRow items={[...devopsSkills, ...familiarLanguages, ...toolsSkills]} />
+            <MarqueeRow items={row3Skills} />
           </Reveal>
         </div>
       </div>
