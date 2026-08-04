@@ -103,16 +103,26 @@ const SkillCard = ({ skill, index }) => (
   </motion.div>
 );
 
-const SectionLabel = ({ icon, label, color }) => (
-  <Reveal direction="left" delay={0.1}>
-    <div className="flex items-center gap-3 mb-5">
-      <div className="p-2 rounded-lg bg-bg/50 border border-border/50 text-text" style={{ color: color, boxShadow: `0 0 10px ${color}20` }}>
-        {icon}
+const MarqueeRow = ({ items, reverse = false }) => {
+  // Duplicate items to ensure smooth infinite scrolling without empty space
+  const duplicatedItems = [...items, ...items, ...items, ...items];
+  
+  return (
+    <div className="relative w-full overflow-hidden py-4 hover-pause flex items-center">
+      {/* Edge Gradient Masks for smooth appearance/disappearance */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none"></div>
+      
+      <div className={`flex w-max gap-4 md:gap-6 ${reverse ? 'animate-marquee-reverse' : 'animate-marquee'}`}>
+        {duplicatedItems.map((skill, index) => (
+          <div key={`${skill.name}-${index}`} className="flex-shrink-0">
+            <SkillCard skill={skill} index={0} />
+          </div>
+        ))}
       </div>
-      <h3 className="text-lg md:text-xl font-bold font-display text-text/90 tracking-wide">{label}</h3>
     </div>
-  </Reveal>
-);
+  );
+};
 
 const Skills = () => {
   return (
@@ -134,78 +144,18 @@ const Skills = () => {
 
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-
-          {/* Proficient Languages */}
-          <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex flex-col h-full hover:border-border/60 transition-colors">
-            <SectionLabel icon={<Code2 size={18} />} label="Proficient Languages" color="#f7df1e" />
-            <div className="flex flex-wrap gap-3">
-              {proficientLanguages.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} index={index} />
-              ))}
-            </div>
-          </div>
-
-          {/* Frontend Development */}
-          <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex flex-col h-full hover:border-border/60 transition-colors">
-            <SectionLabel icon={<Code2 size={18} />} label="Frontend Development" color="var(--theme-accent-3)" />
-            <div className="flex flex-wrap gap-3">
-              {frontendSkills.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} index={index} />
-              ))}
-            </div>
-          </div>
-
-          {/* Backend & APIs */}
-          <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex flex-col h-full hover:border-border/60 transition-colors">
-            <SectionLabel icon={<Server size={18} />} label="Backend & APIs" color="#68a063" />
-            <div className="flex flex-wrap gap-3">
-              {backendSkills.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} index={index} />
-              ))}
-            </div>
-          </div>
-
-          {/* Cloud & Databases */}
-          <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex flex-col h-full hover:border-border/60 transition-colors">
-            <SectionLabel icon={<Database size={18} />} label="Cloud & Databases" color="#336791" />
-            <div className="flex flex-wrap gap-3">
-              {databaseSkills.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} index={index} />
-              ))}
-            </div>
-          </div>
-
-          {/* DevOps & Developer Tools */}
-          <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex flex-col h-full hover:border-border/60 transition-colors">
-            <SectionLabel icon={<Cloud size={18} />} label="DevOps & Developer Tools" color="#2496ed" />
-            <div className="flex flex-wrap gap-3">
-              {devopsSkills.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} index={index} />
-              ))}
-            </div>
-          </div>
-
-          {/* Familiar With & Tools */}
-          <div className="flex flex-col gap-6 lg:gap-8 h-full">
-            <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex-1 hover:border-border/60 transition-colors flex flex-col justify-center">
-              <SectionLabel icon={<Code2 size={18} />} label="Familiar With" color="#A8B9CC" />
-              <div className="flex flex-wrap gap-3">
-                {familiarLanguages.map((skill, index) => (
-                  <SkillCard key={skill.name} skill={skill} index={index} />
-                ))}
-              </div>
-            </div>
-            <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 bg-surface/20 flex-1 hover:border-border/60 transition-colors flex flex-col justify-center">
-              <SectionLabel icon={<Wrench size={18} />} label="Tools" color="#007acc" />
-              <div className="flex flex-wrap gap-3">
-                {toolsSkills.map((skill, index) => (
-                  <SkillCard key={skill.name} skill={skill} index={index} />
-                ))}
-              </div>
-            </div>
-          </div>
-
+        <div className="flex flex-col gap-4 mt-8">
+          <Reveal delay={0.2}>
+            <MarqueeRow items={[...proficientLanguages, ...frontendSkills]} />
+          </Reveal>
+          
+          <Reveal delay={0.3}>
+            <MarqueeRow items={[...backendSkills, ...databaseSkills]} reverse={true} />
+          </Reveal>
+          
+          <Reveal delay={0.4}>
+            <MarqueeRow items={[...devopsSkills, ...familiarLanguages, ...toolsSkills]} />
+          </Reveal>
         </div>
       </div>
     </section>

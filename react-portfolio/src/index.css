@@ -40,15 +40,6 @@
   50% { transform: translateY(-20px); }
 }
 
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 35s linear infinite;
-}
-
 @keyframes glow {
   from { box-shadow: 0 0 5px currentColor, 0 0 10px currentColor; }
   to { box-shadow: 0 0 10px currentColor, 0 0 25px currentColor, 0 0 40px currentColor; }
@@ -129,6 +120,24 @@
 @keyframes typewriter-blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+@keyframes scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 0.75rem)); } /* -50% because we duplicate the track, minus half the gap */
+}
+
+.animate-marquee {
+  animation: scroll-x 40s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: scroll-x 40s linear infinite reverse;
+}
+
+.hover-pause:hover .animate-marquee,
+.hover-pause:hover .animate-marquee-reverse {
+  animation-play-state: paused;
 }
 
 /* ======= BASE STYLES ======= */
