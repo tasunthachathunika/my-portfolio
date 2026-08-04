@@ -7,6 +7,30 @@ import Reveal from './Reveal';
 const MEDIUM_USERNAME = 'tasunthachathunika';
 const RSS_URL = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${MEDIUM_USERNAME}`;
 
+// Placeholder posts — replace with real Medium articles when published
+const placeholderPosts = [
+  {
+    title: 'Getting Started with AWS: A Beginner\'s Guide to Cloud Computing',
+    pubDate: '2026-08-05',
+    link: `https://medium.com/@${MEDIUM_USERNAME}`,
+    description: 'An introduction to Amazon Web Services for developers. Learn the fundamentals of EC2, S3, IAM, and how to deploy your first application on the cloud. A practical walkthrough for beginners stepping into the world of cloud infrastructure...',
+    thumbnail: null,
+    categories: ['AWS', 'Cloud Computing', 'DevOps'],
+    guid: 'placeholder-aws',
+    isPlaceholder: true,
+  },
+  {
+    title: 'Docker for Developers: Containerize Your First Application',
+    pubDate: '2026-08-04',
+    link: `https://medium.com/@${MEDIUM_USERNAME}`,
+    description: 'Learn how to use Docker to containerize your web applications. This hands-on guide covers Dockerfiles, images, containers, Docker Compose, and best practices for building production-ready containerized apps...',
+    thumbnail: null,
+    categories: ['Docker', 'DevOps', 'Containers'],
+    guid: 'placeholder-docker',
+    isPlaceholder: true,
+  },
+];
+
 // Extract first image from HTML content
 const extractImage = (html) => {
   if (!html) return null;
@@ -90,10 +114,16 @@ const BlogCard = ({ post, index }) => {
             <BookOpen size={40} className="text-muted opacity-40" />
           </div>
         )}
+        {/* Coming Soon badge for placeholder posts */}
+        {post.isPlaceholder && (
+          <span className="absolute top-3 right-3 px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full bg-accent-1/90 text-white backdrop-blur-sm">
+            Coming Soon
+          </span>
+        )}
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-bg/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
           <span className="flex items-center gap-1.5 text-sm font-semibold text-accent-3">
-            Read Article <ExternalLink size={14} />
+            {post.isPlaceholder ? 'Coming Soon' : 'Read Article'} <ExternalLink size={14} />
           </span>
         </div>
       </div>
@@ -153,12 +183,17 @@ const Blog = () => {
       const response = await fetch(RSS_URL);
       const data = await response.json();
       if (data.status === 'ok' && data.items) {
-        setPosts(data.items.slice(0, 6)); // Show up to 6 posts
+        // Combine real Medium posts with placeholder posts
+        const realPosts = data.items;
+        const combined = [...realPosts, ...placeholderPosts].slice(0, 6);
+        setPosts(combined);
       } else {
-        setError('Could not load blog posts.');
+        // If Medium API fails, still show placeholder posts
+        setPosts(placeholderPosts);
       }
     } catch {
-      setError('Failed to fetch blog posts. Please try again later.');
+      // If fetch fails, still show placeholder posts
+      setPosts(placeholderPosts);
     } finally {
       setLoading(false);
     }
