@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import TechMarquee from './components/TechMarquee';
 import About from './components/About';
 import Education from './components/Education';
 import Skills from './components/Skills';
@@ -67,6 +68,7 @@ function App() {
       <Navbar />
       <main className="relative z-10">
         <Hero />
+        <TechMarquee />
         <SectionDivider />
         <About />
         <SectionDivider flip />
