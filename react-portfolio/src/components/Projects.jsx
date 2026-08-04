@@ -332,17 +332,18 @@ const ProjectModal = ({ project, onClose }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12 bg-black/60 backdrop-blur-md overflow-y-auto"
+      className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md overflow-y-auto"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 60, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 30, scale: 0.95 }}
-        transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-4xl bg-card rounded-3xl border border-border shadow-2xl overflow-hidden my-auto"
-        style={{ boxShadow: `0 0 60px ${project.accentColor}20` }}
-      >
+      <div className="min-h-full flex items-center justify-center p-4 sm:p-6 md:p-12 py-12 md:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 60, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 30, scale: 0.95 }}
+          transition={{ type: "spring", damping: 25, stiffness: 300 }}
+          onClick={(e) => e.stopPropagation()}
+          className="relative w-full max-w-4xl bg-card rounded-3xl border border-border overflow-hidden shadow-2xl"
+          style={{ boxShadow: `0 20px 80px -20px ${project.accentColor}50` }}
+        >
         {/* Close Button */}
         <motion.button
           onClick={onClose}
@@ -355,11 +356,12 @@ const ProjectModal = ({ project, onClose }) => {
 
         {/* Modal Header Image */}
         <div className="relative h-64 md:h-80 w-full bg-bg flex items-center justify-center overflow-hidden">
+          <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 z-10 mix-blend-color`}></div>
           {project.image ? (
             <motion.img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover opacity-60"
+              className="w-full h-full object-cover opacity-70"
               initial={{ scale: 1.1 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -371,11 +373,12 @@ const ProjectModal = ({ project, onClose }) => {
               </div>
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent z-10"></div>
           
-          <div className="absolute bottom-0 left-0 w-full p-8 md:p-10">
+          <div className="absolute bottom-0 left-0 w-full p-8 md:p-10 z-20">
              <motion.h2
-               className="text-3xl md:text-5xl font-black text-text mb-4 drop-shadow-lg"
+               className="text-3xl md:text-5xl font-black mb-4 drop-shadow-2xl"
+               style={{ color: '#ffffff', textShadow: `0 4px 20px ${project.accentColor}80` }}
                initial={{ opacity: 0, y: 20 }}
                animate={{ opacity: 1, y: 0 }}
                transition={{ delay: 0.2, duration: 0.5 }}
@@ -386,7 +389,12 @@ const ProjectModal = ({ project, onClose }) => {
                 {project.tags.map((tag, i) => (
                   <motion.span
                     key={tag.name}
-                    className="px-3 py-1 rounded-full text-xs font-bold border border-border bg-bg/40 backdrop-blur-md text-text"
+                    className="px-4 py-1.5 rounded-full text-xs font-bold shadow-lg backdrop-blur-md"
+                    style={{
+                      backgroundColor: `${tag.color}20`,
+                      color: tag.color,
+                      border: `1px solid ${tag.color}40`,
+                    }}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 + i * 0.05 }}
@@ -408,8 +416,11 @@ const ProjectModal = ({ project, onClose }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
               >
-                <h4 className="text-xl font-bold text-text mb-3 flex items-center gap-2">
-                  <span style={{ color: project.accentColor }}><Layout size={20} /></span> Overview
+                <h4 className="text-xl font-bold mb-3 flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-bg border border-border" style={{ color: project.accentColor, boxShadow: `0 0 15px ${project.accentColor}30` }}>
+                    <Layout size={20} />
+                  </div>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Overview</span>
                 </h4>
                 <p className="text-muted leading-relaxed text-base md:text-lg">
                   {project.fullDescription}
@@ -423,8 +434,11 @@ const ProjectModal = ({ project, onClose }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.5 }}
                 >
-                  <h4 className="text-xl font-bold text-text mb-3 flex items-center gap-2">
-                    <span style={{ color: project.accentColor }}><Zap size={20} /></span> Key Features
+                  <h4 className="text-xl font-bold mb-3 flex items-center gap-3 mt-6">
+                    <div className="p-2 rounded-lg bg-bg border border-border" style={{ color: project.accentColor, boxShadow: `0 0 15px ${project.accentColor}30` }}>
+                      <Zap size={20} />
+                    </div>
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Key Features</span>
                   </h4>
                   <ul className="space-y-2">
                     {project.keyFeatures.map((feat, i) => (
@@ -449,8 +463,11 @@ const ProjectModal = ({ project, onClose }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
               >
-                <h4 className="text-xl font-bold text-text mb-3 flex items-center gap-2">
-                  <span style={{ color: project.accentColor }}><Database size={20} /></span> Architecture
+                <h4 className="text-xl font-bold mb-3 flex items-center gap-3 mt-6">
+                  <div className="p-2 rounded-lg bg-bg border border-border" style={{ color: project.accentColor, boxShadow: `0 0 15px ${project.accentColor}30` }}>
+                    <Database size={20} />
+                  </div>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Architecture</span>
                 </h4>
                 <p className="text-muted leading-relaxed text-base md:text-lg mb-3">
                   {project.architecture}
@@ -480,8 +497,11 @@ const ProjectModal = ({ project, onClose }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6, duration: 0.5 }}
                 >
-                  <h4 className="text-xl font-bold text-text mb-3 flex items-center gap-2">
-                    <span style={{ color: project.accentColor }}><Table size={20} /></span> Database Schema
+                  <h4 className="text-xl font-bold mb-3 flex items-center gap-3 mt-6">
+                    <div className="p-2 rounded-lg bg-bg border border-border" style={{ color: project.accentColor, boxShadow: `0 0 15px ${project.accentColor}30` }}>
+                      <Table size={20} />
+                    </div>
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Database Schema</span>
                   </h4>
                   <div className="glass-card rounded-xl p-4 space-y-1.5">
                     {project.databaseSchema.map((table, i) => (
@@ -506,8 +526,11 @@ const ProjectModal = ({ project, onClose }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.5 }}
               >
-                <h4 className="text-xl font-bold text-text mb-3 flex items-center gap-2">
-                  <span style={{ color: project.accentColor }}><Code2 size={20} /></span> Challenges Solved
+                <h4 className="text-xl font-bold mb-3 flex items-center gap-3 mt-6">
+                  <div className="p-2 rounded-lg bg-bg border border-border" style={{ color: project.accentColor, boxShadow: `0 0 15px ${project.accentColor}30` }}>
+                    <Code2 size={20} />
+                  </div>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Challenges Solved</span>
                 </h4>
                 <p className="text-muted leading-relaxed text-base md:text-lg mb-3">
                   {project.challenges}
@@ -538,15 +561,21 @@ const ProjectModal = ({ project, onClose }) => {
              animate={{ opacity: 1, x: 0 }}
              transition={{ delay: 0.5, duration: 0.5 }}
            >
-              <div className="glass-card p-6 rounded-2xl">
-                <h4 className="text-lg font-bold text-text mb-4">Technologies</h4>
-                <ul className="flex flex-wrap gap-2">
+              <div className="glass-card p-8 rounded-3xl border border-border bg-surface/20">
+                <h4 className="text-lg font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Technologies Stack</h4>
+                <ul className="flex flex-wrap gap-2.5">
                   {project.technologies.map((tech, i) => (
                     <motion.li
                       key={tech}
-                      className="px-3 py-1.5 rounded-lg bg-bg/50 border border-border text-sm font-medium text-muted"
+                      className="px-4 py-2 rounded-xl text-sm font-bold text-white shadow-lg cursor-default"
+                      style={{ 
+                        background: `linear-gradient(135deg, ${project.accentColor}90, ${project.accentColor}40)`,
+                        border: `1px solid ${project.accentColor}60`,
+                        boxShadow: `0 4px 15px -3px ${project.accentColor}40` 
+                      }}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
                       transition={{ delay: 0.6 + i * 0.05 }}
                     >
                       {tech}
@@ -585,7 +614,9 @@ const ProjectModal = ({ project, onClose }) => {
            </motion.div>
 
         </div>
+        </div>
       </motion.div>
+      </div>
     </motion.div>
   );
 };
