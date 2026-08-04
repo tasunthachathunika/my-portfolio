@@ -196,10 +196,9 @@ const About = () => {
 
             <div className="space-y-5 text-muted text-base md:text-lg leading-relaxed">
               {[
-                <>Hello! I'm{' '}<strong className="text-text font-semibold">Tasuntha Chathunika Dayasiri</strong>, a results-driven third-year ICT undergraduate at the University of Vavuniya, Faculty of Technological Studies. I'm passionate about software engineering, full-stack development, and DevOps.</>,
-                <>I have hands-on experience developing full-stack web applications, SaaS platforms, and business intelligence solutions using <strong className="text-text font-semibold">React.js, Node.js, Express.js, PostgreSQL, and MongoDB</strong>. I love turning complex problems into elegant, user-centric solutions.</>,
-                <>Currently, I'm expanding my expertise in <strong className="text-text font-semibold">Docker, Linux, and CI/CD pipelines</strong> while deepening my knowledge of cloud platforms like AWS and Microsoft Azure. I also actively share technical knowledge through <strong className="text-text font-semibold">Medium</strong> articles.</>,
-                <>I'm seeking a <strong className="text-text font-semibold">Software Engineering Internship</strong> to contribute to real-world software development, continuously learn, and grow as an engineer.</>,
+                <>Hello! I'm{' '}<strong className="text-text font-semibold">Tasuntha Chathunika Dayasiri</strong>, a 3rd-year ICT undergraduate at the University of Vavuniya. I specialize in <strong className="text-text font-semibold">Software Engineering, Full-Stack Development, and DevOps</strong>.</>,
+                <>I build robust web applications and SaaS platforms using <strong className="text-text font-semibold">React, Node.js, PostgreSQL, and MongoDB</strong>. Currently, I'm diving deeper into <strong className="text-text font-semibold">Docker, AWS, and CI/CD</strong>, while sharing my learnings on <strong className="text-text font-semibold">Medium</strong>.</>,
+                <>I am actively seeking a <strong className="text-text font-semibold">Software Engineering Internship</strong> to apply my skills in real-world projects and grow as an engineer.</>,
               ].map((content, i) => (
                 <motion.p
                   key={i}
