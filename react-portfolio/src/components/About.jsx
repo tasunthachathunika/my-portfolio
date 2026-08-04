@@ -7,7 +7,7 @@ import { useGSAP } from '@gsap/react';
 import Reveal from './Reveal';
 
 const stats = [
-  { icon: <Code2 size={20} />, value: '1+', numValue: 1, label: 'Year Coding', color: 'var(--theme-accent-3)', suffix: '+' },
+  { icon: <Code2 size={20} />, value: '1000+', numValue: 1000, label: 'Hours Coding', color: 'var(--theme-accent-3)', suffix: '+' },
   { icon: <Layers size={20} />, value: '3+', numValue: 3, label: 'Projects Built', color: 'var(--theme-accent-1)', suffix: '+' },
   { icon: <BookOpen size={20} />, value: 'BICT (Hons)', numValue: null, label: 'GPA: 3.00', color: 'var(--theme-accent-2)', suffix: '' },
 ];

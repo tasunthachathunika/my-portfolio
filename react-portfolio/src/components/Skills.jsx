@@ -9,15 +9,19 @@ import { TbBrandCSharp, TbLetterC } from "react-icons/tb";
 import { Code2, Brush, Cloud, Database, Server, Wrench } from 'lucide-react';
 import Reveal from './Reveal';
 
-// ─── Programming Languages ────────────────────────
-const programmingSkills = [
-  { name: 'Java', icon: <FaJava />, color: '#ec2025', mastery: 3 },
-  { name: 'Python', icon: <FaPython />, color: '#3776AB', mastery: 3 },
-  { name: 'C', icon: <TbLetterC />, color: '#A8B9CC', mastery: 3 },
-  { name: 'C++', icon: <SiCplusplus />, color: '#00599c', mastery: 3 },
-  { name: 'C#', icon: <TbBrandCSharp />, color: '#68217a', mastery: 3 },
+// ─── Proficient Languages ────────────────────────
+const proficientLanguages = [
   { name: 'JavaScript', icon: <FaJsSquare />, color: '#f7df1e', mastery: 4 },
-  { name: 'PHP', icon: <FaPhp />, color: '#777BB4', mastery: 3 },
+  { name: 'Python', icon: <FaPython />, color: '#3776AB', mastery: 3 },
+  { name: 'Java', icon: <FaJava />, color: '#ec2025', mastery: 3 },
+];
+
+// ─── Familiar Languages ──────────────────────────
+const familiarLanguages = [
+  { name: 'C++', icon: <SiCplusplus />, color: '#00599c', mastery: 2 },
+  { name: 'C#', icon: <TbBrandCSharp />, color: '#68217a', mastery: 2 },
+  { name: 'PHP', icon: <FaPhp />, color: '#777BB4', mastery: 2 },
+  { name: 'C', icon: <TbLetterC />, color: '#A8B9CC', mastery: 2 },
 ];
 
 // ─── Frontend Development ─────────────────────────
@@ -173,16 +177,31 @@ const Skills = () => {
 
         <div className="flex flex-col gap-14">
 
-          {/* Programming Languages */}
+          {/* Proficient Languages */}
           <div>
             <SectionLabel
               icon={<Code2 size={15} />}
-              label="Programming Languages"
-              color="#ec2025"
-              gradientClass="from-[#ec2025] to-[#68217a]"
+              label="Proficient Languages"
+              color="#f7df1e"
+              gradientClass="from-[#f7df1e] to-[#ec2025]"
             />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4">
-              {programmingSkills.map((skill, index) => (
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-4">
+              {proficientLanguages.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+              ))}
+            </div>
+          </div>
+
+          {/* Familiar Languages */}
+          <div>
+            <SectionLabel
+              icon={<Code2 size={15} />}
+              label="Familiar With"
+              color="#A8B9CC"
+              gradientClass="from-[#A8B9CC] to-[#00599c]"
+            />
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-4">
+              {familiarLanguages.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
             </div>
