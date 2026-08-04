@@ -7,9 +7,7 @@ import Reveal from './Reveal';
 const socialLinks = [
   { icon: <FaLinkedin size={20} />, href: 'https://www.linkedin.com/in/tasuntha-chathunika/', color: '#0077b5', label: 'LinkedIn' },
   { icon: <FaGithub size={20} />, href: 'https://github.com/Tasuntha-Chathunika', color: 'var(--theme-text)', label: 'GitHub' },
-  { icon: <FaMedium size={20} />, href: 'https://medium.com/@tasunthachathunika', color: 'var(--theme-text)', label: 'Medium' },
   { icon: <Mail size={20} />, href: 'mailto:tasunthachathunika@gmail.com', color: 'var(--theme-accent-2)', label: 'Email' },
-  { icon: <Phone size={20} />, href: 'tel:+94750561571', color: 'var(--theme-accent-1)', label: 'Phone' },
 ];
 
 const contactInfo = [
@@ -19,13 +17,6 @@ const contactInfo = [
     value: 'tasunthachathunika@gmail.com',
     href: 'mailto:tasunthachathunika@gmail.com',
     color: 'var(--theme-accent-2)',
-  },
-  {
-    icon: <Phone size={18} />,
-    label: 'Phone',
-    value: '+94 75 0561 571',
-    href: 'tel:+94750561571',
-    color: 'var(--theme-accent-1)',
   },
 ];
 
