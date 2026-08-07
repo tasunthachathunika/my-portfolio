@@ -37,7 +37,7 @@ const Education = () => {
       <div className="section-container relative z-10">
         <div className="mb-16 flex flex-col items-center text-center">
           <Reveal>
-            <h2 className="text-4xl md:text-5xl font-extrabold font-display">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">
               My <span className="gradient-text">Education</span>
             </h2>
           </Reveal>
@@ -131,10 +131,12 @@ const Education = () => {
                   </div>
 
                   {/* Institution + location */}
-                  <div className="flex items-center gap-2 mb-4 relative z-30">
-                    <MapPin size={13} style={{ color: item.accentColor }} />
-                    <span className="text-sm font-semibold" style={{ color: item.accentColor }}>{item.institution}</span>
-                    <span className="text-muted text-sm">— {item.location}</span>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-4 relative z-30">
+                    <div className="flex items-center gap-1.5">
+                      <MapPin size={13} style={{ color: item.accentColor }} className="flex-shrink-0" />
+                      <span className="text-xs sm:text-sm font-semibold" style={{ color: item.accentColor }}>{item.institution}</span>
+                    </div>
+                    <span className="text-muted text-xs sm:text-sm pl-5 sm:pl-0">— {item.location}</span>
                   </div>
 
                   <p className="text-muted leading-relaxed text-sm md:text-base relative z-30">{item.description}</p>

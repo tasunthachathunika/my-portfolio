@@ -71,7 +71,7 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroRef} id="hero" className="relative min-h-screen flex items-center justify-center pt-20 pb-20">
+    <section ref={heroRef} id="hero" className="relative min-h-screen flex items-center justify-center pt-16 pb-16 sm:pt-20 sm:pb-20 overflow-hidden">
       {/* Animated Gradient Blobs — Multi-color */}
       <motion.div className="hero-blob absolute top-20 left-10 w-80 h-80 bg-accent-1/25 rounded-full blur-[120px] animate-blob" style={{ y: yBlob }}></motion.div>
       <motion.div className="hero-blob absolute top-40 right-20 w-96 h-96 bg-accent-2/20 rounded-full blur-[120px] animate-blob" style={{ animationDelay: '2s', y: yBlob }}></motion.div>
@@ -83,7 +83,7 @@ const Hero = () => {
       {/* Antigravity Interactive Grid Overlay */}
       <AntigravityHeroBackground />
 
-      <div className="section-container relative z-10 w-full pt-24">
+      <div className="section-container relative z-10 w-full pt-16 sm:pt-24">
         <motion.div
           className="hero-content max-w-4xl mx-auto text-center"
           variants={containerVariants}
@@ -107,7 +107,7 @@ const Hero = () => {
 
           {/* Title */}
           <motion.h1
-            className="hero-title text-6xl sm:text-7xl md:text-8xl lg:text-[6.5rem] font-black font-display leading-[1.1] mb-6 tracking-tight"
+            className="hero-title text-4xl sm:text-6xl md:text-7xl lg:text-[6.5rem] font-black font-display leading-[1.1] mb-4 sm:mb-6 tracking-tight"
             variants={itemVariants}
             style={{ y: yTitle, scale: scaleTitle, opacity: opacityTitle }}
           >
@@ -121,25 +121,25 @@ const Hero = () => {
             variants={itemVariants}
             style={{ y: ySubtitle, opacity: opacitySubtitle }}
           >
-            <span className="text-2xl sm:text-3xl md:text-4xl text-muted font-bold inline-block">
+            <span className="text-xl sm:text-2xl md:text-4xl text-muted font-bold inline-block">
               ICT Undergraduate
             </span>
             <br />
-            <span className="text-lg sm:text-xl md:text-2xl text-muted/70 font-medium inline-block mt-2">
+            <span className="text-base sm:text-lg md:text-2xl text-muted/70 font-medium inline-block mt-1 sm:mt-2">
               Full-Stack Developer | Software Engineer
             </span>
           </motion.div>
 
           {/* Typing Animation — Role Rotator */}
           <motion.div
-            className="mb-8 h-12 flex items-center justify-center"
+            className="mb-6 sm:mb-8 h-10 sm:h-12 flex items-center justify-center"
             variants={itemVariants}
             style={{ y: ySubtitle, opacity: opacitySubtitle }}
           >
             <AnimatePresence mode="wait">
               <motion.span
                 key={roleIndex}
-                className="text-xl sm:text-2xl md:text-3xl font-semibold gradient-text inline-block"
+                className="text-lg sm:text-xl md:text-3xl font-semibold gradient-text inline-block"
                 initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
@@ -153,7 +153,7 @@ const Hero = () => {
 
           {/* Description */}
           <motion.p
-            className="hero-description text-lg md:text-xl text-muted max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="hero-description text-sm sm:text-lg md:text-xl text-muted max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2 sm:px-0"
             variants={itemVariants}
             style={{ y: yDesc, opacity: opacityDesc }}
           >
@@ -163,13 +163,13 @@ const Hero = () => {
 
           {/* Buttons — 3 CTA */}
           <motion.div
-            className="hero-buttons flex flex-wrap gap-4 justify-center"
+            className="hero-buttons flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center items-center"
             variants={itemVariants}
             style={{ y: yButtons, opacity: opacityButtons }}
           >
             <motion.a
               href="#projects"
-              className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white
+              className="group flex items-center justify-center gap-2 sm:gap-2.5 w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-white text-sm sm:text-base
                 bg-gradient-to-r from-accent-3 via-accent-5 to-accent-1
                 hover:shadow-lg hover:shadow-accent-3/50 transition-all duration-300 animated-gradient-bg"
               whileHover={{ scale: 1.05, y: -3 }}
@@ -182,7 +182,7 @@ const Hero = () => {
               href="/Tasuntha_Chathunika.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-text
+              className="group flex items-center justify-center gap-2 sm:gap-2.5 w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-text text-sm sm:text-base
                 glass-card neon-border hover:border-accent-1/50 hover:shadow-lg hover:shadow-accent-1/30 transition-all duration-300"
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.97 }}
@@ -192,7 +192,7 @@ const Hero = () => {
             </motion.a>
             <motion.a
               href="#contact"
-              className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white
+              className="group flex items-center justify-center gap-2 sm:gap-2.5 w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-white text-sm sm:text-base
                 bg-gradient-to-r from-accent-2 via-accent-6 to-accent-4
                 hover:shadow-lg hover:shadow-accent-2/40 transition-all duration-300 animated-gradient-bg"
               whileHover={{ scale: 1.05, y: -3 }}
@@ -205,28 +205,28 @@ const Hero = () => {
 
           {/* Social Links */}
           <motion.div
-            className="hero-socials flex gap-6 justify-center mt-12"
+            className="hero-socials flex gap-4 sm:gap-6 justify-center mt-8 sm:mt-12"
             variants={itemVariants}
             style={{ y: yButtons, opacity: opacityButtons }}
           >
             <a href="https://www.linkedin.com/in/tasuntha-chathunika/" target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
+              className="flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 rounded-full glass-card neon-border text-text/70 
                  hover:text-[#0077b5] hover:border-[#0077b5]/50 hover:shadow-lg hover:shadow-[#0077b5]/30 
                  transition-all duration-300 hover:-translate-y-1" aria-label="LinkedIn">
-              <FaLinkedin size={24} />
+              <FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a href="https://github.com/Tasuntha-Chathunika" target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
+              className="flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 rounded-full glass-card neon-border text-text/70 
                  hover:text-white hover:border-white/50 hover:shadow-lg hover:shadow-white/20 
                  transition-all duration-300 hover:-translate-y-1" aria-label="GitHub">
-              <FaGithub size={24} />
+              <FaGithub className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
 
             <a href="mailto:tasunthachathunika@gmail.com"
-              className="flex items-center justify-center w-14 h-14 rounded-full glass-card neon-border text-text/70 
+              className="flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 rounded-full glass-card neon-border text-text/70 
                  hover:text-accent-2 hover:border-accent-2/50 hover:shadow-lg hover:shadow-accent-2/30 
                  transition-all duration-300 hover:-translate-y-1" aria-label="Email">
-              <FaEnvelope size={24} />
+              <FaEnvelope className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
           </motion.div>
         </motion.div>

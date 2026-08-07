@@ -106,7 +106,7 @@ const Skills = () => {
       <div className="section-container relative z-10">
         <div className="mb-16 flex flex-col items-center text-center">
           <Reveal>
-            <h2 className="text-4xl md:text-5xl font-extrabold font-display">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">
               Technical <span className="gradient-text">Skills</span>
             </h2>
           </Reveal>

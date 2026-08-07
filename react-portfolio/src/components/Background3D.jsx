@@ -50,8 +50,9 @@ function generateStarPositions(count, theme) {
 
 const Particles = ({ theme }) => {
   const pointsRef = useRef();
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const { positions, colors, sizes } = useMemo(
-    () => generateStarPositions(2000, theme),
+    () => generateStarPositions(isMobile ? 800 : 2000, theme),
     [theme]
   );
 

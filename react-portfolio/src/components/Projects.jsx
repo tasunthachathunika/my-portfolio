@@ -334,14 +334,14 @@ const ProjectModal = ({ project, onClose }) => {
       onClick={onClose}
       className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md overflow-y-auto"
     >
-      <div className="min-h-full flex items-center justify-center p-4 sm:p-6 md:p-12 py-12 md:py-20">
+      <div className="min-h-full flex items-start sm:items-center justify-center p-3 sm:p-6 md:p-12 py-8 sm:py-12 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 60, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 30, scale: 0.95 }}
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
           onClick={(e) => e.stopPropagation()}
-          className="relative w-full max-w-4xl bg-card rounded-3xl border border-border overflow-hidden shadow-2xl"
+          className="relative w-full max-w-4xl bg-card rounded-2xl sm:rounded-3xl border border-border overflow-hidden shadow-2xl"
           style={{ boxShadow: `0 20px 80px -20px ${project.accentColor}50` }}
         >
         {/* Close Button */}
@@ -355,7 +355,7 @@ const ProjectModal = ({ project, onClose }) => {
         </motion.button>
 
         {/* Modal Header Image */}
-        <div className="relative h-64 md:h-80 w-full bg-bg flex items-center justify-center overflow-hidden">
+        <div className="relative h-44 sm:h-64 md:h-80 w-full bg-bg flex items-center justify-center overflow-hidden">
           <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 z-10 mix-blend-color`}></div>
           {project.image ? (
             <motion.img
@@ -375,9 +375,9 @@ const ProjectModal = ({ project, onClose }) => {
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent z-10"></div>
           
-          <div className="absolute bottom-0 left-0 w-full p-8 md:p-10 z-20">
+          <div className="absolute bottom-0 left-0 w-full p-4 sm:p-8 md:p-10 z-20">
              <motion.h2
-               className="text-3xl md:text-5xl font-black mb-4 drop-shadow-2xl"
+               className="text-xl sm:text-3xl md:text-5xl font-black mb-2 sm:mb-4 drop-shadow-2xl"
                style={{ color: '#ffffff', textShadow: `0 4px 20px ${project.accentColor}80` }}
                initial={{ opacity: 0, y: 20 }}
                animate={{ opacity: 1, y: 0 }}
@@ -407,7 +407,7 @@ const ProjectModal = ({ project, onClose }) => {
         </div>
 
         {/* Modal Body */}
-        <div className="p-8 md:p-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="p-4 sm:p-8 md:p-10 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10">
            
            <div className="md:col-span-2 space-y-8">
               {/* Overview */}
@@ -561,7 +561,7 @@ const ProjectModal = ({ project, onClose }) => {
              animate={{ opacity: 1, x: 0 }}
              transition={{ delay: 0.5, duration: 0.5 }}
            >
-              <div className="glass-card p-8 rounded-3xl border border-border bg-surface/20">
+              <div className="glass-card p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-border bg-surface/20">
                 <h4 className="text-lg font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Technologies Stack</h4>
                 <ul className="flex flex-wrap gap-2.5">
                   {project.technologies.map((tech, i) => (
@@ -632,7 +632,7 @@ const Projects = () => {
       <div className="section-container relative z-10">
         <div className="mb-16 flex flex-col items-center text-center">
           <Reveal>
-            <h2 className="text-4xl md:text-5xl font-extrabold font-display">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">
               Featured <span className="gradient-text">Projects</span>
             </h2>
           </Reveal>

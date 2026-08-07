@@ -115,7 +115,7 @@ const About = () => {
   };
 
   return (
-    <section ref={aboutRef} id="about" className="py-28 md:py-36 relative overflow-hidden">
+    <section ref={aboutRef} id="about" className="py-20 sm:py-28 md:py-36 relative overflow-hidden">
       {/* Decorative blobs */}
       <div className="absolute top-1/3 left-0 w-96 h-96 bg-accent-1/10 rounded-full blur-[150px] pointer-events-none"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-accent-3/8 rounded-full blur-[120px] pointer-events-none"></div>
@@ -123,18 +123,18 @@ const About = () => {
       <div className="section-container relative z-10">
         {/* Section Heading */}
         <Reveal>
-          <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold font-display">
+          <div className="mb-10 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">
               About <span className="gradient-text">Me</span>
             </h2>
             <div className="mt-4 w-20 h-1 rounded-full bg-gradient-to-r from-accent-1 to-accent-2"></div>
           </div>
         </Reveal>
 
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 sm:gap-12 lg:gap-20">
           {/* Image + Stats */}
           <motion.div
-            className="about-image-container w-full max-w-xs lg:max-w-sm relative group flex-shrink-0"
+            className="about-image-container w-full max-w-[280px] sm:max-w-xs lg:max-w-sm mx-auto lg:mx-0 relative group flex-shrink-0"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -181,20 +181,20 @@ const About = () => {
 
           {/* Text Content */}
           <motion.div
-            className="about-text-content flex-1"
+            className="about-text-content flex-1 min-w-0 w-full"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Reveal direction="right" delay={0.1}>
-              <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-snug">
+              <h3 className="text-lg sm:text-xl md:text-3xl font-bold mb-4 sm:mb-6 leading-snug">
                 Developing robust solutions with a focus on{' '}
                 <span className="gradient-text">user experience</span>.
               </h3>
             </Reveal>
 
-            <div className="space-y-5 text-muted text-base md:text-lg leading-relaxed">
+            <div className="space-y-4 sm:space-y-5 text-muted text-sm sm:text-base md:text-lg leading-relaxed">
               {[
                 <>Hello! I'm{' '}<strong className="text-text font-semibold">Tasuntha Chathunika Dayasiri</strong>, a 3rd-year ICT undergraduate at the University of Vavuniya. I specialize in <strong className="text-text font-semibold">Software Engineering, Full-Stack Development, and DevOps</strong>.</>,
                 <>I build robust web applications and SaaS platforms using <strong className="text-text font-semibold">React, Node.js, PostgreSQL, and MongoDB</strong>. Currently, I'm diving deeper into <strong className="text-text font-semibold">Docker, AWS, and CI/CD</strong>, while sharing my learnings on <strong className="text-text font-semibold">Medium</strong>.</>,
@@ -237,7 +237,7 @@ const About = () => {
             </motion.div>
 
             <motion.div
-              className="mt-10 flex flex-wrap gap-4"
+              className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -247,7 +247,7 @@ const About = () => {
                 href="/Tasuntha_Chathunika.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl font-semibold text-white overflow-hidden
+                className="group relative inline-flex items-center gap-2 sm:gap-2.5 px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl font-semibold text-white text-sm sm:text-base overflow-hidden
                   bg-gradient-to-r from-accent-1 to-accent-2
                   hover:shadow-xl hover:shadow-accent-1/30 transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -3 }}
@@ -259,7 +259,7 @@ const About = () => {
               </motion.a>
               <motion.a
                 href="#contact"
-                className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl font-semibold text-text
+                className="inline-flex items-center gap-2 sm:gap-2.5 px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl font-semibold text-text text-sm sm:text-base
                   glass-card neon-border hover:border-accent-3/50 hover:shadow-accent-3/10 hover:shadow-lg transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.97 }}

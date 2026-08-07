@@ -26,7 +26,7 @@ const Toast = ({ type, message, onClose }) => (
     animate={{ opacity: 1, y: 0, scale: 1 }}
     exit={{ opacity: 0, y: -20, scale: 0.9 }}
     transition={{ duration: 0.3 }}
-    className={`fixed top-6 right-6 z-[100] flex items-center gap-3 px-5 py-3.5 rounded-xl shadow-2xl glass-card border
+    className={`fixed top-20 left-4 right-4 sm:left-auto sm:top-6 sm:right-6 z-[100] flex items-center gap-3 px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl shadow-2xl glass-card border
       ${type === 'success' ? 'border-green-500/30' : 'border-red-500/30'}`}
   >
     {type === 'success'
@@ -127,7 +127,7 @@ const Contact = () => {
       <div className="section-container relative z-10">
         <div className="mb-16 flex flex-col items-center text-center">
           <Reveal>
-            <h2 className="text-4xl md:text-5xl font-extrabold font-display">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">
               Get In <span className="gradient-text">Touch</span>
             </h2>
           </Reveal>
@@ -152,7 +152,7 @@ const Contact = () => {
             <div className="flex flex-col md:flex-row">
               {/* Left - Info */}
               <motion.div
-                className="flex-1 p-8 md:p-12 bg-card/30 border-b md:border-b-0 md:border-r border-border relative"
+                className="flex-1 p-5 sm:p-8 md:p-12 bg-card/30 border-b md:border-b-0 md:border-r border-border relative"
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -160,7 +160,7 @@ const Contact = () => {
               >
                 <div className="absolute top-0 right-0 w-40 h-40 bg-accent-1/10 rounded-full blur-[80px] pointer-events-none"></div>
 
-                <h3 className="text-2xl md:text-3xl font-bold mb-3 relative z-10 text-text">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 relative z-10 text-text">
                   Let's build something <span className="gradient-text">together.</span>
                 </h3>
                 <p className="text-muted text-sm md:text-base leading-relaxed mb-8 relative z-10">
@@ -223,7 +223,7 @@ const Contact = () => {
               </motion.div>
 
               {/* Right - Form */}
-              <div className="flex-[1.3] p-8 md:p-12 relative">
+              <div className="flex-[1.3] p-5 sm:p-8 md:p-12 relative">
                 <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                   
                   {/* Name Field */}

@@ -72,7 +72,7 @@ const Footer = () => {
             </div>
 
             {/* Quick Nav */}
-            <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <nav className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-5 gap-y-2">
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.label}
@@ -150,7 +150,7 @@ const Footer = () => {
       <AnimatePresence>
         {showScroll && (
           <motion.button
-            className="fixed bottom-8 right-8 w-12 h-12 rounded-xl flex items-center justify-center z-50
+            className="fixed bottom-5 right-4 sm:bottom-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center z-50
               bg-gradient-to-r from-accent-1 to-accent-2 text-white
               shadow-lg shadow-accent-1/30"
             onClick={scrollTop}

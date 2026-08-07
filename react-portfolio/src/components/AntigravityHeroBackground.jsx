@@ -1,15 +1,24 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 const AntigravityHeroBackground = () => {
   const canvasRef = useRef(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
+    // Don't render on touch/mobile devices — this is a mouse-only effect
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+      setIsTouchDevice(true);
+      return;
+    }
+
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let animationFrameId;
     
     let particles = [];
-    const SPACING = 28; // grid spacing
+    // Increase spacing on smaller screens for better performance
+    const SPACING = window.innerWidth < 768 ? 40 : 28;
     const REVEAL_RADIUS = 160; // how far around cursor to show dashes
     const PUSH_RADIUS = 120;   // how far around cursor to push dashes
     const mouse = { x: -1000, y: -1000 };
@@ -199,6 +208,9 @@ const AntigravityHeroBackground = () => {
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
+
+  // Don't render the canvas at all on touch devices
+  if (isTouchDevice) return null;
 
   return (
     <canvas

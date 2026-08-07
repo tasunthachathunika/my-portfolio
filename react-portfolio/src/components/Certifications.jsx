@@ -117,7 +117,7 @@ const Certifications = () => {
         {/* Section Heading */}
         <div className="mb-16 flex flex-col items-center text-center">
           <Reveal>
-            <h2 className="text-4xl md:text-5xl font-extrabold font-display">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">
               Certifications & <span className="gradient-text">Achievements</span>
             </h2>
           </Reveal>
