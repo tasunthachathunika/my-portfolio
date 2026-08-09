@@ -25,7 +25,7 @@ const Preloader = () => {
     };
   }, []);
 
-  const brandName = 'Tasuntha';
+  const brandName = 'Tasu';
 
   return (
     <AnimatePresence>
