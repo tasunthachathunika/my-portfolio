@@ -6,7 +6,7 @@ import Reveal from './Reveal';
 
 const socialLinks = [
   { icon: <FaLinkedin size={20} />, href: 'https://www.linkedin.com/in/tasuntha-chathunika/', color: '#0077b5', label: 'LinkedIn' },
-  { icon: <FaGithub size={20} />, href: 'https://github.com/Tasuntha-Chathunika', color: 'var(--theme-text)', label: 'GitHub' },
+  { icon: <FaGithub size={20} />, href: 'https://github.com/TasunthaChathunika', color: 'var(--theme-text)', label: 'GitHub' },
   { icon: <Mail size={20} />, href: 'mailto:tasunthachathunika@gmail.com', color: 'var(--theme-accent-2)', label: 'Email' },
 ];
 

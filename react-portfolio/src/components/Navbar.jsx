@@ -88,7 +88,7 @@ const Navbar = () => {
         />
       )}
 
-      <div className="section-container flex items-center justify-between">
+      <div className="section-container flex items-center justify-between lg:scale-[1.1] lg:origin-top transition-transform duration-300">
         {/* Logo — Gradient */}
         <motion.a
           href="#hero"
