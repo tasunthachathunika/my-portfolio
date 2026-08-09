@@ -169,7 +169,7 @@ const Hero = () => {
           >
             <motion.a
               href="#projects"
-              className="group flex items-center justify-center gap-2 sm:gap-2.5 w-full sm:w-auto px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl font-semibold text-white text-xs sm:text-sm
+              className="group flex items-center justify-center gap-2 sm:gap-2.5 w-[240px] sm:w-auto px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl font-semibold text-white text-xs sm:text-sm
                 bg-gradient-to-r from-accent-3 via-accent-5 to-accent-1
                 hover:shadow-lg hover:shadow-accent-3/50 transition-all duration-300 animated-gradient-bg"
               whileHover={{ scale: 1.05, y: -3 }}
@@ -182,7 +182,7 @@ const Hero = () => {
               href="/Tasuntha_Chathunika.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center gap-2 sm:gap-2.5 w-full sm:w-auto px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl font-semibold text-white text-xs sm:text-sm
+              className="group flex items-center justify-center gap-2 sm:gap-2.5 w-[240px] sm:w-auto px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl font-semibold text-white text-xs sm:text-sm
                 bg-gradient-to-r from-accent-1/20 to-accent-3/20 border border-accent-1/30 hover:border-accent-1/60 hover:from-accent-1/30 hover:to-accent-3/30 
                 hover:shadow-[0_0_25px_rgba(180,92,255,0.35)] backdrop-blur-xl transition-all duration-300"
               whileHover={{ scale: 1.05, y: -3 }}
@@ -193,7 +193,7 @@ const Hero = () => {
             </motion.a>
             <motion.a
               href="#contact"
-              className="group flex items-center justify-center gap-2 sm:gap-2.5 w-full sm:w-auto px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl font-semibold text-white text-xs sm:text-sm
+              className="group flex items-center justify-center gap-2 sm:gap-2.5 w-[240px] sm:w-auto px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl font-semibold text-white text-xs sm:text-sm
                 bg-gradient-to-r from-accent-2/20 to-accent-4/20 border border-accent-2/30 hover:border-accent-2/60 hover:from-accent-2/30 hover:to-accent-4/30 
                 hover:shadow-[0_0_25px_rgba(255,58,140,0.35)] backdrop-blur-xl transition-all duration-300"
               whileHover={{ scale: 1.05, y: -3 }}

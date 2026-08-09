@@ -9,125 +9,74 @@ import attendanceImg from '../assets/atms.png';
 const projectsData = [
   {
     title: 'BizAnalytics',
-    description: 'A SaaS-grade Business Intelligence & Executive Analytics Platform that transforms CSV/XLSX business data into interactive dashboards and executive reports.',
-    fullDescription: 'BizAnalytics is a SaaS-grade Business Intelligence platform that transforms CSV/XLSX business data into interactive dashboards and executive reports. It features automated data ingestion, real-time KPI tracking, and professional PDF report generation.',
+    description: 'Developed a SaaS-grade Business Intelligence platform that transforms CSV/XLSX business data into interactive dashboards and executive reports.',
+    fullDescription: 'BizAnalytics – SaaS Business Intelligence & Executive Analytics Platform. Designed to transform raw business data into actionable insights.',
     architecture: 'Full-stack application with React.js frontend and Node.js/Express.js backend. Uses PostgreSQL (Supabase) as the primary cloud database with SQLite for local data processing.',
-    architectureBullets: [
-      'React.js SPA with Tailwind CSS Glassmorphism UI',
-      'Node.js + Express.js RESTful API backend',
-      'PostgreSQL (Supabase) cloud database with SQLite for local sync',
-      'Recharts & Chart.js for interactive data visualizations',
-      'jsPDF for automated executive PDF report generation',
+    keyFeatures: [
+      'Developed a SaaS-grade Business Intelligence platform that transforms CSV/XLSX business data into interactive dashboards and executive reports.',
+      'Built an automated data ingestion pipeline with validation, preprocessing, and synchronization using PostgreSQL (Supabase) and SQLite.',
+      'Designed real-time KPI dashboards featuring Revenue Trends, Sales Analytics, Product Insights, and executive PDF reporting.',
+      'Implemented secure RESTful APIs, resilient database connectivity, and a responsive Glassmorphism UI using React and Tailwind CSS.'
     ],
     technologies: ['React.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'PostgreSQL', 'Supabase', 'SQLite', 'Recharts', 'Chart.js', 'jsPDF'],
-    challenges: 'Building an automated data ingestion pipeline with validation, preprocessing, and synchronization across PostgreSQL (Supabase) and SQLite while maintaining data integrity and resilient database connectivity.',
-    challengesBullets: [
-      'Built automated data ingestion pipeline with validation & preprocessing',
-      'Synchronized data between PostgreSQL (Supabase) and SQLite databases',
-      'Designed real-time KPI dashboards with Revenue Trends & Sales Analytics',
-      'Implemented resilient database connectivity with error handling',
-    ],
-    keyFeatures: [
-      'CSV/XLSX data upload with automated validation & preprocessing',
-      'Real-time KPI dashboards: Revenue Trends, Sales Analytics, Product Insights',
-      'Executive PDF reporting with jsPDF',
-      'Responsive Glassmorphism UI with Tailwind CSS',
-      'Secure RESTful APIs with resilient database connectivity',
-    ],
     icon: <Database size={36} />,
     tags: [
-      { name: 'React.js', color: '#61dafb' },
-      { name: 'Node.js', color: '#68a063' },
+      { name: 'React.js', color: '#00d8ff' },
+      { name: 'Node.js', color: '#8cc84b' },
       { name: 'PostgreSQL', color: '#336791' },
-      { name: 'Supabase', color: '#3ECF8E' },
+      { name: 'Tailwind CSS', color: '#38bdf8' },
     ],
     links: { github: 'https://github.com/TasunthaChathunika/biz-analytics-webapp', demo: '#' },
     gradient: 'from-accent-2 to-accent-1',
-    accentColor: 'var(--theme-accent-2)',
+    accentColor: '#b45cff',
     featured: true,
   },
   {
     title: 'PricePulse',
-    description: 'A full-stack e-commerce price tracking platform with a Chrome Extension for real-time product monitoring, automated web scraping, and price-drop email alerts.',
-    fullDescription: 'PricePulse is a full-stack e-commerce price tracking platform with a Chrome Extension for real-time product monitoring. It features an automated web scraping engine using Puppeteer, Cheerio, and Node Cron to collect and manage pricing data from online stores.',
+    description: 'Developed a full-stack e-commerce price tracking platform with a Chrome Extension for real-time product monitoring.',
+    fullDescription: 'PricePulse – E-Commerce Price Tracking Platform & Chrome Extension. Automatically track product prices and get notified on price drops.',
     architecture: 'Frontend built with React.js (Vite) and Tailwind CSS. Backend powered by Node.js and Express.js with MongoDB. Includes a Chrome Extension and automated web scraping engine.',
-    architectureBullets: [
-      'React.js (Vite) SPA with responsive Tailwind CSS design',
-      'Node.js + Express.js RESTful API backend',
-      'MongoDB for flexible pricing data storage',
-      'Automated web scraping with Puppeteer & Cheerio',
-      'Chrome Extension for real-time product monitoring',
-      'JWT + Bcrypt.js secure authentication system',
+    keyFeatures: [
+      'Developed a full-stack e-commerce price tracking platform with a Chrome Extension for real-time product monitoring.',
+      'Engineered an automated web scraping engine using Puppeteer, Cheerio, and Node Cron to collect and manage pricing data.',
+      'Integrated interactive price history charts and automated email notifications for price-drop alerts.',
+      'Implemented secure authentication using JWT and Bcrypt.js while following RESTful API architecture.'
     ],
     technologies: ['React.js', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'Puppeteer', 'Cheerio', 'Chart.js', 'JWT', 'Bcrypt.js'],
-    challenges: 'Engineering an automated web scraping engine that reliably extracts pricing data from dynamic websites, integrating real-time price history charts, and building automated email notifications for price-drop alerts.',
-    challengesBullets: [
-      'Engineered automated scraping with Puppeteer, Cheerio & Node Cron',
-      'Built interactive price history charts with Chart.js',
-      'Implemented automated email notifications for price-drop alerts',
-      'Designed secure auth using JWT + Bcrypt.js with RESTful architecture',
-    ],
-    keyFeatures: [
-      'Chrome Extension for real-time product monitoring',
-      'Automated web scraping engine with Puppeteer & Cheerio',
-      'Interactive price history charts with Chart.js',
-      'Automated email notifications for price-drop alerts',
-      'Secure JWT + Bcrypt.js authentication',
-    ],
     image: pricepulseImg,
     tags: [
-      { name: 'React.js', color: '#61dafb' },
-      { name: 'Node.js', color: '#68a063' },
-      { name: 'MongoDB', color: '#47a248' },
+      { name: 'React.js', color: '#00d8ff' },
+      { name: 'MongoDB', color: '#00ed64' },
+      { name: 'Puppeteer', color: '#00d8a2' },
+      { name: 'Node.js', color: '#8cc84b' },
     ],
     links: { github: 'https://github.com/TasunthaChathunika/PricePulse-Project', demo: '#' },
     gradient: 'from-accent-3 to-accent-1',
-    accentColor: 'var(--theme-accent-3)',
+    accentColor: '#00ff88',
     featured: true,
   },
   {
     title: 'ATMS',
-    description: 'A full-stack Attendance & Timetable Management System with Role-Based Access Control (RBAC) for Administrators, Lecturers, and Students.',
-    fullDescription: 'ATMS is a full-stack academic management system for attendance tracking and timetable scheduling. It features Role-Based Access Control (RBAC) for Administrators, Lecturers, and Students, with real-time attendance management and conflict-free timetable scheduling.',
+    description: 'Developed a full-stack academic management system for attendance tracking and timetable scheduling.',
+    fullDescription: 'ATMS – Attendance & Timetable Management System. Features Role-Based Access Control (RBAC) for Administrators, Lecturers, and Students.',
     architecture: 'Frontend built with React.js (Vite) and Tailwind CSS. Backend powered by Core PHP with RESTful APIs and MySQL for relational data management.',
-    architectureBullets: [
-      'React.js (Vite) SPA with modular component architecture',
-      'Core PHP server-side logic with REST APIs',
-      'MySQL relational database with normalized schema',
-      'Role-Based Access Control (RBAC) for 3 user types',
-      'Responsive, modular UI with Tailwind CSS',
+    keyFeatures: [
+      'Developed a full-stack academic management system for attendance tracking and timetable scheduling.',
+      'Implemented Role-Based Access Control (RBAC) for Administrators, Lecturers, and Students.',
+      'Built real-time attendance management, conflict-free timetable scheduling, and analytical dashboards.',
+      'Designed a responsive, modular user interface using React.js and Tailwind CSS.'
     ],
     technologies: ['React.js', 'Vite', 'Tailwind CSS', 'Core PHP', 'REST APIs', 'MySQL'],
-    challenges: 'Implementing strict Role-Based Access Control for three distinct user types while maintaining conflict-free timetable scheduling and real-time attendance tracking with analytical dashboards.',
-    challengesBullets: [
-      'Designed RBAC for Administrators, Lecturers, and Students',
-      'Built real-time attendance management with analytics',
-      'Implemented conflict-free timetable scheduling logic',
-      'Created responsive, modular UI with React.js and Tailwind CSS',
-    ],
-    keyFeatures: [
-      'Role-Based Access Control (RBAC) — Admin, Lecturer, Student',
-      'Real-time attendance management and tracking',
-      'Conflict-free timetable scheduling',
-      'Analytical dashboards for attendance insights',
-      'Responsive, modular React.js interface',
-    ],
-    databaseSchema: [
-      'Users (id, name, email, role, password_hash)',
-      'Courses (id, code, name, credits, lecturer_id FK)',
-      'Enrollments (student_id FK, course_id FK, semester)',
-      'Attendance (id, student_id FK, course_id FK, date, status)',
-      'Timetable (id, course_id FK, day, start_time, end_time, room)',
-    ],
     image: attendanceImg,
     tags: [
-      { name: 'React.js', color: '#61dafb' },
-      { name: 'PHP', color: '#8993be' },
+      { name: 'React.js', color: '#00d8ff' },
+      { name: 'PHP', color: '#777bb4' },
       { name: 'MySQL', color: '#f29111' },
+      { name: 'Tailwind CSS', color: '#38bdf8' },
     ],
     links: { github: 'https://github.com/TasunthaChathunika/Attendance-timetable-system', demo: '#' },
     gradient: 'from-accent-1 to-accent-2',
-    accentColor: 'var(--theme-accent-1)',
+    accentColor: '#ff3a8c',
     featured: false,
   },
 ];
@@ -208,7 +157,7 @@ const ProjectCard = ({ project, index, onClick }) => {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700 ease-out opacity-90"
+            className="w-full h-full object-cover object-top transform scale-100 group-hover:scale-110 transition-transform duration-700 ease-out opacity-90"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
@@ -334,14 +283,14 @@ const ProjectModal = ({ project, onClose }) => {
       onClick={onClose}
       className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md overflow-y-auto"
     >
-      <div className="min-h-full flex items-center justify-center p-3 sm:p-4 py-4 sm:py-6">
+      <div className="min-h-full flex items-center justify-center p-3 sm:p-4 py-6 sm:py-8">
         <motion.div
           initial={{ opacity: 0, y: 60, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 30, scale: 0.95 }}
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
           onClick={(e) => e.stopPropagation()}
-          className="relative w-full max-w-4xl bg-card rounded-2xl sm:rounded-3xl border border-border overflow-hidden shadow-2xl"
+          className="relative w-full max-w-5xl bg-card rounded-2xl sm:rounded-3xl border border-border overflow-hidden shadow-2xl"
           style={{ boxShadow: `0 20px 80px -20px ${project.accentColor}50` }}
         >
         {/* Close Button */}
@@ -355,13 +304,13 @@ const ProjectModal = ({ project, onClose }) => {
         </motion.button>
 
         {/* Modal Header Image */}
-        <div className="relative h-32 sm:h-40 w-full bg-bg flex items-center justify-center overflow-hidden">
+        <div className="relative h-40 sm:h-48 md:h-56 w-full bg-bg flex items-center justify-center overflow-hidden">
           <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 z-10 mix-blend-color`}></div>
           {project.image ? (
             <motion.img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover opacity-70"
+              className="w-full h-full object-cover object-top opacity-100"
               initial={{ scale: 1.1 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -373,7 +322,7 @@ const ProjectModal = ({ project, onClose }) => {
               </div>
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent z-10"></div>
           
           <div className="absolute bottom-0 left-0 w-full p-4 sm:p-6 z-20">
              <motion.h2
@@ -391,9 +340,10 @@ const ProjectModal = ({ project, onClose }) => {
                     key={tag.name}
                     className="px-4 py-1.5 rounded-full text-xs font-bold shadow-lg backdrop-blur-md"
                     style={{
-                      backgroundColor: `${tag.color}20`,
+                      background: `linear-gradient(90deg, ${tag.color}40, ${tag.color}10)`,
                       color: tag.color,
-                      border: `1px solid ${tag.color}40`,
+                      border: `1px solid ${tag.color}60`,
+                      boxShadow: `0 0 15px ${tag.color}40`
                     }}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -407,7 +357,7 @@ const ProjectModal = ({ project, onClose }) => {
         </div>
 
         {/* Modal Body */}
-        <div className="p-4 sm:p-6 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        <div className="p-4 sm:p-5 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
            
            <div className="md:col-span-2 space-y-4">
               {/* Project Highlights (Points) */}
@@ -440,14 +390,14 @@ const ProjectModal = ({ project, onClose }) => {
               </motion.div>
            </div>
 
-           {/* Sidebar Links & Tech */}
+            {/* Sidebar Links & Tech */}
            <motion.div
              className="space-y-4"
              initial={{ opacity: 0, x: 20 }}
              animate={{ opacity: 1, x: 0 }}
              transition={{ delay: 0.5, duration: 0.5 }}
            >
-              <div className="glass-card p-4 sm:p-5 rounded-xl border border-border bg-surface/20">
+              <div className="glass-card p-4 rounded-xl border border-border bg-surface/20">
                 <h4 className="text-base font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Technologies Stack</h4>
                 <ul className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, i) => (
@@ -470,13 +420,13 @@ const ProjectModal = ({ project, onClose }) => {
                 </ul>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {project.links.github && (
                   <motion.a
                     href={project.links.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl glass-card text-text font-bold hover:bg-border transition-all"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl glass-card text-text font-bold hover:bg-border transition-all"
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.97 }}
                   >
@@ -488,7 +438,7 @@ const ProjectModal = ({ project, onClose }) => {
                     href={project.links.demo}
                     target="_blank"
                     rel="noreferrer"
-                    className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-white font-bold bg-gradient-to-r ${project.gradient} hover:shadow-lg transition-all`}
+                    className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-bold bg-gradient-to-r ${project.gradient} hover:shadow-lg transition-all`}
                     style={{ '--tw-shadow-color': project.accentColor }}
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.97 }}
