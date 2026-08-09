@@ -2,8 +2,6 @@ import { useRef, useState, useEffect, memo } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Download, Code2, Layers, BookOpen } from 'lucide-react';
 import profileImage from '../assets/IMG_20240613_205017.jpg';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
 import Reveal from './Reveal';
 
 const stats = [
@@ -13,7 +11,7 @@ const stats = [
 ];
 
 // Counter animation hook
-const useCountUp = (target, isVisible, duration = 1.5) => {
+const useCountUp = (target, isVisible, duration = 0.8) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -51,7 +49,7 @@ const StatCard = memo(({ stat, index }) => {
       initial={{ opacity: 0, y: 15, scale: 0.9 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.4 + index * 0.12, ease: [0.23, 1, 0.32, 1] }}
+      transition={{ duration: 0.4, delay: 0.1 + index * 0.1, ease: [0.23, 1, 0.32, 1] }}
       style={{ '--stat-color': stat.color }}
     >
       <div className="absolute inset-0 opacity-0 group-hover/stat:opacity-20 transition-opacity duration-300" style={{ backgroundColor: stat.color }}></div>
@@ -72,32 +70,6 @@ const StatCard = memo(({ stat, index }) => {
 
 const About = () => {
   const aboutRef = useRef(null);
-
-  useGSAP(() => {
-    // Enhanced image parallax with slight rotation
-    gsap.to('.about-image-container', {
-      y: -60,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: aboutRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-      }
-    });
-
-    // Text content parallax (opposite direction, slower)
-    gsap.to('.about-text-content', {
-      y: -30,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: aboutRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-      }
-    });
-  }, { scope: aboutRef });
 
   // Stagger variants for paragraphs
   const paragraphVariants = {
