@@ -108,24 +108,24 @@ const CertCard = ({ cert, index }) => (
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="pt-20 pb-12 md:pt-28 md:pb-16 relative overflow-hidden">
+    <section id="certifications" className="pt-24 pb-12 sm:pb-16 relative overflow-hidden">
       {/* Decorative */}
       <div className="absolute top-1/3 right-0 w-80 h-80 bg-accent-2/10 rounded-full blur-[150px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-accent-1/8 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="section-container relative z-10">
         {/* Section Heading */}
-        <div className="mb-16 flex flex-col items-center text-center">
+        <div className="mb-8 sm:mb-12 flex flex-col items-center text-center">
           <Reveal>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">
               Certifications & <span className="gradient-text">Achievements</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="mt-4 w-20 h-1 rounded-full bg-gradient-to-r from-accent-2 to-accent-3 mx-auto"></div>
+            <div className="mt-3 w-20 h-1 rounded-full bg-gradient-to-r from-accent-2 to-accent-3 mx-auto"></div>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mt-4 text-muted max-w-lg mx-auto text-sm md:text-base">
+            <p className="mt-3 text-muted max-w-lg mx-auto text-[13px] md:text-sm">
               Professional certifications that validate my expertise. ✦
             </p>
           </Reveal>

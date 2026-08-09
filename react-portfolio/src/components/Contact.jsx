@@ -112,7 +112,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-28 md:py-36 relative overflow-hidden">
+    <section id="contact" className="pt-24 pb-12 sm:pb-16 relative overflow-hidden">
       {/* Glows */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent-3/10 rounded-full blur-[150px] pointer-events-none -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-accent-2/10 rounded-full blur-[120px] pointer-events-none"></div>
@@ -125,17 +125,17 @@ const Contact = () => {
       </AnimatePresence>
 
       <div className="section-container relative z-10">
-        <div className="mb-16 flex flex-col items-center text-center">
+        <div className="mb-6 sm:mb-10 flex flex-col items-center text-center">
           <Reveal>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">
               Get In <span className="gradient-text">Touch</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="mt-4 w-20 h-1 rounded-full bg-gradient-to-r from-accent-2 to-accent-3 mx-auto"></div>
+            <div className="mt-3 w-20 h-1 rounded-full bg-gradient-to-r from-accent-2 to-accent-3 mx-auto"></div>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mt-4 text-muted max-w-lg mx-auto text-sm md:text-base">
+            <p className="mt-3 text-muted max-w-lg mx-auto text-[13px] md:text-sm">
               Have a project or just want to say hi? My inbox is always open.
             </p>
           </Reveal>
@@ -152,7 +152,7 @@ const Contact = () => {
             <div className="flex flex-col md:flex-row">
               {/* Left - Info */}
               <motion.div
-                className="flex-1 p-5 sm:p-8 md:p-12 bg-card/30 border-b md:border-b-0 md:border-r border-border relative"
+                className="flex-1 p-4 sm:p-6 md:p-8 md:py-10 bg-card/30 border-b md:border-b-0 md:border-r border-border relative flex flex-col justify-center"
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -223,8 +223,8 @@ const Contact = () => {
               </motion.div>
 
               {/* Right - Form */}
-              <div className="flex-[1.3] p-5 sm:p-8 md:p-12 relative">
-                <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              <div className="flex-[1.3] p-4 sm:p-6 md:p-8 relative">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-5">
                   
                   {/* Name Field */}
                   <motion.div
@@ -243,7 +243,7 @@ const Contact = () => {
                         type="text" id="name" name="name"
                         value={formState.name}
                         onChange={handleChange}
-                        className="w-full bg-bg/40 backdrop-blur-md border border-border rounded-xl px-4 py-3.5 text-text
+                        className="w-full bg-bg/40 backdrop-blur-md border border-border rounded-xl px-4 py-2.5 sm:py-3 text-text
                           focus:outline-none focus:border-accent-2 focus:ring-4 focus:ring-accent-1/20 transition-all duration-300 placeholder-muted/40"
                         placeholder="John Doe"
                         required
@@ -270,7 +270,7 @@ const Contact = () => {
                         type="email" id="email" name="email"
                         value={formState.email}
                         onChange={handleChange}
-                        className="w-full bg-bg/40 backdrop-blur-md border border-border rounded-xl px-4 py-3.5 text-text
+                        className="w-full bg-bg/40 backdrop-blur-md border border-border rounded-xl px-4 py-2.5 sm:py-3 text-text
                           focus:outline-none focus:border-accent-2 focus:ring-4 focus:ring-accent-1/20 transition-all duration-300 placeholder-muted/40"
                         placeholder="you@example.com"
                         required
@@ -293,10 +293,10 @@ const Contact = () => {
                     </label>
                     <div className="relative">
                       <textarea
-                        id="message" name="message" rows="4"
+                        id="message" name="message" rows="3"
                         value={formState.message}
                         onChange={handleChange}
-                        className="w-full bg-bg/40 backdrop-blur-md border border-border rounded-xl px-4 py-3.5 text-text
+                        className="w-full bg-bg/40 backdrop-blur-md border border-border rounded-xl px-4 py-2.5 sm:py-3 text-text
                           focus:outline-none focus:border-accent-2 focus:ring-4 focus:ring-accent-1/20 transition-all duration-300 resize-none placeholder-muted/40"
                         placeholder="Tell me about your project..."
                         required
@@ -309,8 +309,8 @@ const Contact = () => {
                   <motion.button
                     type="submit"
                     disabled={status === 'sending'}
-                    className="mt-2 group relative w-full h-14 flex items-center justify-center rounded-xl
-                      font-bold text-lg text-white overflow-hidden
+                    className="mt-1 sm:mt-2 group relative w-full h-12 sm:h-14 flex items-center justify-center rounded-xl
+                      font-bold text-base sm:text-lg text-white overflow-hidden
                       bg-gradient-to-r from-accent-1 to-accent-2
                       hover:shadow-lg hover:shadow-accent-2/30 transition-all duration-300 animated-gradient-bg
                       disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"

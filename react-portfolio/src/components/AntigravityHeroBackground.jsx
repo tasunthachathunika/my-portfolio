@@ -167,7 +167,19 @@ const AntigravityHeroBackground = () => {
       }
     };
 
+    let isVisible = true;
+    const observer = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    }, { threshold: 0 });
+    
+    observer.observe(canvas);
+
     const animate = () => {
+      animationFrameId = requestAnimationFrame(animate);
+      
+      // Pause drawing and physics when canvas is out of view to fix scroll jank
+      if (!isVisible) return;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const cw = canvas.width;
       const ch = canvas.height;
@@ -175,8 +187,6 @@ const AntigravityHeroBackground = () => {
       for (let i = 0; i < particles.length; i++) {
         particles[i].update(cw, ch);
       }
-      
-      animationFrameId = requestAnimationFrame(animate);
     };
 
     const handleMouseMove = (e) => {
@@ -206,6 +216,7 @@ const AntigravityHeroBackground = () => {
       window.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
+      if (observer && canvas) observer.unobserve(canvas);
     };
   }, []);
 

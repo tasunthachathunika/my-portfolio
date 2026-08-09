@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, memo } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Download, Code2, Layers, BookOpen } from 'lucide-react';
 import profileImage from '../assets/IMG_20240613_205017.jpg';
@@ -39,7 +39,7 @@ const useCountUp = (target, isVisible, duration = 1.5) => {
   return count;
 };
 
-const StatCard = ({ stat, index }) => {
+const StatCard = memo(({ stat, index }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const count = useCountUp(stat.numValue, isInView);
@@ -68,7 +68,7 @@ const StatCard = ({ stat, index }) => {
       <span className="text-[10px] text-muted font-medium leading-tight">{stat.label}</span>
     </motion.div>
   );
-};
+});
 
 const About = () => {
   const aboutRef = useRef(null);
@@ -115,7 +115,7 @@ const About = () => {
   };
 
   return (
-    <section ref={aboutRef} id="about" className="py-20 sm:py-28 md:py-36 relative overflow-hidden">
+    <section ref={aboutRef} id="about" className="pt-24 pb-12 sm:pb-16 relative overflow-hidden">
       {/* Decorative blobs */}
       <div className="absolute top-1/3 left-0 w-96 h-96 bg-accent-1/10 rounded-full blur-[150px] pointer-events-none"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-accent-3/8 rounded-full blur-[120px] pointer-events-none"></div>
@@ -123,7 +123,7 @@ const About = () => {
       <div className="section-container relative z-10">
         {/* Section Heading */}
         <Reveal>
-          <div className="mb-10 sm:mb-16">
+          <div className="mb-6 sm:mb-10 w-full text-center lg:text-left">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">
               About <span className="gradient-text">Me</span>
             </h2>
@@ -131,13 +131,13 @@ const About = () => {
           </div>
         </Reveal>
 
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 sm:gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center lg:items-center gap-8 sm:gap-10 lg:gap-14 w-full">
           {/* Image + Stats */}
           <motion.div
-            className="about-image-container w-full max-w-[280px] sm:max-w-xs lg:max-w-sm mx-auto lg:mx-0 relative group flex-shrink-0"
+            className="about-image-container w-full max-w-[260px] sm:max-w-xs lg:max-w-[320px] mx-auto lg:mx-0 relative group flex-shrink-0"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
           >
             {/* Outer animated gradient ring (Glow) */}
@@ -165,6 +165,8 @@ const About = () => {
                   src={profileImage}
                   alt="Tasuntha Chathunika Dayasiri"
                   className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="eager"
+                  decoding="async"
                 />
                 {/* Image overlay shimmer on hover */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-accent-1/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
@@ -184,7 +186,7 @@ const About = () => {
             className="about-text-content flex-1 min-w-0 w-full"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Reveal direction="right" delay={0.1}>
@@ -194,7 +196,7 @@ const About = () => {
               </h3>
             </Reveal>
 
-            <div className="space-y-4 sm:space-y-5 text-muted text-sm sm:text-base md:text-lg leading-relaxed">
+            <div className="space-y-3 sm:space-y-4 text-muted text-sm sm:text-base md:text-[1.05rem] leading-relaxed">
               {[
                 <>Hello! I'm{' '}<strong className="text-text font-semibold">Tasuntha Chathunika Dayasiri</strong>, a 3rd-year ICT undergraduate at the University of Vavuniya. I specialize in <strong className="text-text font-semibold">Software Engineering, Full-Stack Development, and DevOps</strong>.</>,
                 <>I build robust web applications and SaaS platforms using <strong className="text-text font-semibold">React, Node.js, PostgreSQL, and MongoDB</strong>. Currently, I'm diving deeper into <strong className="text-text font-semibold">Docker, AWS, and CI/CD</strong>, while sharing my learnings on <strong className="text-text font-semibold">Medium</strong>.</>,
@@ -206,7 +208,7 @@ const About = () => {
                   variants={paragraphVariants}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.2 }}
                 >
                   {content}
                 </motion.p>
@@ -215,7 +217,7 @@ const About = () => {
 
             {/* Highlight chips */}
             <motion.div
-              className="flex flex-wrap gap-2 mt-6"
+              className="flex flex-wrap justify-center lg:justify-start gap-2 mt-5"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -237,7 +239,7 @@ const About = () => {
             </motion.div>
 
             <motion.div
-              className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
+              className="mt-4 sm:mt-5 flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 sm:gap-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

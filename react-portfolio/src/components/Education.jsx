@@ -29,23 +29,23 @@ const Education = () => {
   const lineOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 0.6]);
 
   return (
-    <section id="education" className="py-28 md:py-36 relative overflow-hidden">
+    <section id="education" className="pt-24 pb-12 sm:pb-16 relative overflow-hidden">
       {/* Decorative Blobs */}
       <div className="absolute top-1/2 right-0 w-80 h-80 bg-accent-1/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2"></div>
       <div className="absolute top-0 left-1/4 w-64 h-64 bg-accent-1/8 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="section-container relative z-10">
-        <div className="mb-16 flex flex-col items-center text-center">
+        <div className="mb-8 sm:mb-12 flex flex-col items-center text-center">
           <Reveal>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">
               My <span className="gradient-text">Education</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="mt-4 w-20 h-1 rounded-full bg-gradient-to-r from-accent-3 to-accent-1 mx-auto"></div>
+            <div className="mt-3 w-20 h-1 rounded-full bg-gradient-to-r from-accent-3 to-accent-1 mx-auto"></div>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mt-4 text-muted max-w-xl mx-auto">
+            <p className="mt-3 text-muted max-w-xl mx-auto text-[13px] md:text-sm">
               Building a strong foundation in technology and computer science.
             </p>
           </Reveal>
@@ -94,7 +94,7 @@ const Education = () => {
 
                 {/* Card */}
                 <motion.div
-                  className="flex-1 group glass-card p-6 md:p-8 overflow-hidden relative hover:-translate-y-2 transition-all duration-300"
+                  className="flex-1 group glass-card p-5 md:p-7 overflow-hidden relative hover:-translate-y-2 transition-all duration-300"
                   style={{ '--accent': item.accentColor }}
                   whileHover={{
                     boxShadow: `0 20px 40px ${item.accentColor}20`,
@@ -114,8 +114,8 @@ const Education = () => {
                   ></div>
 
                   {/* Header row */}
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3 relative z-30">
-                    <h3 className="text-lg md:text-xl font-bold text-text leading-snug pr-2">{item.degree}</h3>
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-2 relative z-30">
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-text leading-snug pr-2">{item.degree}</h3>
                     {/* Shimmer badge */}
                     <span
                       className={`self-start sm:self-auto flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold rounded-full text-white bg-gradient-to-r ${item.color}`}
@@ -131,15 +131,15 @@ const Education = () => {
                   </div>
 
                   {/* Institution + location */}
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-4 relative z-30">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-3 relative z-30">
                     <div className="flex items-center gap-1.5">
                       <MapPin size={13} style={{ color: item.accentColor }} className="flex-shrink-0" />
-                      <span className="text-xs sm:text-sm font-semibold" style={{ color: item.accentColor }}>{item.institution}</span>
+                      <span className="text-xs sm:text-[13px] font-semibold" style={{ color: item.accentColor }}>{item.institution}</span>
                     </div>
-                    <span className="text-muted text-xs sm:text-sm pl-5 sm:pl-0">— {item.location}</span>
+                    <span className="text-muted text-xs sm:text-[13px] pl-5 sm:pl-0">— {item.location}</span>
                   </div>
 
-                  <p className="text-muted leading-relaxed text-sm md:text-base relative z-30">{item.description}</p>
+                  <p className="text-muted leading-relaxed text-[13px] md:text-sm relative z-30">{item.description}</p>
                 </motion.div>
               </motion.div>
             ))}

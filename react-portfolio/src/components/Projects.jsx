@@ -203,7 +203,7 @@ const ProjectCard = ({ project, index, onClick }) => {
       )}
 
       {/* Image / Icon Area */}
-      <div className="h-52 w-full overflow-hidden relative bg-black/40">
+      <div className="h-40 sm:h-44 w-full overflow-hidden relative bg-black/40">
         {project.image ? (
           <img
             src={project.image}
@@ -239,23 +239,23 @@ const ProjectCard = ({ project, index, onClick }) => {
       </div>
 
       {/* Content */}
-      <div className="p-6 flex flex-col flex-1 relative z-10 bg-bg/40">
+      <div className="p-5 flex flex-col flex-1 relative z-10 bg-bg/40">
         <h3
-          className="text-2xl font-bold mb-3 transition-colors duration-300 text-text"
+          className="text-xl sm:text-2xl font-bold mb-2 transition-colors duration-300 text-text"
           style={{ color: 'inherit' }}
           onMouseEnter={(e) => { e.currentTarget.style.color = project.accentColor; }}
           onMouseLeave={(e) => { e.currentTarget.style.color = ''; }}
         >
           {project.title}
         </h3>
-        <p className="text-muted text-sm leading-relaxed mb-6 flex-1">{project.description}</p>
+        <p className="text-muted text-[13px] sm:text-sm leading-snug sm:leading-relaxed mb-3 flex-1">{project.description}</p>
 
         {/* Colored tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
           {project.tags.map((tag, i) => (
             <motion.span
               key={tag.name}
-              className="px-3 py-1 rounded-full text-[11px] font-bold border transition-all duration-300"
+              className="px-2 py-0.5 rounded-full text-[11px] font-bold border transition-all duration-300"
               style={{
                 color: tag.color,
                 borderColor: tag.color + '40',
@@ -279,7 +279,7 @@ const ProjectCard = ({ project, index, onClick }) => {
               href={project.links.github}
               target="_blank"
               rel="noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl
+              className="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl
                 glass-card text-sm font-semibold text-text hover:bg-border transition-all duration-300"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
@@ -292,7 +292,7 @@ const ProjectCard = ({ project, index, onClick }) => {
               href={project.links.demo}
               target="_blank"
               rel="noreferrer"
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl
+              className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl
                 text-sm font-bold text-white bg-gradient-to-r ${project.gradient}
                 hover:shadow-[0_0_20px_rgba(var(--tw-shadow-color),0.4)] transition-all duration-300`}
               style={{ '--tw-shadow-color': project.accentColor }}
@@ -334,7 +334,7 @@ const ProjectModal = ({ project, onClose }) => {
       onClick={onClose}
       className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md overflow-y-auto"
     >
-      <div className="min-h-full flex items-start sm:items-center justify-center p-3 sm:p-6 md:p-12 py-8 sm:py-12 md:py-20">
+      <div className="min-h-full flex items-center justify-center p-3 sm:p-4 py-4 sm:py-6">
         <motion.div
           initial={{ opacity: 0, y: 60, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -355,7 +355,7 @@ const ProjectModal = ({ project, onClose }) => {
         </motion.button>
 
         {/* Modal Header Image */}
-        <div className="relative h-44 sm:h-64 md:h-80 w-full bg-bg flex items-center justify-center overflow-hidden">
+        <div className="relative h-32 sm:h-40 w-full bg-bg flex items-center justify-center overflow-hidden">
           <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 z-10 mix-blend-color`}></div>
           {project.image ? (
             <motion.img
@@ -375,9 +375,9 @@ const ProjectModal = ({ project, onClose }) => {
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent z-10"></div>
           
-          <div className="absolute bottom-0 left-0 w-full p-4 sm:p-8 md:p-10 z-20">
+          <div className="absolute bottom-0 left-0 w-full p-4 sm:p-6 z-20">
              <motion.h2
-               className="text-xl sm:text-3xl md:text-5xl font-black mb-2 sm:mb-4 drop-shadow-2xl"
+               className="text-xl sm:text-2xl md:text-3xl font-black mb-2 sm:mb-3 drop-shadow-2xl"
                style={{ color: '#ffffff', textShadow: `0 4px 20px ${project.accentColor}80` }}
                initial={{ opacity: 0, y: 20 }}
                animate={{ opacity: 1, y: 0 }}
@@ -407,167 +407,53 @@ const ProjectModal = ({ project, onClose }) => {
         </div>
 
         {/* Modal Body */}
-        <div className="p-4 sm:p-8 md:p-10 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10">
+        <div className="p-4 sm:p-6 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
            
-           <div className="md:col-span-2 space-y-8">
-              {/* Overview */}
+           <div className="md:col-span-2 space-y-4">
+              {/* Project Highlights (Points) */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
               >
-                <h4 className="text-xl font-bold mb-3 flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-bg border border-border" style={{ color: project.accentColor, boxShadow: `0 0 15px ${project.accentColor}30` }}>
-                    <Layout size={20} />
+                <h4 className="text-lg font-bold mb-3 flex items-center gap-2">
+                  <div className="p-1.5 rounded-lg bg-bg border border-border" style={{ color: project.accentColor, boxShadow: `0 0 10px ${project.accentColor}30` }}>
+                    <Layout size={16} />
                   </div>
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Overview</span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Project Overview</span>
                 </h4>
-                <p className="text-muted leading-relaxed text-base md:text-lg">
-                  {project.fullDescription}
-                </p>
-              </motion.div>
-
-              {/* Key Features */}
-              {project.keyFeatures && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4, duration: 0.5 }}
-                >
-                  <h4 className="text-xl font-bold mb-3 flex items-center gap-3 mt-6">
-                    <div className="p-2 rounded-lg bg-bg border border-border" style={{ color: project.accentColor, boxShadow: `0 0 15px ${project.accentColor}30` }}>
-                      <Zap size={20} />
-                    </div>
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Key Features</span>
-                  </h4>
-                  <ul className="space-y-2">
-                    {project.keyFeatures.map((feat, i) => (
-                      <motion.li
-                        key={i}
-                        className="flex items-start gap-2.5 text-muted text-sm md:text-base"
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.45 + i * 0.05 }}
-                      >
-                        <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5" style={{ color: project.accentColor }} />
-                        {feat}
-                      </motion.li>
-                    ))}
-                  </ul>
-                </motion.div>
-              )}
-
-              {/* Architecture */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-              >
-                <h4 className="text-xl font-bold mb-3 flex items-center gap-3 mt-6">
-                  <div className="p-2 rounded-lg bg-bg border border-border" style={{ color: project.accentColor, boxShadow: `0 0 15px ${project.accentColor}30` }}>
-                    <Database size={20} />
-                  </div>
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Architecture</span>
-                </h4>
-                <p className="text-muted leading-relaxed text-base md:text-lg mb-3">
-                  {project.architecture}
-                </p>
-                {project.architectureBullets && (
-                  <ul className="space-y-2">
-                    {project.architectureBullets.map((item, i) => (
-                      <motion.li
-                        key={i}
-                        className="flex items-start gap-2.5 text-muted text-sm md:text-base"
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.55 + i * 0.05 }}
-                      >
-                        <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5" style={{ color: project.accentColor }} />
-                        {item}
-                      </motion.li>
-                    ))}
-                  </ul>
-                )}
-              </motion.div>
-
-              {/* Database Schema */}
-              {project.databaseSchema && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.5 }}
-                >
-                  <h4 className="text-xl font-bold mb-3 flex items-center gap-3 mt-6">
-                    <div className="p-2 rounded-lg bg-bg border border-border" style={{ color: project.accentColor, boxShadow: `0 0 15px ${project.accentColor}30` }}>
-                      <Table size={20} />
-                    </div>
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Database Schema</span>
-                  </h4>
-                  <div className="glass-card rounded-xl p-4 space-y-1.5">
-                    {project.databaseSchema.map((table, i) => (
-                      <motion.div
-                        key={i}
-                        className="flex items-start gap-2 text-sm font-mono text-muted"
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.65 + i * 0.05 }}
-                      >
-                        <span className="text-accent-1 font-bold">→</span>
-                        {table}
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Challenges Solved */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.5 }}
-              >
-                <h4 className="text-xl font-bold mb-3 flex items-center gap-3 mt-6">
-                  <div className="p-2 rounded-lg bg-bg border border-border" style={{ color: project.accentColor, boxShadow: `0 0 15px ${project.accentColor}30` }}>
-                    <Code2 size={20} />
-                  </div>
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Challenges Solved</span>
-                </h4>
-                <p className="text-muted leading-relaxed text-base md:text-lg mb-3">
-                  {project.challenges}
-                </p>
-                {project.challengesBullets && (
-                  <ul className="space-y-2">
-                    {project.challengesBullets.map((item, i) => (
-                      <motion.li
-                        key={i}
-                        className="flex items-start gap-2.5 text-muted text-sm md:text-base"
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.75 + i * 0.05 }}
-                      >
-                        <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5" style={{ color: project.accentColor }} />
-                        {item}
-                      </motion.li>
-                    ))}
-                  </ul>
-                )}
+                
+                <ul className="space-y-2">
+                  {project.keyFeatures?.map((feat, i) => (
+                    <motion.li
+                      key={i}
+                      className="flex items-start gap-2.5 text-muted text-sm md:text-[15px]"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.35 + i * 0.05 }}
+                    >
+                      <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5" style={{ color: project.accentColor }} />
+                      {feat}
+                    </motion.li>
+                  ))}
+                </ul>
               </motion.div>
            </div>
 
            {/* Sidebar Links & Tech */}
            <motion.div
-             className="space-y-8"
+             className="space-y-4"
              initial={{ opacity: 0, x: 20 }}
              animate={{ opacity: 1, x: 0 }}
              transition={{ delay: 0.5, duration: 0.5 }}
            >
-              <div className="glass-card p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-border bg-surface/20">
-                <h4 className="text-lg font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Technologies Stack</h4>
-                <ul className="flex flex-wrap gap-2.5">
+              <div className="glass-card p-4 sm:p-5 rounded-xl border border-border bg-surface/20">
+                <h4 className="text-base font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-text to-muted">Technologies Stack</h4>
+                <ul className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, i) => (
                     <motion.li
                       key={tech}
-                      className="px-4 py-2 rounded-xl text-sm font-bold text-white shadow-lg cursor-default"
+                      className="px-3 py-1.5 rounded-lg text-xs font-bold text-white shadow-lg cursor-default"
                       style={{ 
                         background: `linear-gradient(135deg, ${project.accentColor}90, ${project.accentColor}40)`,
                         border: `1px solid ${project.accentColor}60`,
@@ -624,23 +510,23 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className="py-28 md:py-36 relative overflow-hidden">
+    <section id="projects" className="pt-24 pb-12 sm:pb-16 relative overflow-hidden">
       {/* Blobs */}
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-2/10 rounded-full blur-[150px] pointer-events-none"></div>
       <div className="absolute top-1/3 left-0 w-64 h-64 bg-accent-1/8 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="section-container relative z-10">
-        <div className="mb-16 flex flex-col items-center text-center">
+        <div className="mb-8 sm:mb-12 flex flex-col items-center text-center">
           <Reveal>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">
               Featured <span className="gradient-text">Projects</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="mt-4 w-20 h-1 rounded-full bg-gradient-to-r from-accent-3 to-accent-1 mx-auto"></div>
+            <div className="mt-3 w-20 h-1 rounded-full bg-gradient-to-r from-accent-3 to-accent-1 mx-auto"></div>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mt-4 text-muted max-w-lg mx-auto text-sm md:text-base">
+            <p className="mt-3 text-muted max-w-lg mx-auto text-sm md:text-base">
               A selection of things I've built with passion. Click on a project to view detailed case studies.
             </p>
           </Reveal>

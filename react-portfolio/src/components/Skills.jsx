@@ -98,13 +98,13 @@ const MarqueeRow = ({ items, reverse = false }) => {
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-28 md:py-36 relative overflow-hidden">
+    <section id="skills" className="pt-24 pb-12 sm:pb-16 relative overflow-hidden">
       {/* Decorative */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-accent-1/10 rounded-full blur-[150px] pointer-events-none"></div>
       <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-accent-3/8 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="section-container relative z-10">
-        <div className="mb-16 flex flex-col items-center text-center">
+        <div className="mb-10 sm:mb-12 flex flex-col items-center text-center">
           <Reveal>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">
               Technical <span className="gradient-text">Skills</span>
@@ -116,7 +116,7 @@ const Skills = () => {
 
         </div>
 
-        <div className="flex flex-col gap-4 mt-8">
+        <div className="flex flex-col gap-4 sm:gap-5 mt-6 sm:mt-8">
           <Reveal delay={0.2}>
             <MarqueeRow items={row1Skills} />
           </Reveal>

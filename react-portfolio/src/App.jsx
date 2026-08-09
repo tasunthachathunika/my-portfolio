@@ -14,6 +14,7 @@ import Preloader from './components/Preloader';
 import CustomCursor from './components/CustomCursor';
 import ScrollProgress from './components/ScrollProgress';
 import CursorGlow from './components/CursorGlow';
+import SideNavigation from './components/SideNavigation';
 import Lenis from 'lenis';
 import './index.css';
 
@@ -65,6 +66,7 @@ function App() {
       <Background3D />
       <CursorGlow />
       <Navbar />
+      <SideNavigation />
       <main className="relative z-10">
         <Hero />
         <SectionDivider />

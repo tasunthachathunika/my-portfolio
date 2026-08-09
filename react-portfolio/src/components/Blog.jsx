@@ -101,7 +101,7 @@ const BlogCard = ({ post, index }) => {
       whileHover={{ y: -6, transition: { duration: 0.3 } }}
     >
       {/* Thumbnail */}
-      <div className="relative h-48 overflow-hidden bg-surface">
+      <div className="relative h-40 sm:h-44 overflow-hidden bg-surface">
         {thumbnail ? (
           <img
             src={thumbnail}
@@ -129,7 +129,7 @@ const BlogCard = ({ post, index }) => {
       </div>
 
       {/* Content */}
-      <div className="p-5 sm:p-6 flex flex-col gap-3">
+      <div className="p-4 sm:p-5 flex flex-col gap-2 sm:gap-3">
         {/* Meta */}
         <div className="flex items-center gap-3 text-xs text-muted">
           <span className="flex items-center gap-1">
@@ -204,24 +204,24 @@ const Blog = () => {
   }, []);
 
   return (
-    <section id="blog" className="pt-20 pb-12 md:pt-28 md:pb-16 relative overflow-hidden">
+    <section id="blog" className="pt-24 pb-12 sm:pb-16 relative overflow-hidden">
       {/* Decorative blobs */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent-1/10 rounded-full blur-[150px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-accent-3/8 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="section-container relative z-10">
         {/* Section Heading */}
-        <div className="mb-16 flex flex-col items-center text-center">
+        <div className="mb-8 sm:mb-12 flex flex-col items-center text-center">
           <Reveal>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">
               Latest <span className="gradient-text">Blog Posts</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="mt-4 w-20 h-1 rounded-full bg-gradient-to-r from-accent-1 to-accent-3 mx-auto"></div>
+            <div className="mt-3 w-20 h-1 rounded-full bg-gradient-to-r from-accent-1 to-accent-3 mx-auto"></div>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mt-4 text-muted max-w-lg mx-auto text-sm md:text-base">
+            <p className="mt-3 text-muted max-w-lg mx-auto text-[13px] md:text-sm">
               Thoughts, tutorials, and insights on software engineering, cloud, and green tech. ✦
             </p>
           </Reveal>
@@ -288,7 +288,7 @@ const Blog = () => {
         {/* View All on Medium CTA */}
         {!loading && !error && posts.length > 0 && (
           <Reveal delay={0.3}>
-            <div className="mt-12 flex justify-center">
+            <div className="mt-6 sm:mt-8 flex justify-center">
               <motion.a
                 href={`https://medium.com/@${MEDIUM_USERNAME}`}
                 target="_blank"
