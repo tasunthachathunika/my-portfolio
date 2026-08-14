@@ -235,7 +235,7 @@ const Hero = () => {
 
 
       {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#070818] to-transparent pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-bg to-transparent pointer-events-none"></div>
     </section>
   );
 };

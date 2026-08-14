@@ -143,12 +143,12 @@
 /* ======= BASE STYLES ======= */
 @layer base {
   :root {
-    --theme-bg: #070818;
-    --theme-card: rgba(13, 15, 36, 0.65);
-    --theme-surface: rgba(20, 23, 52, 0.55);
+    --theme-bg: #050510;
+    --theme-card: #0d0d25;
+    --theme-surface: #141430;
     --theme-text: #f0f0ff;
-    --theme-muted: #9595c0;
-    --theme-border: rgba(255, 255, 255, 0.08);
+    --theme-muted: #9090bb;
+    --theme-border: rgba(255, 255, 255, 0.1);
     
     --theme-accent-1: #b45cff; /* vivid purple */
     --theme-accent-2: #ff3a8c; /* hot pink */
@@ -172,14 +172,7 @@
 
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: #070818;
-    background-image: 
-      radial-gradient(circle at 12% 12%, rgba(120, 80, 255, 0.12) 0%, transparent 45%),
-      radial-gradient(circle at 88% 28%, rgba(255, 45, 123, 0.10) 0%, transparent 50%),
-      radial-gradient(circle at 20% 65%, rgba(0, 212, 255, 0.08) 0%, transparent 45%),
-      radial-gradient(circle at 82% 88%, rgba(168, 85, 247, 0.11) 0%, transparent 50%),
-      linear-gradient(180deg, #0a0b22 0%, #070818 35%, #050614 70%, #090a20 100%);
-    background-attachment: fixed;
+    background-color: var(--theme-bg);
     color: var(--theme-text);
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;

@@ -64,15 +64,6 @@ function App() {
       <Preloader />
       <ScrollProgress />
       <Background3D />
-      
-      {/* Fixed Ambient Background Aura Glows */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[140px]"></div>
-        <div className="absolute top-1/3 -right-40 w-[550px] h-[550px] bg-indigo-600/10 rounded-full blur-[150px]"></div>
-        <div className="absolute top-2/3 -left-40 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px]"></div>
-        <div className="absolute -bottom-32 right-10 w-[600px] h-[600px] bg-pink-600/10 rounded-full blur-[150px]"></div>
-      </div>
-
       <CursorGlow />
       <Navbar />
       <SideNavigation />
