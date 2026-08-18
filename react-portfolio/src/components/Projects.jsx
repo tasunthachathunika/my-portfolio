@@ -5,6 +5,7 @@ import { FaGithub, FaFigma } from 'react-icons/fa';
 import Reveal from './Reveal';
 import pricepulseImg from '../assets/prisepluse.png';
 import attendanceImg from '../assets/atms.png';
+import bizanalyticsImg from '../assets/bizanalytics.png';
 
 const projectsData = [
   {
@@ -20,6 +21,7 @@ const projectsData = [
     ],
     technologies: ['React.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'PostgreSQL', 'Supabase', 'SQLite', 'Recharts', 'Chart.js', 'jsPDF'],
     icon: <Database size={36} />,
+    image: bizanalyticsImg,
     tags: [
       { name: 'React.js', color: '#00d8ff' },
       { name: 'Node.js', color: '#8cc84b' },
