@@ -26,7 +26,7 @@ const projectsData = [
       { name: 'PostgreSQL', color: '#336791' },
       { name: 'Tailwind CSS', color: '#38bdf8' },
     ],
-    links: { github: 'https://github.com/TasunthaChathunika/biz-analytics-webapp', demo: '#' },
+    links: { github: 'https://github.com/TasunthaChathunika/biz-analytics-webapp' },
     gradient: 'from-accent-2 to-accent-1',
     accentColor: '#b45cff',
     featured: true,
