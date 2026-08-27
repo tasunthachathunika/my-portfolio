@@ -477,11 +477,8 @@ const Projects = () => {
           <Reveal delay={0.1}>
             <div className="mt-3 w-20 h-1 rounded-full bg-gradient-to-r from-accent-3 to-accent-1 mx-auto"></div>
           </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-3 text-muted max-w-lg mx-auto text-sm md:text-base">
-              A selection of things I've built with passion. Click on a project to view detailed case studies.
-            </p>
-          </Reveal>
+
+
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

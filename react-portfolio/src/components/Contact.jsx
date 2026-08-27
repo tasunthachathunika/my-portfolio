@@ -134,11 +134,8 @@ const Contact = () => {
           <Reveal delay={0.1}>
             <div className="mt-3 w-20 h-1 rounded-full bg-gradient-to-r from-accent-2 to-accent-3 mx-auto"></div>
           </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-3 text-muted max-w-lg mx-auto text-[13px] md:text-sm">
-              Have a project or just want to say hi? My inbox is always open.
-            </p>
-          </Reveal>
+
+
         </div>
 
         <div className="max-w-5xl mx-auto">
