@@ -14,6 +14,15 @@ import Reveal from './Reveal';
 
 const certifications = [
   {
+    title: 'Redis Associate Cloud Operator',
+    issuer: 'Redis',
+    date: 'Aug 2026',
+    link: 'https://credentials.redis.io/3c267020-c5a6-417d-aee4-29cc55e79324#acc.1e0mE8BL',
+    color: '#FF4438',
+    icon: '🔴',
+    upcoming: false,
+  },
+  {
     title: 'AI Chatbot Development (OpenAI API Integration Focus)',
     issuer: 'Simplilearn',
     date: '2026',
