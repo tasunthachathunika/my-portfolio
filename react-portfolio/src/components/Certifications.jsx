@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Reveal from './Reveal';
 import redisCertImg from '../assets/redis-cert.png';
 import pythonCertImg from '../assets/python-cert.png';
+import itEssentialsCertImg from '../assets/it-essentials-cert.png';
 
 /*
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -44,6 +45,7 @@ const certifications = [
     link: '#',
     color: '#1BA0D7',
     icon: '🌐',
+    image: itEssentialsCertImg,
     upcoming: false,
   },
 ];
