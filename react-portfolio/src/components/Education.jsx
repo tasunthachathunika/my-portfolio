@@ -44,8 +44,11 @@ const Education = () => {
           <Reveal delay={0.1}>
             <div className="mt-3 w-20 h-1 rounded-full bg-gradient-to-r from-accent-3 to-accent-1 mx-auto"></div>
           </Reveal>
-
-
+          <Reveal delay={0.2}>
+            <p className="mt-3 text-muted max-w-xl mx-auto text-[13px] md:text-sm">
+              Building a strong foundation in technology and computer science.
+            </p>
+          </Reveal>
         </div>
 
         {/* Timeline */}
