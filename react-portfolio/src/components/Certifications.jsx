@@ -3,7 +3,6 @@ import { ExternalLink, Calendar, Plus, ZoomIn } from 'lucide-react';
 import { useState } from 'react';
 import Reveal from './Reveal';
 import redisCertImg from '../assets/redis-cert.png';
-import simplilearnAiCertImg from '../assets/simplilearn-ai-cert.jpg';
 
 /*
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -25,16 +24,6 @@ const certifications = [
     color: '#FF4438',
     icon: '🔴',
     image: redisCertImg,
-    upcoming: false,
-  },
-  {
-    title: 'AI Chatbot Development (OpenAI API Integration Focus)',
-    issuer: 'Simplilearn',
-    date: '2026',
-    link: '#',
-    color: '#10a37f',
-    icon: '🤖',
-    image: simplilearnAiCertImg,
     upcoming: false,
   },
   {
