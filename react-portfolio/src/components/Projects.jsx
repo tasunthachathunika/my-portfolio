@@ -52,7 +52,7 @@ const projectsData = [
       { name: 'Puppeteer', color: '#00d8a2' },
       { name: 'Node.js', color: '#8cc84b' },
     ],
-    links: { github: 'https://github.com/TasunthaChathunika/PricePulse-Project', demo: '#' },
+    links: { github: 'https://github.com/TasunthaChathunika/PricePulse-Project', demo: 'https://stunning-jelly-f75d50.netlify.app/' },
     gradient: 'from-accent-3 to-accent-1',
     accentColor: '#00ff88',
     featured: true,
