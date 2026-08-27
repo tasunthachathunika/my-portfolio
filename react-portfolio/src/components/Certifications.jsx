@@ -79,52 +79,75 @@ const FeaturedCertCard = ({ cert, index }) => {
   return (
     <>
       <motion.div
-        className={`group relative glass-card overflow-hidden flex flex-col cursor-default transition-all duration-300 ${cert.upcoming ? 'opacity-60' : ''}`}
-        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+        className={`group relative overflow-hidden flex flex-col cursor-default rounded-2xl border transition-all duration-300 ${cert.upcoming ? 'opacity-60' : ''}`}
+        initial={{ opacity: 0, y: 24, scale: 0.95 }}
         whileInView={{ opacity: cert.upcoming ? 0.6 : 1, y: 0, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: index * 0.08, ease: [0.23, 1, 0.32, 1] }}
-        whileHover={{ y: -4, opacity: 1, transition: { duration: 0.3 } }}
-        style={{ '--cert-color': cert.color }}
+        transition={{ duration: 0.5, delay: index * 0.1, ease: [0.23, 1, 0.32, 1] }}
+        whileHover={{ y: -6, transition: { duration: 0.3 } }}
+        style={{
+          background: `linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)`,
+          borderColor: `${cert.color}30`,
+          boxShadow: `0 0 0 1px ${cert.color}20`,
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.boxShadow = `0 0 0 1.5px ${cert.color}60, 0 8px 32px ${cert.color}25`;
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.boxShadow = `0 0 0 1px ${cert.color}20`;
+        }}
       >
-        {/* Hover glow */}
+        {/* Colored top accent bar */}
         <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-2xl pointer-events-none z-10"
-          style={{ backgroundColor: cert.color }}
+          className="w-full h-1 shrink-0"
+          style={{ background: `linear-gradient(90deg, ${cert.color}, ${cert.color}88)` }}
         />
 
-        {/* Certificate image thumbnail */}
-        <div className="relative overflow-hidden" style={{ paddingBottom: '62%' }}>
+        {/* Certificate image */}
+        <div className="relative overflow-hidden" style={{ paddingBottom: '60%' }}>
           <img
             src={cert.image}
             alt={cert.title}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-106"
           />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          {/* Bottom gradient for readability */}
+          <div
+            className="absolute inset-0"
+            style={{ background: `linear-gradient(to top, ${cert.color}55 0%, transparent 55%)` }}
+          />
 
           {/* Zoom button */}
           <button
             onClick={() => setLightbox(true)}
-            className="absolute top-2 right-2 p-1.5 rounded-lg bg-black/40 hover:bg-black/70 text-white/80 hover:text-white transition-all opacity-0 group-hover:opacity-100 z-20"
+            className="absolute top-2.5 right-2.5 p-1.5 rounded-xl text-white transition-all duration-200 opacity-0 group-hover:opacity-100 z-20"
+            style={{ backgroundColor: `${cert.color}cc`, backdropFilter: 'blur(4px)' }}
             title="View certificate"
           >
-            <ZoomIn size={14} />
+            <ZoomIn size={13} />
           </button>
 
-          {/* Issuer badge on image */}
+          {/* Issuer badge */}
           <div
-            className="absolute bottom-2 left-3 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
-            style={{ backgroundColor: cert.color, color: '#fff' }}
+            className="absolute bottom-2.5 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-white shadow-lg"
+            style={{ background: `linear-gradient(135deg, ${cert.color}, ${cert.color}cc)` }}
           >
+            <span>{cert.icon}</span>
             {cert.issuer}
           </div>
         </div>
 
         {/* Card body */}
-        <div className="p-4 flex flex-col gap-2 flex-1">
+        <div
+          className="p-4 flex flex-col gap-3 flex-1"
+          style={{ background: `linear-gradient(180deg, ${cert.color}08 0%, transparent 100%)` }}
+        >
+          {/* Title + link */}
           <div className="flex items-start justify-between gap-2">
-            <h4 className="font-bold text-sm text-text leading-snug group-hover:text-accent-1 transition-colors flex-1">
+            <h4 className="font-bold text-sm leading-snug flex-1 transition-colors duration-200"
+              style={{ color: 'var(--color-text)' }}
+              onMouseEnter={e => e.currentTarget.style.color = cert.color}
+              onMouseLeave={e => e.currentTarget.style.color = ''}
+            >
               {cert.title}
             </h4>
             {cert.link && cert.link !== '#' && (
@@ -132,24 +155,28 @@ const FeaturedCertCard = ({ cert, index }) => {
                 href={cert.link}
                 target="_blank"
                 rel="noreferrer"
-                className="p-1.5 rounded-lg hover:bg-surface/80 transition-colors text-muted hover:text-text shrink-0"
+                className="shrink-0 p-1.5 rounded-lg transition-all duration-200 text-white"
+                style={{ backgroundColor: `${cert.color}22` }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = `${cert.color}55`}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = `${cert.color}22`}
                 title="View credential"
               >
-                <ExternalLink size={14} />
+                <ExternalLink size={13} style={{ color: cert.color }} />
               </a>
             )}
           </div>
-          <div className="mt-auto flex items-center gap-1 text-[11px] text-muted">
-            <Calendar size={10} />
-            {cert.date}
+
+          {/* Date pill */}
+          <div className="mt-auto">
+            <span
+              className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold"
+              style={{ backgroundColor: `${cert.color}18`, color: cert.color }}
+            >
+              <Calendar size={9} />
+              {cert.date}
+            </span>
           </div>
         </div>
-
-        {/* Bottom accent bar */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{ backgroundColor: cert.color }}
-        />
       </motion.div>
 
       <AnimatePresence>
